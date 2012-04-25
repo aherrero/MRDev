@@ -1,0 +1,2 @@
+/usr/bin/ar cr liblocalizer.a  CMakeFiles/localizer.dir/particle.cpp.o CMakeFiles/localizer.dir/localizer.cpp.o CMakeFiles/localizer.dir/gaussian.cpp.o
+/usr/bin/ranlib liblocalizer.a

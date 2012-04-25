@@ -3,8 +3,15 @@
 
 #include <iostream>
 #include "glutapp.h"
-#include "reactivecontrol.h"
-#include "trajcontrol.h"
+//#include "reactivecontrol.h"
+//#include "trajcontrol.h"
+#include "PathControl/ADSK.h"
+#include "PathControl/AngDistToSeg.h"
+#include "PathControl/Angular.h"
+#include "PathControl/CalculoError.h"
+#include "PathControl/Control.h"
+#include "ReactiveControl/ControlReactivo.h"
+#include "ReactiveControl/Vision2D.h"
 
 using namespace mr;
 using namespace std;
@@ -19,19 +26,26 @@ public:
 		scene.SetViewPoint(35,160,25);	
 		va=vg=0;
 
-		vector<Vector2D> path;
+		/*vector<Vector2D> path;
 		path.push_back(Vector2D(0,0));
 		path.push_back(Vector2D(20,0));
 		path.push_back(Vector2D(20,10));
 		path.push_back(Vector2D(-1,10));
 		path.push_back(Vector2D(-1,1));
-		traj.setPath(path);
+		traj.setPath(path);*/
+                controlangular=new Angular();
+                controldistancia=new AngDistToSeg();
+                controlboth=new ADSK();
+                STOP=false;
 	}
 	void Draw(void)
 	{
 		scene.Draw();
-		traj.drawGL();
-		control.drawGL();
+		//traj.drawGL();
+		//control.drawGL();
+                controlboth->drawGL();
+                vision2d.drawGL();
+                reactivecontrol.Draw();
 	}
 	void Timer(float time)
 	{
@@ -42,18 +56,27 @@ public:
 		robot->getLaserData(laserData);
 
 		//The odometry is full 3D, lets handle it only in 2D, as a Pose (x, y, theta)
-		Transformation3D pose=odom.pose;
-		double roll,pitch,yaw;
-		pose.orientation.getRPY(roll,pitch,yaw);
-		Pose2D robotPose(pose.position.x,pose.position.y,yaw);
+		//Transformation3D pose=odom.pose;
+		//double roll,pitch,yaw;
+		//pose.orientation.getRPY(roll,pitch,yaw);
+		//Pose2D robotPose(pose.position.x,pose.position.y,yaw);
 
 	//	traj.setData(robotPose);
 	//	traj.getSpeed(va,vg);
+                controlboth->SetPose(odom);
+                controlboth->GetVel(va,vg);
 
 	//	control.setCommand(va,vg);
 	//	control.setData(laserData);
+                vision2d.SetPose(odom);
+                vision2d.SetLaser(laserData);             
+                reactivecontrol.SetPoseVision(vision2d);
+                reactivecontrol.SetCommand(va,vg);
+                
 		float va2=va,vg2=vg;
-	//	control.getSpeed(va2,vg2);	
+              	//control.getSpeed(va2,vg2);	
+                reactivecontrol.GetVel(va2, vg2);
+                if (STOP) va2 = vg2 = 0.0f;
 		robot->move(va2,vg2);
 	}
 	void Key(unsigned char key)
@@ -92,13 +115,22 @@ public:
 		scene.MouseButton(x,y,b,down,sKey,ctrlKey);
 		glutPostRedisplay();
 	}
+        Control *controlboth; //De moment, para que el path input pueda cogerlo
 private:
 	float vg,va;
 	GLScene scene;
 	World world;
 	MobileRobot* robot;
-	ReactiveControl control;
-	TrajControl traj;
+	//ReactiveControl control;
+	//TrajControl traj;
+        
+        //Control
+        Control *controlangular;
+        Control *controldistancia;
+        CalculoError calculoerror;
+        Vision2D vision2d;
+        ControlReactivo reactivecontrol;
+        bool STOP;
 };
 
 void printUsage();
@@ -115,9 +147,54 @@ int main(int argc,char* argv[])
 	int port=-1;
 	if(robotname=="nemo")
 		robot=new Nemo;*/
+    
+        string text;
+	if(argc==2)
+		text=string(argv[1]);
+	else
+	{
+		cout<<"You have not specify a configuration file as command line parameter"<<endl;
+		cout<<"Please type configuration file: ";
+		string text;
+		cin>>text;
+	}
+	cout<<"Loading configuration file: "<<text<<endl;
+        
 	MobileRobot* robot=new Neo();
 	robot->connectClients("127.0.0.1",13000);
 	MyGlutApp myApp("teleop",robot);
+        
+        //Leer archivo
+	std::ifstream file(text.c_str());
+        if (!file.is_open()) {
+            printf("File not found!!\n");
+        }
+        vector<Vector2D> path;
+        path.clear();
+        int numpath;
+        file>>numpath;
+        path.resize(numpath);
+        for (int i = 0; i < numpath; i++) {
+            file>>path[i].x>>path[i].y;
+        }
+        file.close();
+        
+        vector<Vector3D> auxpath;       //Hasta que SetTray reciba vectores2d
+        auxpath.clear();
+        auxpath.resize(path.size());
+        for (int i = 0; i < path.size(); i++) {
+            auxpath[i].x=path[i].x;
+            auxpath[i].y=path[i].y;
+            auxpath[i].z=0.0;
+        }
+
+        myApp.controlboth->SetTray(auxpath);
+        //Fin leer archivo
+        
+        string auxkey;
+        cout<<"Any key to start "<<endl;
+        cin>>auxkey;
+        
 	myApp.Run();
 	return 0;   
 }

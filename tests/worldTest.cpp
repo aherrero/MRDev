@@ -36,6 +36,7 @@ void InitWorld2();
 void InitWorld3();
 void InitWorldSquaredRingNoWalls();
 void InitWorldSquaredRingWalls();
+void InitMyWorld();
 
 int main(int argc, char* argv[])
 {
@@ -52,22 +53,25 @@ int main(int argc, char* argv[])
 	glutTimerFunc(100,OnTimer,0);
 	scene.init();
 
+        InitMyWorld();
+	//InitWorldSquaredRingNoWalls();
 
 //	InitWorldSquaredRingNoWalls();
 //	InitWorld1();
 //probador de grabar y cargar
-	//probando a grabar en un fichero el prismatic part, despues lo añado
+	//probando a grabar en un fichero el prismatic part, despues lo aï¿½ado
 /*	if(1){
 	StreamFile myfile("tmp.txt",false);
 	myfile.write(&world);
 	}*/
 
-	StreamFile myfile2("tmp.txt",true);
+	//StreamFile myfile2("tmp.txt",true);
+        
 	//Object *test1=myfile2.read(&world);
 	//World *test2=dynamic_cast<World *>(test1);
 	//world=*test2;
 
-	myfile2.read(&world);
+	//myfile2.read(&world);
 
 /*	PositionableEntity *test2=dynamic_cast<PositionableEntity *>(test1);
 	
@@ -184,6 +188,63 @@ void OnMouseMove(int x,int y)
 	glutPostRedisplay();
 }
 
+void InitMyWorld()
+{
+	//Intializing test environment Faces included in a FacePart
+	Face suelo(Transformation3D(0,0,0),-20,-20,20,20);
+	suelo.setColor(0.3f, 0.3f, 0.4f, 1);
+
+	Face paredfondo1(Transformation3D(-20,0,0,Y_AXIS,PI/2),-3,-20,0,20);
+	Face paredfondo2(Transformation3D(20,0,0,Y_AXIS,PI/2),-3,-20,0,20);
+	Face paredfondo3(Transformation3D(20,-20,0,X_AXIS,PI/2),0, 0, -40, 3);
+	Face paredfondo4(Transformation3D(-20,20,0,X_AXIS,PI/2),0, 0, 40, 3);
+	paredfondo1.setColor(0.5f, 0.5f, 0.0f, 1);
+	paredfondo2.setColor(0.5f, 0.5f, 0.0f, 1);
+	paredfondo3.setColor(0.5f, 0.5f, 0.0f, 1);
+	paredfondo4.setColor(0.5f, 0.5f, 0.0f, 1);
+
+	FaceSetPart *building=new FaceSetPart; 
+	building->addFace(suelo);
+	building->addFace(paredfondo1);
+	building->addFace(paredfondo2);
+	building->addFace(paredfondo3);
+	building->addFace(paredfondo4);
+        
+        for (int i = 0; i < 2; i++) {
+            PrismaticPart *mypart = new PrismaticPart;
+            vector<Vector2D> list;
+            list.push_back(Vector2D(0, 0));
+            list.push_back(Vector2D(0, 2));
+            list.push_back(Vector2D(2, 2));
+            list.push_back(Vector2D(2, 0));
+            mypart->setPolygonalBase(list);
+            mypart->setRelativePosition(Vector3D(6+4*i, 4+6*i, 0));
+            mypart->setRelativeOrientation(0, 0, PI / 2);
+            mypart->setHeight(1);
+            world += mypart;
+
+        }
+        
+        PrismaticPart *mypart = new PrismaticPart;
+        vector<Vector2D> list;
+        list.push_back(Vector2D(0, 0));
+        list.push_back(Vector2D(0, 0.5));
+        list.push_back(Vector2D(0.5, 0.5));
+        list.push_back(Vector2D(0.5, 0));
+        mypart->setPolygonalBase(list);
+        mypart->setRelativePosition(Vector3D(6.5, 8.5, 0));
+        mypart->setRelativeOrientation(0, 0, PI / 2);
+        mypart->setHeight(1);
+        world += mypart;
+        
+
+	world+=building;
+
+	StreamFile myfile("myRoom.world",false);
+	world.writeToStream(myfile);
+	//myfile.write(&world);fails: FIXME
+}
+
 void InitWorldSquaredRingWalls()
 {
 	//Intializing test environment Faces included in a FacePart
@@ -250,7 +311,7 @@ void InitWorldSquaredRingNoWalls()
 	suelo3.setColor(0.3f, 0.3f, 0.4f, 1);
 	suelo4.setColor(0.3f, 0.3f, 0.4f, 1);
 	
-	Face paredexterna1(Transformation3D(-20,0,0,Y_AXIS,PI/2),-5,-10,0,10); //añadida por el problema con las glut
+	Face paredexterna1(Transformation3D(-20,0,0,Y_AXIS,PI/2),-5,-10,0,10); //aï¿½adida por el problema con las glut
 	paredexterna1.setColor(0.5f, 0.5f, 0.0f, 1);
 	
 	FaceSetPart *building=new FaceSetPart; 
@@ -434,7 +495,7 @@ void InitWorld1()
 	pruebaLaser->setColor(0,1,0);
 	pruebaLaser->LinkTo(myrobot);//lo fijo a mano al final del mecanismo
 	pruebaLaser->setRelativePosition(Vector3D(0.1,0,0.285));
-	pruebaLaser->updateSensorData(); //actualizo las medidas para la primera impresión
+	pruebaLaser->updateSensorData(); //actualizo las medidas para la primera impresiï¿½n
 
 	arm=(dynamic_cast<NemoLaserSensor3DSim *>(pruebaLaser))->getPowerCube70();
 */

@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/worldTest.dir/worldTest.cpp.o  -o worldTest -rdynamic -L/usr/local/mrcore/lib -lmrcore -lglut -lGL -lGLU -Wl,-rpath,/usr/local/mrcore/lib 
