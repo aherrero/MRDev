@@ -8,7 +8,8 @@
 #ifndef CONTROLREACTIVO_H
 #define	CONTROLREACTIVO_H
 
-#include "mrcore/mrcore.h"
+//#include "mrcore/mrcore.h" //Funciona bien, pero netbeans no reconoce mrcore
+#include "/usr/local/mrcore/include/mrcore/mrcore.h"
 #include "Vision2D.h"
 #include <iostream>
 
@@ -35,12 +36,16 @@ private:
 
     vector <double> range;
     vector <Vector2D> points;
-    vector <int> indexObjectDanger;
     vector <Vector2D> pointsObjectDanger;
     vector <Vector2D> pointsObject;
+    vector <Vector2D> pointsObjectFrontal;
+    vector <Vector2D> pointsObjectFrontalDanger;
+    vector <double> rangeObjectFront;
     vector<double> rangeObject;
     vector<Angle> angleObject;
-    double rangeAction;
+    
+    float rangeAction;
+    float rangeActionFrontal;
 
     double yaw;
     Vector2D pos2;

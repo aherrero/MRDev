@@ -8,7 +8,8 @@
 #ifndef VISION2D_H
 #define	VISION2D_H
 
-#include "mrcore/mrcore.h"
+//#include "mrcore/mrcore.h" //Funciona bien, pero netbeans no reconoce mrcore
+#include "/usr/local/mrcore/include/mrcore/mrcore.h"
 #include <iostream>
 
 class Vision2D : public GLObject {
@@ -22,7 +23,8 @@ public:
     void SetLaser(LaserData laserdata);
     void GetData(vector <Vector2D> &point_, vector <double> &range_, double &yaw_,
             Vector2D &pos_, vector <Vector2D> &pointsObject_,
-            vector <double> &rangeObject_,vector<Angle> &angleObject_);
+            vector <double> &rangeObject_,vector<Angle> &angleObject_,
+            vector <Vector2D> &pointsObjectFrontal_,vector<double> &rangeObjectFront_);
 
     //Other functions
     void Save();
@@ -42,6 +44,7 @@ public:
 private:
     //Metodos
     void Object();
+    void ObjectFrontal();
 
     //Pose
     Vector3D pos;
@@ -52,6 +55,7 @@ private:
     vector<Angle> anglelaser;
     double startangle;
     double steplaser;
+    
     //LaserKinect
     vector<Vector2D> pointKinect2D;
     vector<double> rangeKinect2D;
@@ -61,6 +65,16 @@ private:
     vector<int> indexObject;
     vector <Vector2D> pointsObject;
     vector<double>rangeObject;
+    
+    //LaserKinectFrontal
+    vector<Vector2D> pointKinect2DFront;
+    vector<double> rangeKinect2DFront;
+    vector<Angle> angleKinect2DFront;
+    vector <Angle> angleObjectFront;
+    //ObjetosFrontal
+    vector<int> indexObjectFront;
+    vector <Vector2D> pointsObjectFront;
+    vector<double>rangeObjectFront;
 
 
 

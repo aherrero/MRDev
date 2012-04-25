@@ -27,6 +27,14 @@ Vision2D::Vision2D() {
     pointsObject.clear();
     rangeObject.clear();
     angleKinect2D.clear();
+    
+    pointKinect2DFront.clear();
+    rangeKinect2DFront.clear();
+    angleKinect2DFront.clear();
+    angleObjectFront.clear();
+    indexObjectFront.clear();
+    pointsObjectFront.clear();
+    rangeObjectFront.clear();
 
 }
 
@@ -58,11 +66,11 @@ void Vision2D::SetLaser(LaserData laserdata) {
 
     //MANUALMENTE,el angulo +-0.50614 va del index 212-328, el rango que sea 8metros
     //DE -PI/2 A +PI/2 (index 89-451, 451-89+1=363, rango=8metros.
-    //-pi/3 a +pi/3 (index 150-390)
-    int idxini=150;
-    int idxFin=390;
+    int idxini=89;
+    int idxFin=451;
     int idxRango=idxFin-idxini+1;
     
+    //Añadir puntos al rango
     pointKinect2D.clear();
     pointKinect2D.resize(idxRango);
     rangeKinect2D.clear();
@@ -77,6 +85,29 @@ void Vision2D::SetLaser(LaserData laserdata) {
         j++;
     }
     
+    //Para el frontal los puntos de -pi/6 a pi/6, es decir, angulo -0.5236 a 0.5236
+    //Puntos 210-330, 330-210+1=121
+    //-20º a 20º, angulo 0.34906585, puntos 230-310
+    //-pi/3 a pi/3, angulo 1,04719, 150-390
+    int idxFrontini=150;
+    int idxFrontfin=390;
+    int idxFrontRan=idxFrontfin-idxFrontini+1;
+    
+    //Añadir puntos para la frontal
+    pointKinect2DFront.clear();
+    pointKinect2DFront.resize(idxFrontRan);
+    rangeKinect2DFront.clear();
+    rangeKinect2DFront.resize(idxFrontRan);
+    angleKinect2DFront.clear();
+    angleKinect2DFront.resize(idxFrontRan);
+    int jj = 0;
+    for (int i = idxFrontini; i <= idxFrontfin; i++) {
+        pointKinect2DFront[jj] = pointLaser[i];
+        rangeKinect2DFront[jj] = range[i];
+        angleKinect2DFront[jj] = anglelaser[i];
+        jj++;
+    }
+    
     //Calculo index objetos
     indexObject.clear();
     rangeObject.clear();
@@ -88,6 +119,18 @@ void Vision2D::SetLaser(LaserData laserdata) {
     }
     
     Object();
+    
+    //Calculo index objetos Frontal
+    indexObjectFront.clear();
+    rangeObjectFront.clear();
+    for (int i = 0; i < pointKinect2DFront.size(); i++) {
+        if (rangeKinect2DFront[i] < 8.0) { //Rango en que la Kinect detecta obstaculos
+            indexObjectFront.push_back(i); //Guardamos el indice de los objetos, que junto a el vector points
+            rangeObjectFront.push_back(rangeKinect2DFront[i]); //Sabremos donde esta el objeto (Haciendo la correspondiendte transformacion)
+        }
+    }
+    
+    ObjectFrontal();
 
 }
 
@@ -111,9 +154,30 @@ void Vision2D::Object() {
 
 }
 
+void Vision2D::ObjectFrontal() {
+    vector <Vector2D> pointsTrans;
+    pointsTrans.clear();
+    pointsTrans.resize(pointKinect2DFront.size());
+    //Transformacion
+    for (int i = 0; i < pointKinect2DFront.size(); i++) {
+        pointsTrans[i] = gf::TransformationRT2D(pointKinect2DFront[i], yaw, Vector2D(pos.x, pos.y));
+    }
+
+    pointsObjectFront.clear();
+    pointsObjectFront.resize(indexObjectFront.size());
+    angleObjectFront.clear();
+    angleObjectFront.resize(indexObjectFront.size());
+    for (int i = 0; i < indexObjectFront.size(); i++) {
+        pointsObjectFront[i] = pointsTrans[indexObjectFront[i]];
+        angleObjectFront[i]=angleKinect2DFront[indexObjectFront[i]];
+    }
+
+}
+
 void Vision2D::GetData(vector<Vector2D>& point_, vector<double>& range_,
         double& yaw_, Vector2D& pos_, vector<Vector2D>& pointsObject_,
-        vector<double> &rangeObject_, vector<Angle> &angleObject_) {
+        vector<double> &rangeObject_, vector<Angle> &angleObject_,
+        vector <Vector2D> &pointsObjectFrontal_, vector<double> &rangeObjectFront_) {
     point_ = pointKinect2D;
     range_ = rangeKinect2D;
     yaw_ = yaw;
@@ -122,11 +186,13 @@ void Vision2D::GetData(vector<Vector2D>& point_, vector<double>& range_,
     pointsObject_ = pointsObject;
     rangeObject_ = rangeObject;
     angleObject_=angleObject;
+    pointsObjectFrontal_=pointsObjectFront;
+    rangeObjectFront_=rangeObjectFront;
 }
 
 void Vision2D::Save() {
 
-    std::ofstream file("logs/data/Laser2D.txt");
+    std::ofstream file("../log/Kinect/Laser2D.txt");
     file << "puntosLaser " << pointLaser.size() << endl;
     file << "startangle " << startangle << endl;
     file << "step " << steplaser << endl;
@@ -160,14 +226,40 @@ void Vision2D::drawGL() {
         glVertex3f(pos.x, pos.y, 0.4); // V0
         glVertex3f(limSup.x, limSup.y, 0.4); // V1
         glEnd();
-
+        glPopMatrix();
+    }
+    if(!pointsObject.empty())
+    {
+        glPushMatrix();
         //Puntos de los objetos (VERDE)
-        glPointSize(1.0);
+        glColor3ub(0, 200, 0);
+        glPointSize(0.5);
         for (int i = 0; i < pointsObject.size(); i++) {
             glBegin(GL_POINTS);
             glVertex3f(pointsObject[i].x, pointsObject[i].y, 0.4);
             glEnd();
         }
+        glPopMatrix();
+    }
+    
+    if (!pointKinect2DFront.empty())
+    {
+        //Vision frontal
+        glPushMatrix();
+        Vector2D limIn = gf::TransformationRT2D(pointKinect2DFront[0], yaw, Vector2D(pos.x, pos.y));
+        Vector2D limSu = gf::TransformationRT2D(pointKinect2DFront[pointKinect2DFront.size()-1], yaw, Vector2D(pos.x, pos.y));
+
+        glLineWidth(1.0);
+        glColor3ub(200, 0, 0);
+
+        glBegin(GL_LINES);
+        glVertex3f(pos.x, pos.y, 0.4); // V0
+        glVertex3f(limIn.x, limIn.y, 0.4); // V1
+        glEnd();
+        glBegin(GL_LINES);
+        glVertex3f(pos.x, pos.y, 0.4); // V0
+        glVertex3f(limSu.x, limSu.y, 0.4); // V1
+        glEnd();
         glPopMatrix();
     }
 }

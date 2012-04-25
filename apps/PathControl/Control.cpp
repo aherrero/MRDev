@@ -195,7 +195,7 @@ void Control::Save() {
     int multiply = 1000000;
     //Otra solucion seria cambiar variable de entorno LC_NUMERIC
     
-    std::ofstream file("logs/data/Datos.csv");
+    std::ofstream file("../log/Kinect/Datos.csv");
     
     //Longitud en micrometros de las trayectorias
     file <<"LongitudTrayIdeal[umeters]" << ";" << "LongitudTrayReal[umeters]" << endl;
@@ -223,7 +223,7 @@ void Control::Save() {
     file.close();
 
     //ARCHIVO DE TEXTO PARA QUE LO LEA CLASE CALCULOERROR
-    std::ofstream file2("logs/data/DatosError.txt");
+    std::ofstream file2("../log/Kinect/DatosError.txt");
 
     //Longitud en micrometros de las trayectorias
     file2 << longitudIdeal << " " << longitudReal << endl;

@@ -33,8 +33,7 @@ public:
 		path.push_back(Vector2D(-1,10));
 		path.push_back(Vector2D(-1,1));
 		traj.setPath(path);*/
-                controlangular=new Angular();
-                controldistancia=new AngDistToSeg();
+
                 controlboth=new ADSK();
                 STOP=false;
 	}
@@ -77,6 +76,7 @@ public:
               	//control.getSpeed(va2,vg2);	
                 reactivecontrol.GetVel(va2, vg2);
                 if (STOP) va2 = vg2 = 0.0f;
+                //Cuidado con la aceleracion
 		robot->move(va2,vg2);
 	}
 	void Key(unsigned char key)
@@ -89,6 +89,8 @@ public:
 			va-=0.05;
 		else if(key=='w')
 			va+=0.05;
+                else if(key==' ')
+                        STOP=!STOP;
 		else 
 		{
 			va=vg=0;
@@ -115,7 +117,7 @@ public:
 		scene.MouseButton(x,y,b,down,sKey,ctrlKey);
 		glutPostRedisplay();
 	}
-        Control *controlboth; //De moment, para que el path input pueda cogerlo
+        Control *controlboth; //De momento, para que el path input pueda cogerlo
 private:
 	float vg,va;
 	GLScene scene;
@@ -179,6 +181,7 @@ int main(int argc,char* argv[])
         }
         file.close();
         
+        //Escribir trayectoria
         vector<Vector3D> auxpath;       //Hasta que SetTray reciba vectores2d
         auxpath.clear();
         auxpath.resize(path.size());
@@ -189,11 +192,7 @@ int main(int argc,char* argv[])
         }
 
         myApp.controlboth->SetTray(auxpath);
-        //Fin leer archivo
         
-        string auxkey;
-        cout<<"Any key to start "<<endl;
-        cin>>auxkey;
         
 	myApp.Run();
 	return 0;   
