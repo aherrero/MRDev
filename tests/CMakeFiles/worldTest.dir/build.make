@@ -50,15 +50,15 @@ tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: tests/CMakeFiles/worldTest.dir/f
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: tests/worldTest.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/alex/mrdevfork/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object tests/CMakeFiles/worldTest.dir/worldTest.cpp.o"
-	cd /home/alex/mrdevfork/tests && /usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/worldTest.dir/worldTest.cpp.o -c /home/alex/mrdevfork/tests/worldTest.cpp
+	cd /home/alex/mrdevfork/tests && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/worldTest.dir/worldTest.cpp.o -c /home/alex/mrdevfork/tests/worldTest.cpp
 
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/worldTest.dir/worldTest.cpp.i"
-	cd /home/alex/mrdevfork/tests && /usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevfork/tests/worldTest.cpp > CMakeFiles/worldTest.dir/worldTest.cpp.i
+	cd /home/alex/mrdevfork/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevfork/tests/worldTest.cpp > CMakeFiles/worldTest.dir/worldTest.cpp.i
 
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/worldTest.dir/worldTest.cpp.s"
-	cd /home/alex/mrdevfork/tests && /usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevfork/tests/worldTest.cpp -o CMakeFiles/worldTest.dir/worldTest.cpp.s
+	cd /home/alex/mrdevfork/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevfork/tests/worldTest.cpp -o CMakeFiles/worldTest.dir/worldTest.cpp.s
 
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o.requires:
 .PHONY : tests/CMakeFiles/worldTest.dir/worldTest.cpp.o.requires
