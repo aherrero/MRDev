@@ -1,0 +1,1 @@
+/usr/bin/g++   -g3 -gdwarf-2    CMakeFiles/simulator.dir/simulator.cpp.o CMakeFiles/simulator.dir/glutapp.cpp.o  -o simulator -rdynamic -L/usr/local/mrcore/lib -lmrcore -lglut -lGL -lGLU -Wl,-rpath,/usr/local/mrcore/lib: 

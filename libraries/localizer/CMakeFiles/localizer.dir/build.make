@@ -50,15 +50,15 @@ libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: libraries/localizer
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: libraries/localizer/particle.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/alex/mrdevfork/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o"
-	cd /home/alex/mrdevfork/libraries/localizer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/localizer.dir/particle.cpp.o -c /home/alex/mrdevfork/libraries/localizer/particle.cpp
+	cd /home/alex/mrdevfork/libraries/localizer && /usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/localizer.dir/particle.cpp.o -c /home/alex/mrdevfork/libraries/localizer/particle.cpp
 
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/localizer.dir/particle.cpp.i"
-	cd /home/alex/mrdevfork/libraries/localizer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevfork/libraries/localizer/particle.cpp > CMakeFiles/localizer.dir/particle.cpp.i
+	cd /home/alex/mrdevfork/libraries/localizer && /usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevfork/libraries/localizer/particle.cpp > CMakeFiles/localizer.dir/particle.cpp.i
 
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/localizer.dir/particle.cpp.s"
-	cd /home/alex/mrdevfork/libraries/localizer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevfork/libraries/localizer/particle.cpp -o CMakeFiles/localizer.dir/particle.cpp.s
+	cd /home/alex/mrdevfork/libraries/localizer && /usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevfork/libraries/localizer/particle.cpp -o CMakeFiles/localizer.dir/particle.cpp.s
 
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o.requires:
 .PHONY : libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o.requires
@@ -73,15 +73,15 @@ libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: libraries/localize
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: libraries/localizer/localizer.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/alex/mrdevfork/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o"
-	cd /home/alex/mrdevfork/libraries/localizer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/localizer.dir/localizer.cpp.o -c /home/alex/mrdevfork/libraries/localizer/localizer.cpp
+	cd /home/alex/mrdevfork/libraries/localizer && /usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/localizer.dir/localizer.cpp.o -c /home/alex/mrdevfork/libraries/localizer/localizer.cpp
 
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/localizer.dir/localizer.cpp.i"
-	cd /home/alex/mrdevfork/libraries/localizer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevfork/libraries/localizer/localizer.cpp > CMakeFiles/localizer.dir/localizer.cpp.i
+	cd /home/alex/mrdevfork/libraries/localizer && /usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevfork/libraries/localizer/localizer.cpp > CMakeFiles/localizer.dir/localizer.cpp.i
 
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/localizer.dir/localizer.cpp.s"
-	cd /home/alex/mrdevfork/libraries/localizer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevfork/libraries/localizer/localizer.cpp -o CMakeFiles/localizer.dir/localizer.cpp.s
+	cd /home/alex/mrdevfork/libraries/localizer && /usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevfork/libraries/localizer/localizer.cpp -o CMakeFiles/localizer.dir/localizer.cpp.s
 
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o.requires:
 .PHONY : libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o.requires
@@ -96,15 +96,15 @@ libraries/localizer/CMakeFiles/localizer.dir/gaussian.cpp.o: libraries/localizer
 libraries/localizer/CMakeFiles/localizer.dir/gaussian.cpp.o: libraries/localizer/gaussian.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/alex/mrdevfork/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object libraries/localizer/CMakeFiles/localizer.dir/gaussian.cpp.o"
-	cd /home/alex/mrdevfork/libraries/localizer && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/localizer.dir/gaussian.cpp.o -c /home/alex/mrdevfork/libraries/localizer/gaussian.cpp
+	cd /home/alex/mrdevfork/libraries/localizer && /usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/localizer.dir/gaussian.cpp.o -c /home/alex/mrdevfork/libraries/localizer/gaussian.cpp
 
 libraries/localizer/CMakeFiles/localizer.dir/gaussian.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/localizer.dir/gaussian.cpp.i"
-	cd /home/alex/mrdevfork/libraries/localizer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevfork/libraries/localizer/gaussian.cpp > CMakeFiles/localizer.dir/gaussian.cpp.i
+	cd /home/alex/mrdevfork/libraries/localizer && /usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevfork/libraries/localizer/gaussian.cpp > CMakeFiles/localizer.dir/gaussian.cpp.i
 
 libraries/localizer/CMakeFiles/localizer.dir/gaussian.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/localizer.dir/gaussian.cpp.s"
-	cd /home/alex/mrdevfork/libraries/localizer && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevfork/libraries/localizer/gaussian.cpp -o CMakeFiles/localizer.dir/gaussian.cpp.s
+	cd /home/alex/mrdevfork/libraries/localizer && /usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevfork/libraries/localizer/gaussian.cpp -o CMakeFiles/localizer.dir/gaussian.cpp.s
 
 libraries/localizer/CMakeFiles/localizer.dir/gaussian.cpp.o.requires:
 .PHONY : libraries/localizer/CMakeFiles/localizer.dir/gaussian.cpp.o.requires

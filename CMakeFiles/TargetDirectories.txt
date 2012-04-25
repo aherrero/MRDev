@@ -1,0 +1,6 @@
+/home/alex/mrdevfork/libraries/localizer/CMakeFiles/localizer.dir
+/home/alex/mrdevfork/tests/CMakeFiles/localizerTest.dir
+/home/alex/mrdevfork/libraries/objects/CMakeFiles/objects.dir
+/home/alex/mrdevfork/apps/CMakeFiles/simulator.dir
+/home/alex/mrdevfork/apps/CMakeFiles/teleop.dir
+/home/alex/mrdevfork/tests/CMakeFiles/worldTest.dir

@@ -50,15 +50,15 @@ libraries/objects/CMakeFiles/objects.dir/objects.cpp.o: libraries/objects/CMakeF
 libraries/objects/CMakeFiles/objects.dir/objects.cpp.o: libraries/objects/objects.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/alex/mrdevfork/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object libraries/objects/CMakeFiles/objects.dir/objects.cpp.o"
-	cd /home/alex/mrdevfork/libraries/objects && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/objects.dir/objects.cpp.o -c /home/alex/mrdevfork/libraries/objects/objects.cpp
+	cd /home/alex/mrdevfork/libraries/objects && /usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/objects.dir/objects.cpp.o -c /home/alex/mrdevfork/libraries/objects/objects.cpp
 
 libraries/objects/CMakeFiles/objects.dir/objects.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/objects.dir/objects.cpp.i"
-	cd /home/alex/mrdevfork/libraries/objects && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevfork/libraries/objects/objects.cpp > CMakeFiles/objects.dir/objects.cpp.i
+	cd /home/alex/mrdevfork/libraries/objects && /usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevfork/libraries/objects/objects.cpp > CMakeFiles/objects.dir/objects.cpp.i
 
 libraries/objects/CMakeFiles/objects.dir/objects.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/objects.dir/objects.cpp.s"
-	cd /home/alex/mrdevfork/libraries/objects && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevfork/libraries/objects/objects.cpp -o CMakeFiles/objects.dir/objects.cpp.s
+	cd /home/alex/mrdevfork/libraries/objects && /usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevfork/libraries/objects/objects.cpp -o CMakeFiles/objects.dir/objects.cpp.s
 
 libraries/objects/CMakeFiles/objects.dir/objects.cpp.o.requires:
 .PHONY : libraries/objects/CMakeFiles/objects.dir/objects.cpp.o.requires

@@ -50,15 +50,15 @@ tests/CMakeFiles/localizerTest.dir/testlocalizer.cpp.o: tests/CMakeFiles/localiz
 tests/CMakeFiles/localizerTest.dir/testlocalizer.cpp.o: tests/testlocalizer.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/alex/mrdevfork/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object tests/CMakeFiles/localizerTest.dir/testlocalizer.cpp.o"
-	cd /home/alex/mrdevfork/tests && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/localizerTest.dir/testlocalizer.cpp.o -c /home/alex/mrdevfork/tests/testlocalizer.cpp
+	cd /home/alex/mrdevfork/tests && /usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/localizerTest.dir/testlocalizer.cpp.o -c /home/alex/mrdevfork/tests/testlocalizer.cpp
 
 tests/CMakeFiles/localizerTest.dir/testlocalizer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/localizerTest.dir/testlocalizer.cpp.i"
-	cd /home/alex/mrdevfork/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevfork/tests/testlocalizer.cpp > CMakeFiles/localizerTest.dir/testlocalizer.cpp.i
+	cd /home/alex/mrdevfork/tests && /usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevfork/tests/testlocalizer.cpp > CMakeFiles/localizerTest.dir/testlocalizer.cpp.i
 
 tests/CMakeFiles/localizerTest.dir/testlocalizer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/localizerTest.dir/testlocalizer.cpp.s"
-	cd /home/alex/mrdevfork/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevfork/tests/testlocalizer.cpp -o CMakeFiles/localizerTest.dir/testlocalizer.cpp.s
+	cd /home/alex/mrdevfork/tests && /usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevfork/tests/testlocalizer.cpp -o CMakeFiles/localizerTest.dir/testlocalizer.cpp.s
 
 tests/CMakeFiles/localizerTest.dir/testlocalizer.cpp.o.requires:
 .PHONY : tests/CMakeFiles/localizerTest.dir/testlocalizer.cpp.o.requires
@@ -73,15 +73,15 @@ tests/CMakeFiles/localizerTest.dir/glutapp.cpp.o: tests/CMakeFiles/localizerTest
 tests/CMakeFiles/localizerTest.dir/glutapp.cpp.o: tests/glutapp.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/alex/mrdevfork/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object tests/CMakeFiles/localizerTest.dir/glutapp.cpp.o"
-	cd /home/alex/mrdevfork/tests && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/localizerTest.dir/glutapp.cpp.o -c /home/alex/mrdevfork/tests/glutapp.cpp
+	cd /home/alex/mrdevfork/tests && /usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/localizerTest.dir/glutapp.cpp.o -c /home/alex/mrdevfork/tests/glutapp.cpp
 
 tests/CMakeFiles/localizerTest.dir/glutapp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/localizerTest.dir/glutapp.cpp.i"
-	cd /home/alex/mrdevfork/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevfork/tests/glutapp.cpp > CMakeFiles/localizerTest.dir/glutapp.cpp.i
+	cd /home/alex/mrdevfork/tests && /usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevfork/tests/glutapp.cpp > CMakeFiles/localizerTest.dir/glutapp.cpp.i
 
 tests/CMakeFiles/localizerTest.dir/glutapp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/localizerTest.dir/glutapp.cpp.s"
-	cd /home/alex/mrdevfork/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevfork/tests/glutapp.cpp -o CMakeFiles/localizerTest.dir/glutapp.cpp.s
+	cd /home/alex/mrdevfork/tests && /usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevfork/tests/glutapp.cpp -o CMakeFiles/localizerTest.dir/glutapp.cpp.s
 
 tests/CMakeFiles/localizerTest.dir/glutapp.cpp.o.requires:
 .PHONY : tests/CMakeFiles/localizerTest.dir/glutapp.cpp.o.requires
