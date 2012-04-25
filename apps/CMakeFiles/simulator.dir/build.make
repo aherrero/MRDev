@@ -50,15 +50,15 @@ apps/CMakeFiles/simulator.dir/simulator.cpp.o: apps/CMakeFiles/simulator.dir/fla
 apps/CMakeFiles/simulator.dir/simulator.cpp.o: apps/simulator.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/alex/mrdevfork/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object apps/CMakeFiles/simulator.dir/simulator.cpp.o"
-	cd /home/alex/mrdevfork/apps && /usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/simulator.dir/simulator.cpp.o -c /home/alex/mrdevfork/apps/simulator.cpp
+	cd /home/alex/mrdevfork/apps && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/simulator.dir/simulator.cpp.o -c /home/alex/mrdevfork/apps/simulator.cpp
 
 apps/CMakeFiles/simulator.dir/simulator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simulator.dir/simulator.cpp.i"
-	cd /home/alex/mrdevfork/apps && /usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevfork/apps/simulator.cpp > CMakeFiles/simulator.dir/simulator.cpp.i
+	cd /home/alex/mrdevfork/apps && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevfork/apps/simulator.cpp > CMakeFiles/simulator.dir/simulator.cpp.i
 
 apps/CMakeFiles/simulator.dir/simulator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simulator.dir/simulator.cpp.s"
-	cd /home/alex/mrdevfork/apps && /usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevfork/apps/simulator.cpp -o CMakeFiles/simulator.dir/simulator.cpp.s
+	cd /home/alex/mrdevfork/apps && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevfork/apps/simulator.cpp -o CMakeFiles/simulator.dir/simulator.cpp.s
 
 apps/CMakeFiles/simulator.dir/simulator.cpp.o.requires:
 .PHONY : apps/CMakeFiles/simulator.dir/simulator.cpp.o.requires
@@ -73,15 +73,15 @@ apps/CMakeFiles/simulator.dir/glutapp.cpp.o: apps/CMakeFiles/simulator.dir/flags
 apps/CMakeFiles/simulator.dir/glutapp.cpp.o: apps/glutapp.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/alex/mrdevfork/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object apps/CMakeFiles/simulator.dir/glutapp.cpp.o"
-	cd /home/alex/mrdevfork/apps && /usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/simulator.dir/glutapp.cpp.o -c /home/alex/mrdevfork/apps/glutapp.cpp
+	cd /home/alex/mrdevfork/apps && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/simulator.dir/glutapp.cpp.o -c /home/alex/mrdevfork/apps/glutapp.cpp
 
 apps/CMakeFiles/simulator.dir/glutapp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simulator.dir/glutapp.cpp.i"
-	cd /home/alex/mrdevfork/apps && /usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevfork/apps/glutapp.cpp > CMakeFiles/simulator.dir/glutapp.cpp.i
+	cd /home/alex/mrdevfork/apps && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevfork/apps/glutapp.cpp > CMakeFiles/simulator.dir/glutapp.cpp.i
 
 apps/CMakeFiles/simulator.dir/glutapp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simulator.dir/glutapp.cpp.s"
-	cd /home/alex/mrdevfork/apps && /usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevfork/apps/glutapp.cpp -o CMakeFiles/simulator.dir/glutapp.cpp.s
+	cd /home/alex/mrdevfork/apps && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevfork/apps/glutapp.cpp -o CMakeFiles/simulator.dir/glutapp.cpp.s
 
 apps/CMakeFiles/simulator.dir/glutapp.cpp.o.requires:
 .PHONY : apps/CMakeFiles/simulator.dir/glutapp.cpp.o.requires

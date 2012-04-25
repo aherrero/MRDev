@@ -13,7 +13,7 @@ Compilation of the C compiler identification source "CMakeCCompilerId.c" produce
 The C compiler identification is GNU, found in "/home/alex/mrdevfork/CMakeFiles/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-Compiler: /usr/bin/g++ 
+Compiler: /usr/bin/c++ 
 Build flags: 
 Id flags: 
 
@@ -151,10 +151,10 @@ Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
 make[1]: se ingresa al directorio «/home/alex/mrdevfork/CMakeFiles/CMakeTmp»
 /usr/bin/cmake -E cmake_progress_report /home/alex/mrdevfork/CMakeFiles/CMakeTmp/CMakeFiles 1
 Building CXX object CMakeFiles/cmTryCompileExec.dir/testCXXCompiler.cxx.o
-/usr/bin/g++     -o CMakeFiles/cmTryCompileExec.dir/testCXXCompiler.cxx.o -c /home/alex/mrdevfork/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec.dir/testCXXCompiler.cxx.o -c /home/alex/mrdevfork/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
 Linking CXX executable cmTryCompileExec
 /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
-/usr/bin/g++          CMakeFiles/cmTryCompileExec.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec -rdynamic 
+/usr/bin/c++          CMakeFiles/cmTryCompileExec.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec -rdynamic 
 make[1]: se sale del directorio «/home/alex/mrdevfork/CMakeFiles/CMakeTmp»
 
 
@@ -166,12 +166,12 @@ Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
 make[1]: se ingresa al directorio «/home/alex/mrdevfork/CMakeFiles/CMakeTmp»
 /usr/bin/cmake -E cmake_progress_report /home/alex/mrdevfork/CMakeFiles/CMakeTmp/CMakeFiles 1
 Building CXX object CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/g++     -o CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
 Linking CXX executable cmTryCompileExec
 /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
-/usr/bin/g++        -v CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec -rdynamic  
+/usr/bin/c++        -v CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec -rdynamic  
 Usando especificaciones internas.
-COLLECT_GCC=/usr/bin/g++
+COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/i686-linux-gnu/4.6.1/lto-wrapper
 Objetivo: i686-linux-gnu
 Configurado con: ../src/configure -v --with-pkgversion='Ubuntu/Linaro 4.6.1-9ubuntu3' --with-bugurl=file:///usr/share/doc/gcc-4.6/README.Bugs --enable-languages=c,c++,fortran,objc,obj-c++,go --prefix=/usr --program-suffix=-4.6 --enable-shared --enable-linker-build-id --with-system-zlib --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.6 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-plugin --enable-objc-gc --enable-targets=all --disable-werror --with-arch-32=i686 --with-tune=generic --enable-checking=release --build=i686-linux-gnu --host=i686-linux-gnu --target=i686-linux-gnu
@@ -193,12 +193,12 @@ Parsed CXX implicit link information from above output:
   ignore line: [make[1]: se ingresa al directorio «/home/alex/mrdevfork/CMakeFiles/CMakeTmp»]
   ignore line: [/usr/bin/cmake -E cmake_progress_report /home/alex/mrdevfork/CMakeFiles/CMakeTmp/CMakeFiles 1]
   ignore line: [Building CXX object CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/g++     -o CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
   ignore line: [Linking CXX executable cmTryCompileExec]
   ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/g++        -v CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec -rdynamic  ]
+  ignore line: [/usr/bin/c++        -v CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec -rdynamic  ]
   ignore line: [Usando especificaciones internas.]
-  ignore line: [COLLECT_GCC=/usr/bin/g++]
+  ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/i686-linux-gnu/4.6.1/lto-wrapper]
   ignore line: [Objetivo: i686-linux-gnu]
   ignore line: [Configurado con: ../src/configure -v --with-pkgversion='Ubuntu/Linaro 4.6.1-9ubuntu3' --with-bugurl=file:///usr/share/doc/gcc-4.6/README.Bugs --enable-languages=c,c++,fortran,objc,obj-c++,go --prefix=/usr --program-suffix=-4.6 --enable-shared --enable-linker-build-id --with-system-zlib --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.6 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-plugin --enable-objc-gc --enable-targets=all --disable-werror --with-arch-32=i686 --with-tune=generic --enable-checking=release --build=i686-linux-gnu --host=i686-linux-gnu --target=i686-linux-gnu]
