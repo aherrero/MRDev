@@ -1,2 +1,0 @@
-/home/alex/mrdevfork/apps/CMakeFiles/simulator.dir
-/home/alex/mrdevfork/apps/CMakeFiles/teleop.dir
