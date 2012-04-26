@@ -89,8 +89,8 @@ void Vision2D::SetLaser(LaserData laserdata) {
     //Puntos 210-330, 330-210+1=121
     //-20º a 20º, angulo 0.34906585, puntos 230-310
     //-pi/3 a pi/3, angulo 1,04719, 150-390
-    int idxFrontini=150;
-    int idxFrontfin=390;
+    int idxFrontini=210;
+    int idxFrontfin=330;
     int idxFrontRan=idxFrontfin-idxFrontini+1;
     
     //Añadir puntos para la frontal

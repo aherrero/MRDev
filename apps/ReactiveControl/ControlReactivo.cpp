@@ -13,6 +13,9 @@ ControlReactivo::ControlReactivo() {
     rangeAction = 1.3;
     rangeActionFrontal=2.5;
     
+    kreactivoGiro=1;
+    kreactivoAvance=0.5;
+    
     range.clear();
     points.clear();
     pointsObjectDanger.clear();
@@ -20,8 +23,7 @@ ControlReactivo::ControlReactivo() {
     rangeObject.clear();
     danger = false;
     angleObject.clear();
-    kreactivoGiro=1;
-    kreactivoAvance=0.5;
+
     va=vg=0;
     outputAvance=outputGiro=0;
     pointsObjectFrontal.clear();
@@ -91,11 +93,15 @@ void ControlReactivo::SetCommand(float vela, float velg)
 
 void ControlReactivo::Compute() {
     
+    /**************************************
+     PLANTEARSELO DE OTRA MANERA, CIRCUNF ALREDEDOR DE OBJETOS CON DISTANCIA LATERAL ETC
+     */
+    
     float auxrangeMin = 3;
     Angle auxangleMin;
     
     //**************** No hay object
-    if(pointsObjectFrontalDanger.size() <= 0 || pointsObjectDanger.size() <= 0)
+    if(pointsObjectFrontalDanger.size() <= 0 && pointsObjectDanger.size() <= 0)
     {
         outputGiro = vg;
         outputAvance = va;
@@ -120,34 +126,35 @@ void ControlReactivo::Compute() {
         }
 
         //****** 2) Velocidad de giro    
-        int indexangleaux=0;
-        Angle auxangle1;
-        Angle auxangle2;
-        auxangle1.setValue(0.1);
-        auxangle2.setValue(0.1);
+        auxangleMin.setValue(0.0);
+        int angdch=0;
+        int angizq=0;
         
         if (pointsObjectDanger.size() > 0) {
-            auxangleMin.setValue(0.0);
+            
             for (int i = 0; i < rangeObject.size(); i++) {
                 if (rangeObject[i] < auxrangeMin){
                     auxangleMin=angleObject[i];
-                    indexangleaux=i;
+                    if(angleObject[i]<=0.0)
+                        angdch++;
+                    else
+                        angizq++;
+                    
                 }
 
             }
-            //Promedio
-//            if(angleObject.size()>=50){
-//                auxangle1=angleObject[indexangleaux-25];
-//                auxangle2=angleObject[indexangleaux-50];
-//            }
             
             float errorg=PI/2-fabs(auxangleMin.getValue());
-//            if((auxangleMin.getValue()<0)&&(auxangle1.getValue()<0)&&(auxangle2.getValue()<0))
-//                outputGiro=-kreactivoGiro*errorg;
-//            else
-            //***DE MOMENTO SIEMPRE POR LA DERECHA
-            outputGiro=-kreactivoGiro*errorg;
-
+            
+            if(angizq<angdch+1){       
+                outputGiro=kreactivoGiro*errorg;
+                //cout<<" izq ";
+            }
+            else{
+                outputGiro=-kreactivoGiro*errorg;
+                //cout<<" dch ";
+            }
+            
 
         }
     }
