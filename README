@@ -8,3 +8,25 @@ run:  ./teleop ../data/pathlaser.txt
 
 *worldtest, in tests/worldtest //creates new worlds to simulate
 run:  ./worldtest
+
+-----------------------------------------------------------------------
+
+#First, you need to install the mrcore libraries, for example, check out:
+
+svn co https://github.com/drodri/MRCore.git mrcore
+
+# Or the original code, from www.mrgroup.es:
+
+svn co http://138.100.100.129/snv/mrcore/trunk mrcore
+
+#compile and install:
+
+cmake .
+make
+sudo make install
+
+#and then, download this apps:
+
+svn co git@github.com:aherrero/MRDev.git mrdev
+
+# Or download the repository as a zip file; https://github.com/aherrero/MRDev/zipball/master
