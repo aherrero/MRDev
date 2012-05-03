@@ -13,7 +13,7 @@ run:  ./worldtest
 
 #First, you need to install the mrcore libraries, for example, check out:
 
-svn co https://github.com/drodri/MRCore.git mrcore
+svn co https://github.com/drodri/MRCore.git/trunk mrcore
 
 # Or the original code, from www.mrgroup.es:
 
@@ -27,7 +27,7 @@ sudo make install
 
 #and then, download this apps:
 
-svn co git@github.com:aherrero/MRDev.git mrdev
+svn co git@github.com:aherrero/MRDev.git/trunk mrdev
 
 # Or download the repository as a zip file; https://github.com/aherrero/MRDev/zipball/master
 

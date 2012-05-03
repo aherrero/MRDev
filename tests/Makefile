@@ -107,14 +107,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/alex/mrdevgit && $(CMAKE_COMMAND) -E cmake_progress_start /home/alex/mrdevgit/CMakeFiles /home/alex/mrdevgit/libraries/CMakeFiles/progress.marks
-	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 libraries/all
+	cd /home/alex/mrdevgit && $(CMAKE_COMMAND) -E cmake_progress_start /home/alex/mrdevgit/CMakeFiles /home/alex/mrdevgit/tests/CMakeFiles/progress.marks
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 tests/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/mrdevgit/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 libraries/clean
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 tests/clean
 .PHONY : clean
 
 # The main clean target
@@ -123,18 +123,118 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 libraries/preinstall
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 tests/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 libraries/preinstall
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 tests/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
 	cd /home/alex/mrdevgit && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+# Convenience name for target.
+tests/CMakeFiles/localizerTest.dir/rule:
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 tests/CMakeFiles/localizerTest.dir/rule
+.PHONY : tests/CMakeFiles/localizerTest.dir/rule
+
+# Convenience name for target.
+localizerTest: tests/CMakeFiles/localizerTest.dir/rule
+.PHONY : localizerTest
+
+# fast build rule for target.
+localizerTest/fast:
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/build
+.PHONY : localizerTest/fast
+
+# Convenience name for target.
+tests/CMakeFiles/worldTest.dir/rule:
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 tests/CMakeFiles/worldTest.dir/rule
+.PHONY : tests/CMakeFiles/worldTest.dir/rule
+
+# Convenience name for target.
+worldTest: tests/CMakeFiles/worldTest.dir/rule
+.PHONY : worldTest
+
+# fast build rule for target.
+worldTest/fast:
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/worldTest.dir/build.make tests/CMakeFiles/worldTest.dir/build
+.PHONY : worldTest/fast
+
+glutapp.o: glutapp.cpp.o
+.PHONY : glutapp.o
+
+# target to build an object file
+glutapp.cpp.o:
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/glutapp.cpp.o
+.PHONY : glutapp.cpp.o
+
+glutapp.i: glutapp.cpp.i
+.PHONY : glutapp.i
+
+# target to preprocess a source file
+glutapp.cpp.i:
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/glutapp.cpp.i
+.PHONY : glutapp.cpp.i
+
+glutapp.s: glutapp.cpp.s
+.PHONY : glutapp.s
+
+# target to generate assembly for a file
+glutapp.cpp.s:
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/glutapp.cpp.s
+.PHONY : glutapp.cpp.s
+
+testlocalizer.o: testlocalizer.cpp.o
+.PHONY : testlocalizer.o
+
+# target to build an object file
+testlocalizer.cpp.o:
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/testlocalizer.cpp.o
+.PHONY : testlocalizer.cpp.o
+
+testlocalizer.i: testlocalizer.cpp.i
+.PHONY : testlocalizer.i
+
+# target to preprocess a source file
+testlocalizer.cpp.i:
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/testlocalizer.cpp.i
+.PHONY : testlocalizer.cpp.i
+
+testlocalizer.s: testlocalizer.cpp.s
+.PHONY : testlocalizer.s
+
+# target to generate assembly for a file
+testlocalizer.cpp.s:
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/testlocalizer.cpp.s
+.PHONY : testlocalizer.cpp.s
+
+worldTest.o: worldTest.cpp.o
+.PHONY : worldTest.o
+
+# target to build an object file
+worldTest.cpp.o:
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/worldTest.dir/build.make tests/CMakeFiles/worldTest.dir/worldTest.cpp.o
+.PHONY : worldTest.cpp.o
+
+worldTest.i: worldTest.cpp.i
+.PHONY : worldTest.i
+
+# target to preprocess a source file
+worldTest.cpp.i:
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/worldTest.dir/build.make tests/CMakeFiles/worldTest.dir/worldTest.cpp.i
+.PHONY : worldTest.cpp.i
+
+worldTest.s: worldTest.cpp.s
+.PHONY : worldTest.s
+
+# target to generate assembly for a file
+worldTest.cpp.s:
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/worldTest.dir/build.make tests/CMakeFiles/worldTest.dir/worldTest.cpp.s
+.PHONY : worldTest.cpp.s
 
 # Help Target
 help:
@@ -147,7 +247,18 @@ help:
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
+	@echo "... localizerTest"
 	@echo "... rebuild_cache"
+	@echo "... worldTest"
+	@echo "... glutapp.o"
+	@echo "... glutapp.i"
+	@echo "... glutapp.s"
+	@echo "... testlocalizer.o"
+	@echo "... testlocalizer.i"
+	@echo "... testlocalizer.s"
+	@echo "... worldTest.o"
+	@echo "... worldTest.i"
+	@echo "... worldTest.s"
 .PHONY : help
 
 

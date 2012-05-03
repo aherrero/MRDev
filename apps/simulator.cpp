@@ -70,7 +70,6 @@ int main(int argc,char* argv[])
 
 	Simulator sim;
 	sim.load(file);
-
 	MyGlutApp myApp("MR Simulator",sim);
 	myApp.Run();
 	return 0;   
