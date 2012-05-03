@@ -34,8 +34,8 @@ IF(WIN32)
 	TARGET_LINK_LIBRARIES(simulator optimized mrcore freeglut_static)
 	TARGET_LINK_LIBRARIES(teleop optimized mrcore freeglut_static)
 ELSE(WIN32) #LINUX	
-	TARGET_LINK_LIBRARIES(simulator mrcore glut GL GLU )
-	TARGET_LINK_LIBRARIES(teleop mrcore glut GL GLU )
+	TARGET_LINK_LIBRARIES(simulator mrcore glut GL GLU pthread)
+	TARGET_LINK_LIBRARIES(teleop mrcore glut GL GLU pthread)
 ENDIF(WIN32)
 		
 ##################################
