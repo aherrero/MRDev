@@ -3,9 +3,12 @@
 #include "localizer.h"
 #include <iostream>
 #include "glutapp.h"
+#include "time.h"
 
 using namespace mr;
 using namespace std;
+
+std::ofstream log_errors("Errors.txt",std::ios::out);
 
 class MyLocalizerApp: public GlutApp
 {
@@ -102,6 +105,12 @@ public:
 				buffer>>num;
 				localizer=Localizer(num);
 			}
+			else if(command=="neff:")
+			{
+				float num;
+				buffer>>num;
+				localizer.setNeff(num);
+			}
 			else if(command=="log:")
 			{
 				string logFolder;
@@ -124,10 +133,12 @@ public:
 	{
 		Odometry odom;
 		LaserData laserData;
+		
+		Pose3D real;
 
 		if(robot->getOdometry(odom))
 		{
-			Pose3D real;
+			//Pose3D real;
 			robot->getPose3D(real);
 			static Pose3D last=odom.pose;
 			static Odometry odomNoise=odom;
@@ -147,22 +158,47 @@ public:
 			
 			odomNoise.pose*=inc; //odometry pose + inc?
 			odomNoise.pose*=noisePose;
-			localizer.move(odomNoise,noise*10,&real);
+			localizer.move(odomNoise,noise*1,&real);
 		}
 		else 
+		{
 			cout << "No odometry data" << endl;
+			return;
+		}
 	
 		if(robot->getLaserData(laserData))
 		{
-			localizer.observe(laserData);
+		//	localizer.observe(laserData);
 		}
-		
+		else
+		{
+			cout<<"No laser data"<<endl;
+			return;
+		}
+		localizer.checkResample();
+//		localizer.printInfo();
+
 		float va2=va,vg2=vg;
 		robot->move(va2,vg2);
 
-		Pose3D realPose=localizer.getEstimatedPose();
+		//Pose3D realPose=localizer.getEstimatedPose();
+		Pose3D correctedPose=localizer.getEstimatedPose();
+		Pose3D realPose = real;
+		
+		/*log_errors << sqrt((realPose.position.x-real.position.x)*(realPose.position.x-real.position.x)+
+						       (realPose.position.y-real.position.y )*(realPose.position.y-real.position.y)+  
+						       (realPose.position.z-real.position.z )*(realPose.position.z-real.position.z))<< endl;*/
+						       
+		Pose3D rel = real.inverted()*correctedPose;
+		double dis = rel.module();
+		//cout << "dis 3d " << dis << endl;				       
+						       
+		log_errors << dis << endl;
+						     
+						
+		
 	//	cout<<"RealPose: "<<realPose<<endl;
-		robot->setLocation(realPose);
+		robot->setLocation(correctedPose);
 	}
 	void Key(unsigned char key)
 	{
@@ -236,6 +272,7 @@ void printUsage();
 int main(int argc,char* argv[])
 {
 	mrcoreInit();
+	srand(time(0));
 //	Logger::SetFileStream("logLocalizer.txt");
 
 	if(argc<2)
