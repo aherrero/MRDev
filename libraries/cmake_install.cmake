@@ -1,4 +1,4 @@
-# Install script for directory: /home/alex/mrdevfork/libraries
+# Install script for directory: /home/alex/mrdevgit/libraries
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,9 +34,9 @@ ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  INCLUDE("/home/alex/mrdevfork/libraries/freeglut/cmake_install.cmake")
-  INCLUDE("/home/alex/mrdevfork/libraries/localizer/cmake_install.cmake")
-  INCLUDE("/home/alex/mrdevfork/libraries/objects/cmake_install.cmake")
+  INCLUDE("/home/alex/mrdevgit/libraries/freeglut/cmake_install.cmake")
+  INCLUDE("/home/alex/mrdevgit/libraries/localizer/cmake_install.cmake")
+  INCLUDE("/home/alex/mrdevgit/libraries/objects/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 

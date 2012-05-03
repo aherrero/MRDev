@@ -13,6 +13,7 @@ tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/base/streamfile.h
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/base/streamstring.h
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/data/../math/angle.h
+tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/data/../math/transformation3d.h
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/data/../math/vector2d.h
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/data/data.h
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/data/image.h
@@ -73,8 +74,6 @@ tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/hw/wheeledbase/wheeledbasefile.h
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/hw/wheeledbase/wheeledbaseserver.h
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/hw/wheeledmobilerobot.h
-tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/math/../base/globject.h
-tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/math/../base/object.h
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/math/../gl/gltools.h
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/math/angle.h
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/math/boundingbox.h
@@ -142,10 +141,11 @@ tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/system/thread.h
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/system/thread.hpp
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/system/time.h
+tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/world/../base/globject.h
+tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/world/../base/object.h
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/world/../base/streamstring.h
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/world/../math/boundingbox.h
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/world/../math/face.h
-tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/world/../math/transformation3d.h
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/world/../math/trianglemesh.h
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/world/composedentity.h
 tests/CMakeFiles/worldTest.dir/worldTest.cpp.o: /usr/local/mrcore/include/mrcore/world/cylindricalpart.h

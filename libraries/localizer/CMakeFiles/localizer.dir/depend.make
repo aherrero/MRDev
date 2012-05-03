@@ -19,6 +19,7 @@ libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/base/streamfile.h
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/base/streamstring.h
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/data/../math/angle.h
+libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/data/../math/transformation3d.h
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/data/../math/vector2d.h
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/data/data.h
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/data/image.h
@@ -79,8 +80,6 @@ libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/hw/wheeledbase/wheeledbasefile.h
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/hw/wheeledbase/wheeledbaseserver.h
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/hw/wheeledmobilerobot.h
-libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/math/../base/globject.h
-libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/math/../base/object.h
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/math/../gl/gltools.h
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/math/angle.h
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/math/boundingbox.h
@@ -148,10 +147,11 @@ libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/system/thread.h
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/system/thread.hpp
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/system/time.h
+libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/world/../base/globject.h
+libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/world/../base/object.h
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/world/../base/streamstring.h
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/world/../math/boundingbox.h
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/world/../math/face.h
-libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/world/../math/transformation3d.h
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/world/../math/trianglemesh.h
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/world/composedentity.h
 libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o: /usr/local/mrcore/include/mrcore/world/cylindricalpart.h
@@ -184,6 +184,7 @@ libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/i
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/base/streamfile.h
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/base/streamstring.h
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/data/../math/angle.h
+libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/data/../math/transformation3d.h
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/data/../math/vector2d.h
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/data/data.h
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/data/image.h
@@ -244,8 +245,6 @@ libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/i
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/hw/wheeledbase/wheeledbasefile.h
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/hw/wheeledbase/wheeledbaseserver.h
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/hw/wheeledmobilerobot.h
-libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/math/../base/globject.h
-libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/math/../base/object.h
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/math/../gl/gltools.h
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/math/angle.h
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/math/boundingbox.h
@@ -313,10 +312,11 @@ libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/i
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/system/thread.h
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/system/thread.hpp
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/system/time.h
+libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/world/../base/globject.h
+libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/world/../base/object.h
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/world/../base/streamstring.h
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/world/../math/boundingbox.h
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/world/../math/face.h
-libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/world/../math/transformation3d.h
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/world/../math/trianglemesh.h
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/world/composedentity.h
 libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o: /usr/local/mrcore/include/mrcore/world/cylindricalpart.h

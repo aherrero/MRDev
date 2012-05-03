@@ -1,4 +1,4 @@
-# Install script for directory: /home/alex/mrdevfork/libraries/freeglut
+# Install script for directory: /home/alex/mrdevgit/libraries/freeglut
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,4 +1,4 @@
-# Install script for directory: /home/alex/mrdevfork/libraries/localizer
+# Install script for directory: /home/alex/mrdevgit/libraries/localizer
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,17 +34,17 @@ ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CPACK_ABSOLUTE_DESTINATION_FILES
-   "/usr/local/mrcore/include/localizer/particle.h;/usr/local/mrcore/include/localizer/gaussian.h;/usr/local/mrcore/include/localizer/localizer.h")
+   "/usr/local/mrcore/include/localizer/particle.h;/usr/local/mrcore/include/localizer/localizer.h;/usr/local/mrcore/include/localizer/gaussian.h")
 FILE(INSTALL DESTINATION "/usr/local/mrcore/include/localizer" TYPE FILE FILES
-    "/home/alex/mrdevfork/libraries/localizer/particle.h"
-    "/home/alex/mrdevfork/libraries/localizer/gaussian.h"
-    "/home/alex/mrdevfork/libraries/localizer/localizer.h"
+    "/home/alex/mrdevgit/libraries/localizer/particle.h"
+    "/home/alex/mrdevgit/libraries/localizer/localizer.h"
+    "/home/alex/mrdevgit/libraries/localizer/gaussian.h"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   list(APPEND CPACK_ABSOLUTE_DESTINATION_FILES
    "/usr/local/mrcore/lib/liblocalizer.a")
-FILE(INSTALL DESTINATION "/usr/local/mrcore/lib" TYPE STATIC_LIBRARY FILES "/home/alex/mrdevfork/libraries/localizer/liblocalizer.a")
+FILE(INSTALL DESTINATION "/usr/local/mrcore/lib" TYPE STATIC_LIBRARY FILES "/home/alex/mrdevgit/libraries/localizer/liblocalizer.a")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

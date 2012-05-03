@@ -8,7 +8,7 @@ default_target: all
 #=============================================================================
 # Special targets provided by cmake.
 
-# Disable implicit rules so canoncical targets will work.
+# Disable implicit rules so canonical targets will work.
 .SUFFIXES:
 
 # Remove some rules from gmake that .SUFFIXES does not remove.
@@ -36,10 +36,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alex/mrdevfork
+CMAKE_SOURCE_DIR = /home/alex/mrdevgit
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alex/mrdevfork
+CMAKE_BINARY_DIR = /home/alex/mrdevgit
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -107,14 +107,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/alex/mrdevfork && $(CMAKE_COMMAND) -E cmake_progress_start /home/alex/mrdevfork/CMakeFiles /home/alex/mrdevfork/libraries/localizer/CMakeFiles/progress.marks
-	cd /home/alex/mrdevfork && $(MAKE) -f CMakeFiles/Makefile2 libraries/localizer/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/mrdevfork/CMakeFiles 0
+	cd /home/alex/mrdevgit && $(CMAKE_COMMAND) -E cmake_progress_start /home/alex/mrdevgit/CMakeFiles /home/alex/mrdevgit/libraries/localizer/CMakeFiles/progress.marks
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 libraries/localizer/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/mrdevgit/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/alex/mrdevfork && $(MAKE) -f CMakeFiles/Makefile2 libraries/localizer/clean
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 libraries/localizer/clean
 .PHONY : clean
 
 # The main clean target
@@ -123,22 +123,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/alex/mrdevfork && $(MAKE) -f CMakeFiles/Makefile2 libraries/localizer/preinstall
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 libraries/localizer/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/alex/mrdevfork && $(MAKE) -f CMakeFiles/Makefile2 libraries/localizer/preinstall
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 libraries/localizer/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/alex/mrdevfork && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/alex/mrdevgit && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 libraries/localizer/CMakeFiles/localizer.dir/rule:
-	cd /home/alex/mrdevfork && $(MAKE) -f CMakeFiles/Makefile2 libraries/localizer/CMakeFiles/localizer.dir/rule
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 libraries/localizer/CMakeFiles/localizer.dir/rule
 .PHONY : libraries/localizer/CMakeFiles/localizer.dir/rule
 
 # Convenience name for target.
@@ -147,7 +147,7 @@ localizer: libraries/localizer/CMakeFiles/localizer.dir/rule
 
 # fast build rule for target.
 localizer/fast:
-	cd /home/alex/mrdevfork && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/build
+	cd /home/alex/mrdevgit && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/build
 .PHONY : localizer/fast
 
 gaussian.o: gaussian.cpp.o
@@ -155,7 +155,7 @@ gaussian.o: gaussian.cpp.o
 
 # target to build an object file
 gaussian.cpp.o:
-	cd /home/alex/mrdevfork && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/gaussian.cpp.o
+	cd /home/alex/mrdevgit && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/gaussian.cpp.o
 .PHONY : gaussian.cpp.o
 
 gaussian.i: gaussian.cpp.i
@@ -163,7 +163,7 @@ gaussian.i: gaussian.cpp.i
 
 # target to preprocess a source file
 gaussian.cpp.i:
-	cd /home/alex/mrdevfork && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/gaussian.cpp.i
+	cd /home/alex/mrdevgit && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/gaussian.cpp.i
 .PHONY : gaussian.cpp.i
 
 gaussian.s: gaussian.cpp.s
@@ -171,7 +171,7 @@ gaussian.s: gaussian.cpp.s
 
 # target to generate assembly for a file
 gaussian.cpp.s:
-	cd /home/alex/mrdevfork && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/gaussian.cpp.s
+	cd /home/alex/mrdevgit && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/gaussian.cpp.s
 .PHONY : gaussian.cpp.s
 
 localizer.o: localizer.cpp.o
@@ -179,7 +179,7 @@ localizer.o: localizer.cpp.o
 
 # target to build an object file
 localizer.cpp.o:
-	cd /home/alex/mrdevfork && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o
+	cd /home/alex/mrdevgit && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.o
 .PHONY : localizer.cpp.o
 
 localizer.i: localizer.cpp.i
@@ -187,7 +187,7 @@ localizer.i: localizer.cpp.i
 
 # target to preprocess a source file
 localizer.cpp.i:
-	cd /home/alex/mrdevfork && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.i
+	cd /home/alex/mrdevgit && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.i
 .PHONY : localizer.cpp.i
 
 localizer.s: localizer.cpp.s
@@ -195,7 +195,7 @@ localizer.s: localizer.cpp.s
 
 # target to generate assembly for a file
 localizer.cpp.s:
-	cd /home/alex/mrdevfork && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.s
+	cd /home/alex/mrdevgit && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/localizer.cpp.s
 .PHONY : localizer.cpp.s
 
 particle.o: particle.cpp.o
@@ -203,7 +203,7 @@ particle.o: particle.cpp.o
 
 # target to build an object file
 particle.cpp.o:
-	cd /home/alex/mrdevfork && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o
+	cd /home/alex/mrdevgit && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.o
 .PHONY : particle.cpp.o
 
 particle.i: particle.cpp.i
@@ -211,7 +211,7 @@ particle.i: particle.cpp.i
 
 # target to preprocess a source file
 particle.cpp.i:
-	cd /home/alex/mrdevfork && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.i
+	cd /home/alex/mrdevgit && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.i
 .PHONY : particle.cpp.i
 
 particle.s: particle.cpp.s
@@ -219,7 +219,7 @@ particle.s: particle.cpp.s
 
 # target to generate assembly for a file
 particle.cpp.s:
-	cd /home/alex/mrdevfork && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.s
+	cd /home/alex/mrdevgit && $(MAKE) -f libraries/localizer/CMakeFiles/localizer.dir/build.make libraries/localizer/CMakeFiles/localizer.dir/particle.cpp.s
 .PHONY : particle.cpp.s
 
 # Help Target
@@ -255,6 +255,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/alex/mrdevfork && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/alex/mrdevgit && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

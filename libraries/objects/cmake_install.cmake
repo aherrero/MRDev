@@ -1,4 +1,4 @@
-# Install script for directory: /home/alex/mrdevfork/libraries/objects
+# Install script for directory: /home/alex/mrdevgit/libraries/objects
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)

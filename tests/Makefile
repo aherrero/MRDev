@@ -8,7 +8,7 @@ default_target: all
 #=============================================================================
 # Special targets provided by cmake.
 
-# Disable implicit rules so canoncical targets will work.
+# Disable implicit rules so canonical targets will work.
 .SUFFIXES:
 
 # Remove some rules from gmake that .SUFFIXES does not remove.
@@ -36,10 +36,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alex/mrdevfork
+CMAKE_SOURCE_DIR = /home/alex/mrdevgit
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alex/mrdevfork
+CMAKE_BINARY_DIR = /home/alex/mrdevgit
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -107,14 +107,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/alex/mrdevfork && $(CMAKE_COMMAND) -E cmake_progress_start /home/alex/mrdevfork/CMakeFiles /home/alex/mrdevfork/tests/CMakeFiles/progress.marks
-	cd /home/alex/mrdevfork && $(MAKE) -f CMakeFiles/Makefile2 tests/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/mrdevfork/CMakeFiles 0
+	cd /home/alex/mrdevgit && $(CMAKE_COMMAND) -E cmake_progress_start /home/alex/mrdevgit/CMakeFiles /home/alex/mrdevgit/tests/CMakeFiles/progress.marks
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 tests/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/mrdevgit/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/alex/mrdevfork && $(MAKE) -f CMakeFiles/Makefile2 tests/clean
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 tests/clean
 .PHONY : clean
 
 # The main clean target
@@ -123,22 +123,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/alex/mrdevfork && $(MAKE) -f CMakeFiles/Makefile2 tests/preinstall
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 tests/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/alex/mrdevfork && $(MAKE) -f CMakeFiles/Makefile2 tests/preinstall
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 tests/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/alex/mrdevfork && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/alex/mrdevgit && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 tests/CMakeFiles/localizerTest.dir/rule:
-	cd /home/alex/mrdevfork && $(MAKE) -f CMakeFiles/Makefile2 tests/CMakeFiles/localizerTest.dir/rule
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 tests/CMakeFiles/localizerTest.dir/rule
 .PHONY : tests/CMakeFiles/localizerTest.dir/rule
 
 # Convenience name for target.
@@ -147,12 +147,12 @@ localizerTest: tests/CMakeFiles/localizerTest.dir/rule
 
 # fast build rule for target.
 localizerTest/fast:
-	cd /home/alex/mrdevfork && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/build
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/build
 .PHONY : localizerTest/fast
 
 # Convenience name for target.
 tests/CMakeFiles/worldTest.dir/rule:
-	cd /home/alex/mrdevfork && $(MAKE) -f CMakeFiles/Makefile2 tests/CMakeFiles/worldTest.dir/rule
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 tests/CMakeFiles/worldTest.dir/rule
 .PHONY : tests/CMakeFiles/worldTest.dir/rule
 
 # Convenience name for target.
@@ -161,7 +161,7 @@ worldTest: tests/CMakeFiles/worldTest.dir/rule
 
 # fast build rule for target.
 worldTest/fast:
-	cd /home/alex/mrdevfork && $(MAKE) -f tests/CMakeFiles/worldTest.dir/build.make tests/CMakeFiles/worldTest.dir/build
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/worldTest.dir/build.make tests/CMakeFiles/worldTest.dir/build
 .PHONY : worldTest/fast
 
 glutapp.o: glutapp.cpp.o
@@ -169,7 +169,7 @@ glutapp.o: glutapp.cpp.o
 
 # target to build an object file
 glutapp.cpp.o:
-	cd /home/alex/mrdevfork && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/glutapp.cpp.o
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/glutapp.cpp.o
 .PHONY : glutapp.cpp.o
 
 glutapp.i: glutapp.cpp.i
@@ -177,7 +177,7 @@ glutapp.i: glutapp.cpp.i
 
 # target to preprocess a source file
 glutapp.cpp.i:
-	cd /home/alex/mrdevfork && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/glutapp.cpp.i
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/glutapp.cpp.i
 .PHONY : glutapp.cpp.i
 
 glutapp.s: glutapp.cpp.s
@@ -185,7 +185,7 @@ glutapp.s: glutapp.cpp.s
 
 # target to generate assembly for a file
 glutapp.cpp.s:
-	cd /home/alex/mrdevfork && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/glutapp.cpp.s
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/glutapp.cpp.s
 .PHONY : glutapp.cpp.s
 
 testlocalizer.o: testlocalizer.cpp.o
@@ -193,7 +193,7 @@ testlocalizer.o: testlocalizer.cpp.o
 
 # target to build an object file
 testlocalizer.cpp.o:
-	cd /home/alex/mrdevfork && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/testlocalizer.cpp.o
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/testlocalizer.cpp.o
 .PHONY : testlocalizer.cpp.o
 
 testlocalizer.i: testlocalizer.cpp.i
@@ -201,7 +201,7 @@ testlocalizer.i: testlocalizer.cpp.i
 
 # target to preprocess a source file
 testlocalizer.cpp.i:
-	cd /home/alex/mrdevfork && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/testlocalizer.cpp.i
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/testlocalizer.cpp.i
 .PHONY : testlocalizer.cpp.i
 
 testlocalizer.s: testlocalizer.cpp.s
@@ -209,7 +209,7 @@ testlocalizer.s: testlocalizer.cpp.s
 
 # target to generate assembly for a file
 testlocalizer.cpp.s:
-	cd /home/alex/mrdevfork && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/testlocalizer.cpp.s
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/localizerTest.dir/build.make tests/CMakeFiles/localizerTest.dir/testlocalizer.cpp.s
 .PHONY : testlocalizer.cpp.s
 
 worldTest.o: worldTest.cpp.o
@@ -217,7 +217,7 @@ worldTest.o: worldTest.cpp.o
 
 # target to build an object file
 worldTest.cpp.o:
-	cd /home/alex/mrdevfork && $(MAKE) -f tests/CMakeFiles/worldTest.dir/build.make tests/CMakeFiles/worldTest.dir/worldTest.cpp.o
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/worldTest.dir/build.make tests/CMakeFiles/worldTest.dir/worldTest.cpp.o
 .PHONY : worldTest.cpp.o
 
 worldTest.i: worldTest.cpp.i
@@ -225,7 +225,7 @@ worldTest.i: worldTest.cpp.i
 
 # target to preprocess a source file
 worldTest.cpp.i:
-	cd /home/alex/mrdevfork && $(MAKE) -f tests/CMakeFiles/worldTest.dir/build.make tests/CMakeFiles/worldTest.dir/worldTest.cpp.i
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/worldTest.dir/build.make tests/CMakeFiles/worldTest.dir/worldTest.cpp.i
 .PHONY : worldTest.cpp.i
 
 worldTest.s: worldTest.cpp.s
@@ -233,7 +233,7 @@ worldTest.s: worldTest.cpp.s
 
 # target to generate assembly for a file
 worldTest.cpp.s:
-	cd /home/alex/mrdevfork && $(MAKE) -f tests/CMakeFiles/worldTest.dir/build.make tests/CMakeFiles/worldTest.dir/worldTest.cpp.s
+	cd /home/alex/mrdevgit && $(MAKE) -f tests/CMakeFiles/worldTest.dir/build.make tests/CMakeFiles/worldTest.dir/worldTest.cpp.s
 .PHONY : worldTest.cpp.s
 
 # Help Target
@@ -270,6 +270,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/alex/mrdevfork && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/alex/mrdevgit && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/alex/mrdevfork/tests
+# Install script for directory: /home/alex/mrdevgit/tests
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)

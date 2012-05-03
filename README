@@ -33,3 +33,7 @@ svn co git@github.com:aherrero/MRDev.git mrdev
 
 # or the original code apps:
 svn co http://138.100.100.129/svn/mrdev/trunk mrdev
+
+-----------------------------------------------------------------------
+
+the new mrcore is installed in the folder /usr/local/mrcore/

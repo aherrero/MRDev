@@ -8,7 +8,7 @@ default_target: all
 #=============================================================================
 # Special targets provided by cmake.
 
-# Disable implicit rules so canoncical targets will work.
+# Disable implicit rules so canonical targets will work.
 .SUFFIXES:
 
 # Remove some rules from gmake that .SUFFIXES does not remove.
@@ -36,10 +36,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alex/mrdevfork
+CMAKE_SOURCE_DIR = /home/alex/mrdevgit
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alex/mrdevfork
+CMAKE_BINARY_DIR = /home/alex/mrdevgit
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -107,14 +107,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/alex/mrdevfork && $(CMAKE_COMMAND) -E cmake_progress_start /home/alex/mrdevfork/CMakeFiles /home/alex/mrdevfork/libraries/freeglut/CMakeFiles/progress.marks
-	cd /home/alex/mrdevfork && $(MAKE) -f CMakeFiles/Makefile2 libraries/freeglut/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/mrdevfork/CMakeFiles 0
+	cd /home/alex/mrdevgit && $(CMAKE_COMMAND) -E cmake_progress_start /home/alex/mrdevgit/CMakeFiles /home/alex/mrdevgit/libraries/freeglut/CMakeFiles/progress.marks
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 libraries/freeglut/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/mrdevgit/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/alex/mrdevfork && $(MAKE) -f CMakeFiles/Makefile2 libraries/freeglut/clean
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 libraries/freeglut/clean
 .PHONY : clean
 
 # The main clean target
@@ -123,17 +123,17 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/alex/mrdevfork && $(MAKE) -f CMakeFiles/Makefile2 libraries/freeglut/preinstall
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 libraries/freeglut/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/alex/mrdevfork && $(MAKE) -f CMakeFiles/Makefile2 libraries/freeglut/preinstall
+	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 libraries/freeglut/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/alex/mrdevfork && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/alex/mrdevgit && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Help Target
@@ -159,6 +159,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/alex/mrdevfork && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/alex/mrdevgit && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
