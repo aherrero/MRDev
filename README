@@ -27,7 +27,7 @@ sudo make install
 
 #and then, download this apps:
 
-svn co git@github.com:aherrero/MRDev.git/trunk mrdev
+svn co https://aherrero@github.com/aherrero/MRDev.git/trunk mrdev
 
 # Or download the repository as a zip file; https://github.com/aherrero/MRDev/zipball/master
 
