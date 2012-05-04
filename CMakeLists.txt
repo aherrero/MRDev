@@ -23,7 +23,7 @@ LINK_DIRECTORIES(${MRCORE_DIR}/lib)
 #	as defining which headers to install.
 #
 ####################################################################################################
-ADD_SUBDIRECTORY(libraries)
+#ADD_SUBDIRECTORY(libraries)
 
 ####################################################################################################
 #
