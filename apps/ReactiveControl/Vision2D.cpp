@@ -52,10 +52,9 @@ void Vision2D::SetPose(Odometry odometry) {
 void Vision2D::SetLaser(LaserData laserdata) {
     //1.01229097=58° -> Field of View (Horizontal, Vertical, Diagonal) = 58° H, 45° V, 70° D
     //1.01229097/2=0.506145485   
-    //resolution appears to be 1200x960 pixels at a framerate of 30Hz
-    //Deberia ser 1200 puntos en horizontal pero no deja mas de 541 puntos, src/data/laserdata.h mal¿?
-    //Operation range = 0.8m - 3.5m  //dejamos el por defecto, 10 metros
-    //numstep=1.01229097/541=0.00187115;
+    //resolution appears to be 1200x960 pixels at a framerate of 30Hz = 1200 puntos en horizontal
+    //Operation range = 0.8m - 3.5m  //Demasiado poco, dejamos a 8 metros.
+    //numstep=1.01229097/1200
 
     pointLaser = laserdata.getPoints();
     anglelaser = laserdata.getAngles();
@@ -64,7 +63,7 @@ void Vision2D::SetLaser(LaserData laserdata) {
     steplaser = laserdata.getStep();
 
     //MANUALMENTE,el angulo +-0.50614 va del index 212-328, el rango que sea 8metros
-    //DE -PI/2 A +PI/2 (index 89-451, 451-89+1=363, rango=8metros.
+    //DE -PI/2 A +PI/2 (index 89-451,  rango=8metros.
     int idxini=89;
     int idxFin=451;
     int idxRango=idxFin-idxini+1;

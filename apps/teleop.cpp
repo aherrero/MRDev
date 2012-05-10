@@ -74,7 +74,8 @@ public:
                 
 		float va2=va,vg2=vg;
               	//control.getSpeed(va2,vg2);	
-                reactivecontrol.GetVel(va2, vg2);
+                
+                //reactivecontrol.GetVel(va2, vg2);
                 if (STOP) va2 = vg2 = 0.0f;
                 //Cuidado con la aceleracion
 		robot->move(va2,vg2);
