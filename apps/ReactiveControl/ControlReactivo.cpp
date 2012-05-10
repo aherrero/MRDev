@@ -10,11 +10,11 @@
 
 ControlReactivo::ControlReactivo() {
     
-    rangeAction = 1.3;
-    rangeActionFrontal=2.5;
+    rangeAction = 1;
+    rangeActionFrontal=2.7;
     
-    kreactivoGiro=1;
-    kreactivoAvance=0.5;
+    kreactivoGiro=0.4;
+    kreactivoAvance=0.3;
     
     range.clear();
     points.clear();
@@ -28,6 +28,8 @@ ControlReactivo::ControlReactivo() {
     outputAvance=outputGiro=0;
     pointsObjectFrontal.clear();
     pointsObjectFrontalDanger.clear();
+    
+    ObjetoPasado=true;
 }
 
 ControlReactivo::ControlReactivo(const ControlReactivo& orig) {
@@ -95,9 +97,10 @@ void ControlReactivo::Compute() {
     
     /**************************************
      PLANTEARSELO DE OTRA MANERA, CIRCUNF ALREDEDOR DE OBJETOS CON DISTANCIA LATERAL ETC
+     * 
+     * HACER FUNCIÓN DE IMPRESIÓN EN TXT ESTES DONDE ESTES
      */
     
-    float auxrangeMin = 3;
     Angle auxangleMin;
     
     //**************** No hay object
@@ -105,10 +108,13 @@ void ControlReactivo::Compute() {
     {
         outputGiro = vg;
         outputAvance = va;
+        ObjetoPasado=true;
     }
     //****** 1) Velocidad de avance disminuye cuando se acerca a objeto
     else 
     {
+        float auxrangeMin = rangeActionFrontal;
+        
         if (pointsObjectFrontalDanger.size() > 0) {
             for (int i = 0; i < rangeObjectFront.size(); i++) {
                 if (rangeObjectFront[i] < auxrangeMin){
@@ -117,7 +123,7 @@ void ControlReactivo::Compute() {
 
             }
 
-            float kequivalente = 1.1; 
+            float kequivalente = 0.7; 
             float error = va - kequivalente * (1 / auxrangeMin);
             if (error < 0) error = 0;
 
@@ -127,26 +133,29 @@ void ControlReactivo::Compute() {
 
         //****** 2) Velocidad de giro    
         auxangleMin.setValue(0.0);
+        float auxrangeGiroMin = rangeAction;
         int angdch=0;
         int angizq=0;
         
         if (pointsObjectDanger.size() > 0) {
-            
+                        
             for (int i = 0; i < rangeObject.size(); i++) {
-                if (rangeObject[i] < auxrangeMin){
+                if (rangeObject[i] < auxrangeGiroMin){
                     auxangleMin=angleObject[i];
-                    if(angleObject[i]<=0.0)
-                        angdch++;
-                    else
+                                                        //&&ObjetoPasado
+                    if(angleObject[i]<=0)               //Garantiza ObjetoPasado 
+                        angdch++;                       //que una vez decidido izq o dch
+                    else                                //no cambia de opcion
                         angizq++;
+                    
+                    ObjetoPasado=false;
                     
                 }
 
-            }
-            
-            float errorg=PI/2-fabs(auxangleMin.getValue());
-            
-            if(angizq<angdch+1){       
+            }  
+            //float errorg=PI/4-fabs(auxangleMin.getValue());
+            float errorg=fabs(auxangleMin.getValue());
+            if(angizq<angdch){       
                 outputGiro=kreactivoGiro*errorg;
                 //cout<<" izq ";
             }
@@ -154,6 +163,13 @@ void ControlReactivo::Compute() {
                 outputGiro=-kreactivoGiro*errorg;
                 //cout<<" dch ";
             }
+            
+            //No seguir girando cuando objeto esta paralelo a robot
+            //cout<<rangeObject.size()<<endl;
+//            int aux1=rangeObject.size();
+//            if(rangeObject[(aux1)/2]>rangeObject[aux1-1])
+//                outputGiro=0;
+            
             
 
         }
