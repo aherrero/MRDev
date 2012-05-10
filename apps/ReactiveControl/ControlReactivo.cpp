@@ -13,7 +13,7 @@ ControlReactivo::ControlReactivo() {
     rangeAction = 1;
     rangeActionFrontal=2.7;
     
-    kreactivoGiro=0.4;
+    kreactivoGiro=2;
     kreactivoAvance=0.3;
     
     range.clear();
@@ -29,7 +29,6 @@ ControlReactivo::ControlReactivo() {
     pointsObjectFrontal.clear();
     pointsObjectFrontalDanger.clear();
     
-    ObjetoPasado=true;
 }
 
 ControlReactivo::ControlReactivo(const ControlReactivo& orig) {
@@ -96,7 +95,6 @@ void ControlReactivo::SetCommand(float vela, float velg)
 void ControlReactivo::Compute() {
     
     /**************************************
-     PLANTEARSELO DE OTRA MANERA, CIRCUNF ALREDEDOR DE OBJETOS CON DISTANCIA LATERAL ETC
      * 
      * HACER FUNCIÓN DE IMPRESIÓN EN TXT ESTES DONDE ESTES
      */
@@ -108,7 +106,6 @@ void ControlReactivo::Compute() {
     {
         outputGiro = vg;
         outputAvance = va;
-        ObjetoPasado=true;
     }
     //****** 1) Velocidad de avance disminuye cuando se acerca a objeto
     else 
@@ -141,6 +138,7 @@ void ControlReactivo::Compute() {
                         
             for (int i = 0; i < rangeObject.size(); i++) {
                 if (rangeObject[i] < auxrangeGiroMin){
+                    auxrangeGiroMin=rangeObject[i];
                     auxangleMin=angleObject[i];
                                                         //&&ObjetoPasado
                     if(angleObject[i]<=0)               //Garantiza ObjetoPasado 
@@ -148,30 +146,20 @@ void ControlReactivo::Compute() {
                     else                                //no cambia de opcion
                         angizq++;
                     
-                    ObjetoPasado=false;
                     
                 }
 
             }  
-            //float errorg=PI/4-fabs(auxangleMin.getValue());
-            float errorg=fabs(auxangleMin.getValue());
+
+            float errorg=PI/2+0.01-fabs(auxangleMin.getValue());
+            
             if(angizq<angdch){       
                 outputGiro=kreactivoGiro*errorg;
-                //cout<<" izq ";
             }
             else{
                 outputGiro=-kreactivoGiro*errorg;
-                //cout<<" dch ";
-            }
-            
-            //No seguir girando cuando objeto esta paralelo a robot
-            //cout<<rangeObject.size()<<endl;
-//            int aux1=rangeObject.size();
-//            if(rangeObject[(aux1)/2]>rangeObject[aux1-1])
-//                outputGiro=0;
-            
-            
-
+            }         
+        
         }
     }
     //SATURACION
