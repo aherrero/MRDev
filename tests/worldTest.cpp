@@ -58,7 +58,9 @@ int main(int argc, char* argv[])
 	//InitWorldColumns2();
 
 	//InitWorldSquaredRingWalls();
-	InitWorldTry();
+	//InitWorldTry();
+	InitWorldColumns();
+	
 //	InitWorld1();
 //probador de grabar y cargar
 	//probando a grabar en un fichero el prismatic part, despues lo añado

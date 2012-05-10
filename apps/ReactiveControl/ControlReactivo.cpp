@@ -148,6 +148,8 @@ void ControlReactivo::Compute() {
                     
                     
                 }
+                
+                //Prioridad tambien de seguir la trayectoria!!
 
             }  
 
@@ -155,11 +157,13 @@ void ControlReactivo::Compute() {
             
             if(angizq<angdch){       
                 outputGiro=kreactivoGiro*errorg;
+                cout<<"izquierda" <<endl;
             }
             else{
                 outputGiro=-kreactivoGiro*errorg;
-            }         
-        
+                cout<<"derecha"<<endl;
+            }  
+            
         }
     }
     //SATURACION

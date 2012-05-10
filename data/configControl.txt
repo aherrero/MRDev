@@ -1,4 +1,4 @@
-world: controlTest.world
+world: twoscreen.world
 robots: 1
 neo 13000 -7 -5 0
 persons: 40
