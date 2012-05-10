@@ -57,7 +57,6 @@ void Vision2D::SetLaser(LaserData laserdata) {
     //Operation range = 0.8m - 3.5m  //dejamos el por defecto, 10 metros
     //numstep=1.01229097/541=0.00187115;
 
-    //laserdata.setProperties() //NO FUNCIONA!!!!!
     pointLaser = laserdata.getPoints();
     anglelaser = laserdata.getAngles();
     range = laserdata.getRanges();
