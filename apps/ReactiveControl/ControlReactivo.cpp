@@ -14,7 +14,7 @@ ControlReactivo::ControlReactivo() {
     rangeActionFrontal=2.7;
     
     kreactivoGiro=2;
-    kreactivoAvance=0.3;
+    kreactivoAvance=1;
     
     range.clear();
     points.clear();
@@ -99,7 +99,6 @@ void ControlReactivo::Compute() {
      * HACER FUNCIÓN DE IMPRESIÓN EN TXT ESTES DONDE ESTES
      */
     
-    Angle auxangleMin;
     
     //**************** No hay object
     if(pointsObjectFrontalDanger.size() <= 0 && pointsObjectDanger.size() <= 0)
@@ -111,6 +110,8 @@ void ControlReactivo::Compute() {
     else 
     {
         float auxrangeMin = rangeActionFrontal;
+        float distmax=rangeActionFrontal;
+        float distmin=0.3;
         
         if (pointsObjectFrontalDanger.size() > 0) {
             for (int i = 0; i < rangeObjectFront.size(); i++) {
@@ -120,15 +121,14 @@ void ControlReactivo::Compute() {
 
             }
 
-            float kequivalente = 0.7; 
-            float error = va - kequivalente * (1 / auxrangeMin);
-            if (error < 0) error = 0;
+            float error = (auxrangeMin-distmin)/(distmax-distmin); 
 
-            outputAvance = kreactivoAvance * error;
+            outputAvance = kreactivoAvance * error *va;
 
         }
 
-        //****** 2) Velocidad de giro    
+        //****** 2) Velocidad de giro   
+        Angle auxangleMin;
         auxangleMin.setValue(0.0);
         float auxrangeGiroMin = rangeAction;
         int angdch=0;

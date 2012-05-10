@@ -61,7 +61,6 @@ private:
     float va;
     float vg;
     
-    bool ObjetoPasado;
 
 };
 
