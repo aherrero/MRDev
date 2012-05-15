@@ -11,7 +11,7 @@
 ControlReactivo::ControlReactivo() {
     
     rangeAction = 1;
-    rangeActionFrontal=2.7;
+    rangeActionFrontal=2.5;
     
     kreactivoGiro=2;
     kreactivoAvance=1;
@@ -28,7 +28,7 @@ ControlReactivo::ControlReactivo() {
     outputAvance=outputGiro=0;
     pointsObjectFrontal.clear();
     pointsObjectFrontalDanger.clear();
-    
+       
 }
 
 ControlReactivo::ControlReactivo(const ControlReactivo& orig) {
@@ -85,10 +85,11 @@ bool ControlReactivo::ObjectDanger() {  //Danger si es menor que una distancia d
    
 }
 
-void ControlReactivo::SetCommand(float vela, float velg)
+void ControlReactivo::SetCommand(float vela, float velg,double dist)
 {
     va=vela;
     vg=velg;
+    disttray=dist;
     Compute();
 }
 
@@ -133,36 +134,68 @@ void ControlReactivo::Compute() {
         float auxrangeGiroMin = rangeAction;
         int angdch=0;
         int angizq=0;
-        
+               
         if (pointsObjectDanger.size() > 0) {
                         
             for (int i = 0; i < rangeObject.size(); i++) {
                 if (rangeObject[i] < auxrangeGiroMin){
                     auxrangeGiroMin=rangeObject[i];
                     auxangleMin=angleObject[i];
-                                                        //&&ObjetoPasado
-                    if(angleObject[i]<=0)               //Garantiza ObjetoPasado 
-                        angdch++;                       //que una vez decidido izq o dch
-                    else                                //no cambia de opcion
-                        angizq++;
-                    
-                    
-                }
-                
-                //Prioridad tambien de seguir la trayectoria!!
 
+                    if(angleObject[i]<=0)           
+                        angdch++;                       
+                    else                 
+                        angizq++;
+                }
             }  
+            
+            
 
             float errorg=PI/2+0.01-fabs(auxangleMin.getValue());
-            
-            if(angizq<angdch){       
+                       
+            if(angizq<angdch)   //IZQ
                 outputGiro=kreactivoGiro*errorg;
-                cout<<"izquierda" <<endl;
-            }
-            else{
+            else                //DCH
                 outputGiro=-kreactivoGiro*errorg;
-                cout<<"derecha"<<endl;
-            }  
+            
+            if(disttray<0.2)//No hagas caso a react y sigue tray!
+                outputGiro=vg;
+            
+//            //Que no solo tenga prioridad esquivar obstaculos, tb distancia a tray
+//            cout<<"dist "<<disttray<<endl;
+//            double distPreferenciaReactivo=0.70;
+            
+//            if(angizq<angdch)
+//            {
+//                if(disttray>distPreferenciaReactivo)
+//                {
+//                    //Derecha obligada
+//                    outputGiro=-kreactivoGiro*errorg;
+//                    cout<<"dch obl"<<endl;
+//                }
+//                else
+//                {
+//                    //Izquierda
+//                    outputGiro=kreactivoGiro*errorg;
+//                    cout<<"izq"<<endl;
+//                }
+//            }
+//            
+//            else
+//            {
+//                    if(disttray>distPreferenciaReactivo)
+//                    {
+//                        //Izquierda obligada
+//                        outputGiro=kreactivoGiro*errorg;
+//                        cout<<"izq obl"<<endl;
+//                    }
+//                    else
+//                    {
+//                        //Derecha
+//                        outputGiro=-kreactivoGiro*errorg;
+//                        cout<<"dch"<<endl;
+//                    }
+//            }
             
         }
     }

@@ -9,9 +9,16 @@
 #include "../globalFunctions.h"
 
 ADSK::ADSK() {
-    kpg = 2;
-    kpd = 2;
-    kadsk = 0.95;
+    kpg = 4;
+    kpd = 4;
+    kadsk = 0.9;
+    
+    velmaxav=0.8;       //Ponemos velavance cte
+    velmink=0.2;        //Minima mas min
+    //Buenos para el reactivo:
+//    kpg = 2;
+//    kpd = 2;
+//    kadsk = 0.95;
     distEndAcum.clear();
     controladskON=false;
     //Declaradas en Control.h
@@ -27,7 +34,7 @@ ADSK::~ADSK() {
 
 void ADSK::ComputeControl() {
     /******CONTROL*****/
-    if (!finTray) //Si esta fuera de circunf de fin de segmento, hacer control.
+    if (!finTray) //Si esta fuera de Segmento, hacer control.
     {
         ControlAnticipativo();
         ControlAngular();
@@ -35,10 +42,10 @@ void ADSK::ComputeControl() {
 
         //SATURACION
         //velavance
-        if ((outputProp < velmax) && (outputProp > velmink))
+        if ((outputProp < velmaxav) && (outputProp > velmink))
             velavance = outputProp;
-        else if (outputProp >= velmax)
-            velavance = velmax;
+        else if (outputProp >= velmaxav)
+            velavance = velmaxav;
         else if (outputProp <= velmink)
             velavance = velmink;
 
@@ -49,9 +56,8 @@ void ADSK::ComputeControl() {
             velgiro = -velmax;
         else velgiro = velmax;
         
-        //cout<<"Vel. Avance: "<<velavance<<"  Vel.Giro: "<<velgiro<<endl;
-
-    } else //Si esta dentro, parar control y pasar a siguiente segmento, si hubiese
+    }
+    else //Si esta dentro, parar control y pasar a siguiente segmento, si hubiese
     {
         if (currentSegment < reftray.size() - 2) //el -2 necesario porque reftray tiene inicio 0,0,0
         {
@@ -68,11 +74,12 @@ void ADSK::ComputeControl() {
 }
 
 bool ADSK::ControlAngular() {
-    //Calculo de angulo ideal teniendo en cuenta signo de arcotangente.
-
+    
+    //Calculo de angulo ideal
     double calculo = atan(abs(reftray[currentSegment + 1].y - pos.y) / 
                           abs(reftray[currentSegment + 1].x - pos.x));
-
+    
+    //Signo de arcotagente
     if (pos.x > reftray[currentSegment + 1].x) {
         if (pos.y > reftray[currentSegment + 1].y) {
             //Primer cuadrante
@@ -109,6 +116,7 @@ bool ADSK::ControlAngular() {
     }
 
     //cout<<"ang ideal "<<(int)(anguloideal*1000)<<" yaw "<<(int)(yaw*1000)<<endl;
+    
     //salida
     outputGiro = kpg*error;
 

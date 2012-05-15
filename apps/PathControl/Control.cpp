@@ -25,6 +25,7 @@ Control::Control() {
     errorVariable = 0.0;
 
     velmax = 2.0;
+    velmaxav = 2.0;
     velmink = 0.5;
 
     globaltime.clear();

@@ -37,6 +37,8 @@ public:
     string getClassName() {};
     void writeToStream(Stream& stream) {};
     void readFromStream(Stream& stream) {};
+    
+    double errorVariable;       //PRUEBA. CONTROL REACTIVO TENIENDO EN CUENTA DIST TRAY
 
 protected:
 
@@ -52,9 +54,10 @@ protected:
     float velavance, velgiro;
     bool finTray;
     float outputGiro, outputDist, outputProp;
-    float velmax, velmink;
+    float velmaxav, velmink;
+    float velmax;
     float anguloideal;
-    double errorVariable;
+    
     vector <Vector2D> errorVariableAcumulado;
 
     int currentSegment;

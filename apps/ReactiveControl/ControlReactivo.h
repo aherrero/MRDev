@@ -24,7 +24,7 @@ public:
     inline bool GetDistanceOk() {
         return danger;
     };
-    void SetCommand(float vela,float velg);
+    void SetCommand(float vela,float velg,double dist);
     void GetVel(float &velaa, float &velgg);
 
     void Save();
@@ -60,6 +60,8 @@ private:
     
     float va;
     float vg;
+    
+    double disttray;
     
 
 };

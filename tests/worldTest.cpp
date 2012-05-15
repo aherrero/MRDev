@@ -39,6 +39,8 @@ void InitWorldSquaredRingNoWalls();
 void InitWorldSquaredRingWalls();
 
 void InitWorldTry();
+void InitWorldTry2();
+void InitWolrdTrySquare();
 
 int main(int argc, char* argv[])
 {
@@ -59,7 +61,11 @@ int main(int argc, char* argv[])
 
 	//InitWorldSquaredRingWalls();
 	//InitWorldTry();
-	InitWorldColumns();
+	//InitWorldColumns();
+	//InitWorldTry2();
+	InitWolrdTrySquare();
+	
+	
 	
 //	InitWorld1();
 //probador de grabar y cargar
@@ -110,7 +116,7 @@ void OnKeyboardDown(unsigned char key, int x, int y)
 	scene.KeyDown(key);
 	if(key=='s'){
 		LOG_INFO("Writing world");
-		StreamFile myfile("tmpTry.world",false);
+		StreamFile myfile("myRoom2.world",false);
 		myfile.write(&world);
 		}
 
@@ -239,6 +245,75 @@ void InitWorldSquaredRingWalls()
 	building->addFace(paredinterna3);
 	building->addFace(paredinterna4);
 
+	world+=building;
+}
+
+void InitWolrdTrySquare()
+{
+	Face suelo(Transformation3D(0,0,0),-20,-20,20,20);
+	suelo.setColor(0.9f, 0.9f, 0.9f, 1);
+
+	Face paredfondo1(Transformation3D(-20,0,0,Y_AXIS,PI/2),-3,-20,0,20);
+	Face paredfondo2(Transformation3D(20,0,0,Y_AXIS,PI/2),-3,-20,0,20);
+	Face paredfondo3(Transformation3D(20,-20,0,X_AXIS,PI/2),0, 0, -40, 3);
+	Face paredfondo4(Transformation3D(-20,20,0,X_AXIS,PI/2),0, 0, 40, 3);
+	paredfondo1.setColor(0.5f, 0.5f, 0.0f, 1);
+	paredfondo2.setColor(0.5f, 0.5f, 0.0f, 1);
+	paredfondo3.setColor(0.5f, 0.5f, 0.0f, 1);
+	paredfondo4.setColor(0.5f, 0.5f, 0.0f, 1);
+
+	FaceSetPart *building=new FaceSetPart; 
+	building->addFace(suelo);
+	building->addFace(paredfondo1);
+	building->addFace(paredfondo2);
+	building->addFace(paredfondo3);
+	building->addFace(paredfondo4);
+	
+	world+=building;
+}
+
+void InitWorldTry2()
+{
+	Face suelo(Transformation3D(0,0,0),-20,-20,20,20);
+	suelo.setColor(0.8f, 0.8f, 0.8f, 1);
+
+	Face paredfondo1(Transformation3D(-20,0,0,Y_AXIS,PI/2),-3,-20,0,20);
+	Face paredfondo2(Transformation3D(20,0,0,Y_AXIS,PI/2),-3,-20,0,20);
+	Face paredfondo3(Transformation3D(20,-20,0,X_AXIS,PI/2),0, 0, -40, 3);
+	Face paredfondo4(Transformation3D(-20,20,0,X_AXIS,PI/2),0, 0, 40, 3);
+	paredfondo1.setColor(0.5f, 0.5f, 0.0f, 1);
+	paredfondo2.setColor(0.5f, 0.5f, 0.0f, 1);
+	paredfondo3.setColor(0.5f, 0.5f, 0.0f, 1);
+	paredfondo4.setColor(0.5f, 0.5f, 0.0f, 1);
+
+	FaceSetPart *building=new FaceSetPart; 
+	building->addFace(suelo);
+	building->addFace(paredfondo1);
+	building->addFace(paredfondo2);
+	building->addFace(paredfondo3);
+	building->addFace(paredfondo4);
+	
+	float sep=2.5;
+	int cont=0;
+	for(float x=3;x<=8;x+=sep)
+	{
+		cont++;
+		for(float y=-4;y<=4;y+=sep)
+		{	
+			PrismaticPart *mypart=new PrismaticPart;
+			vector<Vector2D> list;
+			list.push_back(Vector2D(0,0));
+			list.push_back(Vector2D(0,.8));
+			list.push_back(Vector2D(.8,.8));
+			list.push_back(Vector2D(.8,0));
+			mypart->setPolygonalBase(list);
+			mypart->setRelativePosition(Vector3D(x,y+(cont%3)*sep/3,0));
+			mypart->setRelativeOrientation(0,0,PI/2);
+			mypart->setHeight(1);
+			world+=mypart;
+		}
+	}
+        
 	world+=building;
 }
 

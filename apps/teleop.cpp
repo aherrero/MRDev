@@ -40,8 +40,7 @@ public:
 	void Draw(void)
 	{
 		scene.Draw();
-		//traj.drawGL();
-		//control.drawGL();
+                
                 controlboth->drawGL();
                 vision2d.drawGL();
                 reactivecontrol.Draw();
@@ -60,24 +59,25 @@ public:
 		//pose.orientation.getRPY(roll,pitch,yaw);
 		//Pose2D robotPose(pose.position.x,pose.position.y,yaw);
 
-	//	traj.setData(robotPose);
-	//	traj.getSpeed(va,vg);
+                /************CONTROL TRAYECTORIA***************/
                 controlboth->SetPose(odom);
                 controlboth->GetVel(va,vg);
 
-	//	control.setCommand(va,vg);
-	//	control.setData(laserData);
-                vision2d.SetPose(odom);
-                vision2d.SetLaser(laserData);             
-                reactivecontrol.SetPoseVision(vision2d);
-                reactivecontrol.SetCommand(va,vg);
+                /************CONTROL REACTIVO***************/ //ARREGLAR CLASE VISION2D!!
                 
-		float va2=va,vg2=vg;
-              	//control.getSpeed(va2,vg2);	
+                //vision2d.SetPose(odom);
+                //vision2d.SetLaser(laserData);      
+                //reactivecontrol.SetPoseVision(vision2d);        
+                //double dist2try=controlboth->errorVariable;     //PRUEBAS. De momento,errorVariable public
+                //reactivecontrol.SetCommand(va,vg,dist2try);
                 
-                reactivecontrol.GetVel(va2, vg2);
+		float va2=va,vg2=vg;                
+                //reactivecontrol.GetVel(va2, vg2);               //Cuidado con la aceleracion
+                
                 if (STOP) va2 = vg2 = 0.0f;
-                //Cuidado con la aceleracion
+                
+                /************ACTUACION ROBOT***************/
+                cout<<"velavance: "<<va2<<" velgiro: "<<vg2<<endl;
 		robot->move(va2,vg2);
 	}
 	void Key(unsigned char key)
@@ -124,8 +124,6 @@ private:
 	GLScene scene;
 	World world;
 	MobileRobot* robot;
-	//ReactiveControl control;
-	//TrajControl traj;
         
         //Control
         Control *controlangular;
@@ -167,7 +165,7 @@ int main(int argc,char* argv[])
 	robot->connectClients("127.0.0.1",13000);
 	MyGlutApp myApp("teleop",robot);
         
-        //Leer archivo
+        //Leer archivo trayectoria
 	std::ifstream file(text.c_str());
         if (!file.is_open()) {
             printf("File not found!!\n");
@@ -183,7 +181,7 @@ int main(int argc,char* argv[])
         file.close();
         
         //Escribir trayectoria
-        vector<Vector3D> auxpath;       //Hasta que SetTray reciba vectores2d
+        vector<Vector3D> auxpath;       //Hasta que SetTray de Control reciba vectores2d
         auxpath.clear();
         auxpath.resize(path.size());
         for (int i = 0; i < path.size(); i++) {
@@ -191,10 +189,11 @@ int main(int argc,char* argv[])
             auxpath[i].y=path[i].y;
             auxpath[i].z=0.0;
         }
-
+        
+        //Mandarla al setray de control
         myApp.controlboth->SetTray(auxpath);
         
-        
+        //Bucle
 	myApp.Run();
 	return 0;   
 }

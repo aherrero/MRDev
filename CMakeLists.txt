@@ -23,6 +23,7 @@ LINK_DIRECTORIES(${MRCORE_DIR}/lib)
 #	as defining which headers to install.
 #
 ####################################################################################################
+
 #ADD_SUBDIRECTORY(libraries)
 
 ####################################################################################################
@@ -49,8 +50,8 @@ ADD_SUBDIRECTORY(tests) #somthing to play, but not to install for everybody
 #
 ####################################################################################################
 
-FILE(GLOB datafiles "${CMAKE_CURRENT_SOURCE_DIR}/data/*")
-INSTALL(FILES ${datafiles} DESTINATION "${CMAKE_INSTALL_PREFIX}/data")
+#FILE(GLOB datafiles "${CMAKE_CURRENT_SOURCE_DIR}/data/*")
+#INSTALL(FILES ${datafiles} DESTINATION "${CMAKE_INSTALL_PREFIX}/data")
 
 
 

@@ -1,0 +1,4 @@
+world: myRoom.world
+robots: 1
+neo 13000 0 0 0
+persons: 0
