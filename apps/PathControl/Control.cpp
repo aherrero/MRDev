@@ -82,13 +82,13 @@ void Control::drawGL() {
             glPushMatrix();
             glLineWidth(4.0);
             if (i % 2) glColor3ub(0, 0, 200);
-            else glColor3ub(0, 100, 200);
+            else glColor3ub(0, 100, 200);           
             glBegin(GL_LINES);
             glVertex3f(reftray[i].x, reftray[i].y, reftray[i].z); // V0
             glVertex3f(reftray[i + 1].x, reftray[i + 1].y, reftray[i + 1].z); // V1
             glEnd();
-
             glPopMatrix();
+          
         }
 
         //***Dibujando trayectoria REAL en puntos****/
@@ -104,6 +104,17 @@ void Control::drawGL() {
             glEnable(GL_LIGHTING);
             glPopMatrix();
         }
+          
+        //Punto de siguiente referencia
+        glPushMatrix();
+        glDisable(GL_LIGHTING);
+        glColor3f(255,255,255);
+        glPointSize(5.0);
+        glBegin(GL_POINTS);
+        glVertex3f(reftray[currentSegment+1].x, reftray[currentSegment+1].y, reftray[currentSegment+1].z);
+        glEnd();
+        glEnable(GL_LIGHTING);
+        glPopMatrix();
     }
 }
 

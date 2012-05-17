@@ -9,13 +9,18 @@
 #include "../globalFunctions.h"
 
 ADSK::ADSK() {
-    kpg = 4;
-    kpd = 4;
-    kadsk = 0.9;
+//    kpg = 0.4;
+//    kpd = 0.4;
+//    kadsk = 0.5;
     
-    velmaxav=0.8;       //Ponemos velavance cte
-    velmink=0.2;        //Minima mas min
-    //Buenos para el reactivo:
+      kpg = 1.5;
+      kpd = 4;
+      kadsk = 0.9;
+    
+    velmaxav=0.2;       //Ponemos velavance cte
+    velmink=0.1;        //Minima mas min
+    velmax=1;
+    //Buenos para el simula reactivo:
 //    kpg = 2;
 //    kpd = 2;
 //    kadsk = 0.95;

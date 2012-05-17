@@ -38,7 +38,7 @@ void OnSpecialKeyboardDown(int key, int x, int y)
 }
 void OnTimer(int value)
 {
-//poner aqui el código de animacion
+//poner aqui el cï¿½digo de animacion
 	if(theApp)
 		theApp->Timer(0.025);
 

@@ -47,11 +47,12 @@ public:
 	}
 	void Timer(float time)
 	{
+           
 		Odometry odom;
 		LaserData laserData;
 
 		robot->getOdometry(odom);
-		robot->getLaserData(laserData);
+		//robot->getLaserData(laserData);
 
 		//The odometry is full 3D, lets handle it only in 2D, as a Pose (x, y, theta)
 		//Transformation3D pose=odom.pose;
@@ -78,18 +79,18 @@ public:
                 
                 /************ACTUACION ROBOT***************/
                 cout<<"velavance: "<<va2<<" velgiro: "<<vg2<<endl;
-		robot->move(va2,vg2);
+                robot->move(va2,vg2);
 	}
 	void Key(unsigned char key)
 	{
 		if(key=='a')
-			vg+=0.05;
+			vg+=0.01;
 		else if(key=='d')
-			vg-=0.05;
+			vg-=0.01;
 		else if(key=='s')
-			va-=0.05;
+			va-=0.01;
 		else if(key=='w')
-			va+=0.05;
+			va+=0.01;
                 else if(key==' ')
                         STOP=!STOP;
 		else 
@@ -160,9 +161,10 @@ int main(int argc,char* argv[])
 		cin>>text;
 	}
 	cout<<"Loading configuration file: "<<text<<endl;
-        
+        //sleep(5);
 	MobileRobot* robot=new Neo();
-	robot->connectClients("127.0.0.1",13000);
+	//robot->connectClients("127.0.0.1",13000);
+	robot->connectClients("192.168.100.50",12000);
 	MyGlutApp myApp("teleop",robot);
         
         //Leer archivo trayectoria
@@ -179,6 +181,24 @@ int main(int argc,char* argv[])
             file>>path[i].x>>path[i].y;
         }
         file.close();
+        
+//        #define NUM_LADOS 8.0
+//        //circulo
+//        vector<Vector3D> auxpath; 
+//        float radioTray = 1;
+//        float cte=0;
+//        float fi = cte;
+//        auxpath.push_back(Vector3D(radioTray * cos(fi)-radioTray,radioTray * sin(fi), 0.0));
+//        
+//
+//
+//        while (fi <= 2 * PI+cte) {
+//            fi = fi + 2.0*PI/NUM_LADOS;
+//            float ejex = radioTray * cos(fi)-radioTray;
+//            float ejey = radioTray * sin(fi);
+//            auxpath.push_back(Vector3D(ejex, ejey, 0));
+//        }
+        
         
         //Escribir trayectoria
         vector<Vector3D> auxpath;       //Hasta que SetTray de Control reciba vectores2d
