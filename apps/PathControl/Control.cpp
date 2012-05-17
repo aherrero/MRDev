@@ -49,6 +49,22 @@ Control::~Control() {
 }
 
 void Control::SetTray(vector <Vector3D> trayTeleop) {
+    //        #define NUM_LADOS 8.0
+//        //circulo
+//        vector<Vector3D> auxpath; 
+//        float radioTray = 1;
+//        float cte=0;
+//        float fi = cte;
+//        auxpath.push_back(Vector3D(radioTray * cos(fi)-radioTray,radioTray * sin(fi), 0.0));
+//        
+//
+//        while (fi <= 2 * PI+cte) {
+//            fi = fi + 2.0*PI/NUM_LADOS;
+//            float ejex = radioTray * cos(fi)-radioTray;
+//            float ejey = radioTray * sin(fi);
+//            auxpath.push_back(Vector3D(ejex, ejey, 0));
+//        }
+    
     for (int i = 0; i < trayTeleop.size(); i++)
         reftray = trayTeleop;
 
