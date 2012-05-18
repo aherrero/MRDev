@@ -17,15 +17,15 @@ Control::Control() {
     pos.x = pos.y = pos.z = 0.0;
     roll = pitch = yaw = 0.0;
     outputGiro = outputDist = anguloideal = 0.0;
-    outputProp = 2;
+    outputProp = 1.5;
     posicionAcumulada.clear();
     posicionIdealAcumulada.clear();
     errorVariableAcumulado.clear();
     reftray.clear();
     errorVariable = 0.0;
 
-    velmax = 2.0;
-    velmaxav = 2.0;
+    velmax = 1.5;
+    velmaxav = 1.5;
     velmink = 0.5;
 
     globaltime.clear();

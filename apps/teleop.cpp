@@ -8,8 +8,8 @@
 #include "PathControl/Angular.h"
 #include "PathControl/CalculoError.h"
 #include "PathControl/Control.h"
-#include "ReactiveControl/ControlReactivo.h"
-#include "ReactiveControl/Vision2D.h"
+#include "ReactiveControl/CinematicMap.h"
+#include "ReactiveControl/ReactiveControl.h"
 
 using namespace mr;
 using namespace std;
@@ -66,7 +66,7 @@ public:
         scene.Draw();
 
         controlboth->drawGL();
-        vision2d.drawGL();
+        cinematicmap.drawGL();
         reactivecontrol.Draw();
     }
 
@@ -76,7 +76,7 @@ public:
         Odometry odom;
         LaserData laserData;
 
-        bool laser_on = false;
+        bool laser_on = true;
 
         robot->getOdometry(odom);
         if (laser_on) robot->getLaserData(laserData);
@@ -95,15 +95,15 @@ public:
 
         if (laser_on)
         {
-            vision2d.SetPose(odom);
-            vision2d.SetLaser(laserData);
-            reactivecontrol.SetPoseVision(vision2d);
-            double dist2try = controlboth->errorVariable; //PRUEBAS. De momento,errorVariable public
-            reactivecontrol.SetCommand(va, vg, dist2try);
+            cinematicmap.SetPose(odom);
+            cinematicmap.SetLaser(laserData);
+            
+            reactivecontrol.SetObstacle(cinematicmap);
+            reactivecontrol.SetCommand(va, vg,controlboth->GetDist2traj());
         }
 
         float va2 = va, vg2 = vg;
-        if (laser_on) reactivecontrol.GetVel(va2, vg2);
+        if (laser_on) reactivecontrol.GetCommand(va2, vg2);
 
         if (STOP) va2 = vg2 = 0.0f;
 
@@ -163,8 +163,8 @@ private:
     Control *controldistancia;
     Control *controlboth;
     CalculoError calculoerror;
-    Vision2D vision2d;
-    ControlReactivo reactivecontrol;
+    CinematicMap cinematicmap;
+    ReactiveControl reactivecontrol;
     bool STOP;
 };
 

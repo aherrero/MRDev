@@ -26,6 +26,7 @@ public:
     //OUT
     void GetVel(float &, float &);
     virtual void Save();
+    double GetDist2traj(){return errorVariable;};
 
     virtual void ComputeControl() = 0;
     void ComputeCurrentSegment();
@@ -38,7 +39,6 @@ public:
     void writeToStream(Stream& stream) {};
     void readFromStream(Stream& stream) {};
     
-    double errorVariable;       //PRUEBA. CONTROL REACTIVO TENIENDO EN CUENTA DIST TRAY
 
 protected:
 
@@ -59,6 +59,7 @@ protected:
     float anguloideal;
     
     vector <Vector2D> errorVariableAcumulado;
+    double errorVariable;
 
     int currentSegment;
 
