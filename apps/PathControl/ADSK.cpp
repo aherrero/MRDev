@@ -11,17 +11,18 @@
 ADSK::ADSK()
 {
     //Valores para ControlReal
-    //kpg = 1.5;
-    //kpd = 4;
-    //kadsk = 0.9;
-    //velmaxav = 0.2; //Ponemos velavance cte
-    //velmink = 0.1; //Minima mas min
-    //velmax = 1;
+//    kpg = 1.4;
+//    kpd = 3.9;
+//    kadsk = 0.95;
+//    velmaxav = 0.2; //Ponemos velavance cte
+//    velmink = 0.05; //Minima mas min
+//    velmax = 1.8;
 
     //Simula reactivo:
     kpg = 1.2;
     kpd = 0.5;
     kadsk = 0.95;
+    
     distEndAcum.clear();
     controladskON = false;
 

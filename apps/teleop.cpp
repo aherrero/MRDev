@@ -90,6 +90,7 @@ public:
         //Pose2D robotPose(pose.position.x,pose.position.y,yaw);
 
         /************CONTROL TRAYECTORIA***************/
+        //float va3,vg3;
         controlboth->SetPose(odom);
         controlboth->GetVel(va, vg);
 
@@ -111,7 +112,7 @@ public:
         if (STOP) va2 = vg2 = 0.0f;
 
         /************ACTUACION ROBOT***************/
-        cout << "velavance: " << va2 << " velgiro: " << vg2 << endl;
+        //cout << "velavance: " << va2 << " velgiro: " << vg2 << endl;
         robot->move(va2, vg2);
     }
 

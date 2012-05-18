@@ -77,6 +77,7 @@ void Control::SetPose(Odometry recibeOdo) {
     posicionAcumulada.push_back(pos);
     yawAcumulado.push_back(yaw);
 
+    cout<<"pos "<<pos.x<<" "<<pos.y<<" yaw "<<yaw<<endl;
     //Func
     dataToSave();
 
@@ -153,13 +154,13 @@ void Control::ComputeCurrentSegment() {
 
     //Y cuando esta dentro de una circunferencia con centro fin de segmento
     //x²+y²=radio²
-    float radioPosicionDeseada = 0.5;
+    float radioPosicionDeseada = 0.2;
     float calculoCoord = pow((pos.x - reftray[currentSegment + 1].x), 2) +
             pow((pos.y - reftray[currentSegment + 1].y), 2);
 
 
     //Cuando pasa uno u otro caso:
-    if ((calculoCoord <= pow(radioPosicionDeseada, 2)) || (distToFinCL < 0.1)) {
+    if ((calculoCoord <= pow(radioPosicionDeseada, 2)) || (distToFinCL < 0.05)) {
         //Dentro de circunf o distancia al vector perpenciular casi cero
         finTray = true;
 
