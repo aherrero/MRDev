@@ -19,8 +19,8 @@ ADSK::ADSK()
     //velmax = 1;
 
     //Simula reactivo:
-    kpg = 2;
-    kpd = 2;
+    kpg = 1.2;
+    kpd = 0.5;
     kadsk = 0.95;
     distEndAcum.clear();
     controladskON = false;
@@ -61,12 +61,12 @@ void ADSK::ComputeControl()
             velgiro = outputDist + outputGiro;
         else if ((outputDist + outputGiro) < 0) //si era negativo, velmax negativa
             velgiro = -velmax;
-        else velgiro = velmax;
+             else velgiro = velmax;
 
     }
     else //Si esta dentro, parar control y pasar a siguiente segmento, si hubiese
     {
-        if (currentSegment < reftray.size() - 2) //el -2 necesario porque reftray tiene inicio 0,0,0
+        if (currentSegment <= reftray.size() - 1)
         {
             currentSegment++;
             cout << "CambioSegmento" << endl;
@@ -176,11 +176,15 @@ bool ADSK::ControlDistToSeg()
     float distanceRef = 0.0;
 
     //Si esta a la derecha de la recta,prodEsc positivo
-    if (prodEsc > 0)
+    if (prodEsc > 0){    //line a la izq
         error = -(distanceRef - dist2Seg);
-    else
+        sideofpath=false;
+    }
+    else{
         error = (distanceRef - dist2Seg);
-
+        sideofpath=true;
+    }
+    
     //salida
     outputDist = kpd*error;
 

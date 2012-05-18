@@ -20,7 +20,7 @@ public:
     virtual ~ReactiveControl();
     
     void SetObstacle(CinematicMap &obstacle);
-    void SetCommand(float va_,float vg_,double dist2traj_);
+    void SetCommand(float va_,float vg_,double dist2traj_,bool sideofpath_);
     void GetCommand(float &vad,float &vrot);
     void Draw();
     
@@ -47,7 +47,7 @@ private:
     //Compute
     float va;
     float vg;
-    void Compute();
+    void Compute(bool sideofpath);
     
     //ReactiveControl
     float outputRotation;
@@ -55,6 +55,8 @@ private:
     float kadv;
     float krot;
     double dist2traj;
+    float velmaxad;
+    float velmaxrot;
     
     //Min Distance Obstacle
     float rangeActionFront;

@@ -89,4 +89,19 @@ void CinematicMap::drawGL()
         }
         glPopMatrix();
     }
+    
+    if(!pointsCloud.empty())
+    {
+        glPushMatrix();
+        Vector2D center = gf::TransformationRT2D(pointsCloud[pointsCloud.size()/2], yaw, Vector2D(pos.x, pos.y));
+
+        glLineWidth(1.0);
+        glColor3ub(0, 200, 0);
+
+        glBegin(GL_LINES);
+        glVertex3f(pos.x, pos.y, 0.4); // V0
+        glVertex3f(center.x, center.y, 0.4); // V1
+        glEnd();
+        glPopMatrix();
+    }
 }

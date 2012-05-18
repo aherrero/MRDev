@@ -15,7 +15,7 @@ public:
     ADSK();
     ADSK(const ADSK& orig);
     virtual ~ADSK();
-    
+        
 private:
     bool ControlAngular();
     bool ControlDistToSeg();
@@ -30,6 +30,7 @@ private:
     vector<Vector3D> distEndAcum;
     bool controladskON;
     void Save();
+    
 };
 
 #endif	/* ADSK_H */

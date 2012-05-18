@@ -63,7 +63,9 @@ public:
 
     void Draw(void)
     {
+        
         scene.Draw();
+        scene.BackgroundColor(0.9,0.9,0.9);
 
         controlboth->drawGL();
         cinematicmap.drawGL();
@@ -99,7 +101,8 @@ public:
             cinematicmap.SetLaser(laserData);
             
             reactivecontrol.SetObstacle(cinematicmap);
-            reactivecontrol.SetCommand(va, vg,controlboth->GetDist2traj());
+            reactivecontrol.SetCommand(va, vg,
+                    controlboth->GetDist2traj(),controlboth->GetSideOfPath());
         }
 
         float va2 = va, vg2 = vg;

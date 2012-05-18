@@ -5,13 +5,18 @@
  * Created on 17 de mayo de 2012, 20:02
  */
 
+#include <vector>
+
 #include "ReactiveControl.h"
 
 ReactiveControl::ReactiveControl() {
-    rangeActionFront=2.5;
-    rangeActionLateral=1.5;
+    rangeActionFront=1.5;
+    rangeActionLateral=1.2;
     kadv=1;
     krot=2;
+    
+    velmaxad = 1.0;
+    velmaxrot = 1.5;
     
     outputAdvance=0.0;
     outputRotation=0.0;
@@ -35,14 +40,14 @@ void ReactiveControl::SetObstacle(CinematicMap& obstacle)
     ObstacleDangerLateral();
 }
 
-void ReactiveControl::SetCommand(float va_, float vg_,double dist2traj_)
+void ReactiveControl::SetCommand(float va_, float vg_,double dist2traj_,bool sideofpath_)
 {
     va=va_;
     vg=vg_;
     dist2traj=dist2traj_;
     outputAdvance=va;
     outputRotation=vg;
-    Compute();
+    Compute(sideofpath_);
 }
 
 void ReactiveControl::ObstacleDangerFront()
@@ -52,9 +57,9 @@ void ReactiveControl::ObstacleDangerFront()
     angleObstacleDangerFR.clear();
     
     for (int i = 0; i < pointsObstacle.size(); i++) {
-        if(fabs(angleObstacle[i]<PI/6))         //Solo nos importa de -pi/6 a pi/6
+        if(fabs(angleObstacle[i].getValue())<PI/4)         //Solo nos importa de -pi/4 a pi/4
         {
-            if (rangeObstacle[i] < rangeActionLateral) {          //Cuando dist menor que 2metros example
+            if (rangeObstacle[i] < rangeActionFront) {          //Cuando dist menor que 2metros example
                 pointsObstacleDangerFR.push_back(pointsObstacle[i]);   
                 rangeObstacleDangerFR.push_back(rangeObstacle[i]);
                 angleObstacleDangerFR.push_back(angleObstacle[i]);
@@ -70,9 +75,9 @@ void ReactiveControl::ObstacleDangerLateral()
     angleObstacleDangerLT.clear();
     
     for (int i = 0; i < pointsObstacle.size(); i++) {
-        if(fabs(angleObstacle[i]<PI/2))         //Solo nos importa de -90º a 90º
+        if(fabs(angleObstacle[i].getValue())<PI/2)         //Solo nos importa de -90º a 90º
         {
-            if (rangeObstacle[i] < rangeActionFront) {          //Cuando dist menor que 2metros example
+            if (rangeObstacle[i] < rangeActionLateral) {          //Cuando dist menor que 2metros example
                 //danger = true;
                 pointsObstacleDangerLT.push_back(pointsObstacle[i]);     
                 rangeObstacleDangerLT.push_back(rangeObstacle[i]);
@@ -82,76 +87,110 @@ void ReactiveControl::ObstacleDangerLateral()
     }
 }
 
-void ReactiveControl::Compute()
+void ReactiveControl::Compute(bool sideofpath)
 {
+    outputRotation = vg;
+    outputAdvance = va;
     //**************** No hay object
-    if(pointsObstacleDangerLT.size() <= 0 && pointsObstacleDangerFR.size() <= 0)
+    cout<<"LT "<<pointsObstacleDangerLT.size()<<" FT "<<pointsObstacleDangerFR.size()<<endl;
+    if(pointsObstacleDangerLT.size() <= 20 && pointsObstacleDangerFR.size() <= 20)
     {
-        outputRotation = vg;
-        outputAdvance = va;
+        cout<<"TRAJECTORY CONTROL"<<endl;
+        return;
     }
     //****** 1) Velocidad de avance disminuye cuando se acerca a objeto
     else 
     {
-        outputRotation = vg;
         float auxrangeMin = rangeActionFront;
         float distmax=rangeActionFront;
         float distmin=0.3;
+        int angdch=0;
+        int angizq=0;
         
         if (pointsObstacleDangerFR.size() > 0) {
             for (int i = 0; i < pointsObstacleDangerFR.size(); i++) {
                 if (rangeObstacleDangerFR[i] < auxrangeMin){
                     auxrangeMin = rangeObstacleDangerFR[i];
+                    if(angleObstacleDangerFR[i].getValue()<0)           
+                        angdch++;                       
+                    else                 
+                        angizq++;
                 }
 
             }
 
             float error = (auxrangeMin-distmin)/(distmax-distmin); 
 
+            cout<<"REACTCTRL. ADVANCE"<<endl;
             outputAdvance = kadv * error *va;
 
         }
 
         //****** 2) Velocidad de giro  
-        outputAdvance = va;
-        Angle auxangleMin;
-        auxangleMin.setValue(0.0);
+        double auxangleMin;
         float auxrangeGiroMin = rangeActionLateral;
-        int angdch=0;
-        int angizq=0;
                
         if (pointsObstacleDangerLT.size() > 0) {
                         
             for (int i = 0; i < pointsObstacleDangerLT.size(); i++) {
                 if (rangeObstacleDangerLT[i] < auxrangeGiroMin){
                     auxrangeGiroMin=rangeObstacleDangerLT[i];
-                    auxangleMin=angleObstacleDangerLT[i];
-
-                    if(angleObstacleDangerLT[i]<=0)           
-                        angdch++;                       
-                    else                 
-                        angizq++;
+                    auxangleMin=angleObstacleDangerLT[i].getValue();
                 }
             }  
             
             
 
-            float errorg=PI/2+0.01-fabs(auxangleMin.getValue());
-                       
-            if(angizq<angdch)   //IZQ
-                outputRotation=krot*errorg;
-            else                //DCH
-                outputRotation=-krot*errorg;  
+            float errorg=PI/2+0.01-fabs(auxangleMin);
+                 
+            if(angizq<angdch)
+            {
+                if (!sideofpath)
+                {
+                    cout << "REACTCTRL. LEFT" << endl;
+                    outputRotation = krot*errorg;
+                }
+                else
+                {
+                    cout << "REACTCTRL. RIGHT OBL" << endl;
+                    outputRotation = -krot*errorg;
+                }
+            }
+            else
+            {
+                if (sideofpath)
+                {
+                    cout<<"REACTCTRL. RIGHT"<<endl;
+                    outputRotation=-krot*errorg;  
+                }
+                else
+                {
+                    cout << "REACTCTRL. LEFT OBL" << endl;
+                    outputRotation = krot*errorg;
+                }
+            }
             
-            if(dist2traj<0.2)//No hagas caso a react y sigue trayectoria!
-                outputRotation=vg;
+            //if(outputAdvance<0.02) gira y avanza a cualquier direccion
         }
     }
     //SATURACION
-    if(outputRotation>2.0)
-        outputRotation=2.0;
-    if(outputAdvance>2.0)
-        outputAdvance=2.0;
+    if(outputAdvance>velmaxad)
+        outputAdvance=velmaxad;
+    
+    if(abs(outputRotation)>velmaxrot)
+    {
+        if(outputRotation>0)
+            outputRotation=velmaxrot;
+        else if(outputRotation<0)
+            outputRotation= -velmaxrot;
+        else
+            outputRotation=outputRotation;
+    }
+    
+    if(va==0 && vg==0){  //Fin de la trayectoria
+        outputRotation=0.0;
+        outputAdvance=0.0;
+    }
  
 }
 
@@ -169,7 +208,7 @@ void ReactiveControl::Draw() {
         glPushMatrix();
         //Puntos Peligrosos (menor que rangeAction)
         glPointSize(1.5);
-        glColor3ub(255, 0, 255);
+        glColor3ub(50, 0, 255);
         for (int i = 0; i < pointsObstacleDangerLT.size(); i++) {
             glBegin(GL_POINTS);
             glVertex3f(pointsObstacleDangerLT[i].x, pointsObstacleDangerLT[i].y, 0.4);

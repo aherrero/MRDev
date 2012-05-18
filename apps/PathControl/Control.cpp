@@ -17,16 +17,16 @@ Control::Control() {
     pos.x = pos.y = pos.z = 0.0;
     roll = pitch = yaw = 0.0;
     outputGiro = outputDist = anguloideal = 0.0;
-    outputProp = 1.5;
+    outputProp = 1.0;
     posicionAcumulada.clear();
     posicionIdealAcumulada.clear();
     errorVariableAcumulado.clear();
     reftray.clear();
     errorVariable = 0.0;
 
-    velmax = 1.5;
-    velmaxav = 1.5;
-    velmink = 0.5;
+    velmax = 1.5;       //VEL MAX GIRO!
+    velmaxav = 1.0;     //VEL MAX AVANCE!
+    velmink = 0.5;      //VEL MIN AVANCE!
 
     globaltime.clear();
     runones = false;
@@ -42,6 +42,7 @@ Control::Control() {
     distToFinCL=0.0f;
     
     yawAcumulado.clear();
+    sideofpath=true;   //Solo variable en adsk
 
 }
 
@@ -152,13 +153,13 @@ void Control::ComputeCurrentSegment() {
 
     //Y cuando esta dentro de una circunferencia con centro fin de segmento
     //x²+y²=radio²
-    float radioPosicionDeseada = 0.2;
+    float radioPosicionDeseada = 0.5;
     float calculoCoord = pow((pos.x - reftray[currentSegment + 1].x), 2) +
             pow((pos.y - reftray[currentSegment + 1].y), 2);
 
 
     //Cuando pasa uno u otro caso:
-    if ((calculoCoord <= pow(radioPosicionDeseada, 2)) || (distToFinCL < 0.05)) {
+    if ((calculoCoord <= pow(radioPosicionDeseada, 2)) || (distToFinCL < 0.1)) {
         //Dentro de circunf o distancia al vector perpenciular casi cero
         finTray = true;
 

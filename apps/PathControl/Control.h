@@ -31,8 +31,10 @@ public:
     virtual void ComputeControl() = 0;
     void ComputeCurrentSegment();
     void dataToSave();
+    
 
     void drawGL();
+    bool GetSideOfPath(){return sideofpath;};
 
     //Implementar vacío los siguientes metodos para que Control derive de Object
     string getClassName() {};
@@ -70,6 +72,8 @@ protected:
     Vector2D perpvectTray;
     
     double distToFinCL;
+    
+    bool sideofpath;
 
 private:
     MRTime ti;

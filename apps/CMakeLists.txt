@@ -24,9 +24,7 @@ ADD_EXECUTABLE(	teleop
 		PathControl/AngDistToSeg.cpp 
 		PathControl/CalculoError.cpp
 		PathControl/ADSK.cpp
-		ReactiveControl/Vision2D.cpp
 		ReactiveControl/CinematicMap.cpp
-		ReactiveControl/ControlReactivo.cpp
 		ReactiveControl/ReactiveControl.cpp
 		)
 
