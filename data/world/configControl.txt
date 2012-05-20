@@ -1,7 +1,7 @@
 world: twoscreen.world
 robots: 1
 neo 13000 -7 -5 0
-persons: 40
+persons: 30
 noname  1.8 -3 4 0.1
 noname  1.2 -2 1 0.1
 noname  1.6 -1 9 0.1
@@ -32,14 +32,4 @@ noname  1.8 3 6 0.1
 noname  1.2 4 7 0.1
 noname  1.6 5 8 0.1
 noname  1.8 6 6 0.1
-noname  1.2 7 7 0.1
-noname  1.6 8 8 0.1
-noname  1.8 9 6 0.1
-noname  1.2 10 7 0.1
-noname  1.6 11 8 0.1
-noname  1.8 12 6 0.1
-noname  1.2 13 7 0.1
-noname  1.6 5 8 0.1
-noname  1.8 6 6 0.1
-noname  1.2 7 7 0.1
 
