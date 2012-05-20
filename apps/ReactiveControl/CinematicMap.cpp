@@ -56,7 +56,7 @@ void CinematicMap::Obstacle()
     //if(pointsObstacle[i].z<0 && pointsObstacle[i].z<alturarobot) //obstaculo
     for (int i = 0; i < pointsCloud.size(); i++)
     {
-        if(rangeCloud[i]<distMaxObstacle)
+        if(rangeCloud[i]<distMaxObstacle)               //Menor que 10
         {
             pointsObstacle.push_back
                     (gf::TransformationRT2D(pointsCloud[i],yaw,Vector2D(pos.x,pos.y)));

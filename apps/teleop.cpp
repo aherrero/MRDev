@@ -94,7 +94,7 @@ public:
         controlboth->SetPose(odom);
         controlboth->GetVel(va, vg);
 
-        /************CONTROL REACTIVO***************/ //ARREGLAR CLASE VISION2D!!
+        /************CONTROL REACTIVO***************/
 
         if (laser_on)
         {
