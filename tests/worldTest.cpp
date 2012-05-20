@@ -41,6 +41,7 @@ void InitWorldSquaredRingWalls();
 void InitWorldTry();
 void InitWorldTry2();
 void InitWolrdTrySquare();
+void WorldSelector();
 
 int main(int argc, char* argv[])
 {
@@ -63,7 +64,8 @@ int main(int argc, char* argv[])
 	//InitWorldTry();
 	//InitWorldColumns();
 	//InitWorldTry2();
-	InitWolrdTrySquare();
+	//InitWolrdTrySquare();
+	WorldSelector();
 	
 	
 	
@@ -245,6 +247,42 @@ void InitWorldSquaredRingWalls()
 	building->addFace(paredinterna3);
 	building->addFace(paredinterna4);
 
+	world+=building;
+}
+
+void WorldSelector()
+{
+	Face suelo(Transformation3D(0,0,0),-20,-20,20,20);
+	suelo.setColor(0.8f, 0.8f, 0.8f, 1);
+
+	Face paredfondo1(Transformation3D(-20,0,0,Y_AXIS,PI/2),-3,-20,0,20);
+	Face paredfondo2(Transformation3D(20,0,0,Y_AXIS,PI/2),-3,-20,0,20);
+	Face paredfondo3(Transformation3D(20,-20,0,X_AXIS,PI/2),0, 0, -40, 3);
+	Face paredfondo4(Transformation3D(-20,20,0,X_AXIS,PI/2),0, 0, 40, 3);
+	paredfondo1.setColor(0.5f, 0.5f, 0.0f, 1);
+	paredfondo2.setColor(0.5f, 0.5f, 0.0f, 1);
+	paredfondo3.setColor(0.5f, 0.5f, 0.0f, 1);
+	paredfondo4.setColor(0.5f, 0.5f, 0.0f, 1);
+
+	FaceSetPart *building=new FaceSetPart; 
+	building->addFace(suelo);
+	building->addFace(paredfondo1);
+	building->addFace(paredfondo2);
+	building->addFace(paredfondo3);
+	building->addFace(paredfondo4);
+	
+	PrismaticPart *mypart=new PrismaticPart;
+	vector<Vector2D> list;
+	list.push_back(Vector2D(0,0));
+	list.push_back(Vector2D(0,2));
+	list.push_back(Vector2D(5,2));
+	list.push_back(Vector2D(5,0));
+	mypart->setPolygonalBase(list);
+	mypart->setRelativePosition(Vector3D(4,1,0));
+	mypart->setRelativeOrientation(0,0,PI/2);
+	mypart->setHeight(1);
+	world+=mypart;
+ 
 	world+=building;
 }
 

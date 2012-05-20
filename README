@@ -1,9 +1,9 @@
 Three project:
 
-*simulator, in apps/simulator, and need it a text file of world, like data/configMyRoom.txt
+*simulator, in apps/simulator, and need it a text file of world, like data/world/configMyRoom.txt
 run:  ./simulator ../data/world/configMyRoom.txt
 
-*teleop, in apps/teleop, and need a path, like data/pathlaser.txt
+*teleop, in apps/teleop, and need a path, like data/path/pathlaser.txt
 run:  ./teleop ../data/path/pathlaser.txt
 
 *worldtest, in tests/worldtest //creates new worlds to simulate
@@ -11,9 +11,13 @@ run:  ./worldtest
 
 -----------------------------------------------------------------------
 
-#First, you need to install the mrcore libraries, for example, check out:
+###First, you need to install the mrcore libraries, for example, check out with svn:
 
 svn co https://github.com/drodri/MRCore.git/trunk mrcore
+
+# or with git
+
+git clone https://github.com/drodri/MRCore.git mrcore
 
 # Or the original code, from www.mrgroup.es:
 
@@ -25,9 +29,14 @@ cmake .
 make
 sudo make install
 
-#and then, download this apps:
+
+###and then, download this apps with svn:
 
 svn co https://aherrero@github.com/aherrero/MRDev.git/trunk mrdev
+
+#or with git
+
+git clone https://aherrero@github.com/aherrero/MRDev.git mrdev
 
 # Or download the repository as a zip file; https://github.com/aherrero/MRDev/zipball/master
 
