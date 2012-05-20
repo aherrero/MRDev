@@ -77,7 +77,6 @@ void Control::SetPose(Odometry recibeOdo) {
     posicionAcumulada.push_back(pos);
     yawAcumulado.push_back(yaw);
 
-    cout<<"pos "<<pos.x<<" "<<pos.y<<" yaw "<<yaw<<endl;
     //Func
     dataToSave();
 
