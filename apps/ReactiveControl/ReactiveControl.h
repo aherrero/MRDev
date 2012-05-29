@@ -20,7 +20,7 @@ public:
     virtual ~ReactiveControl();
     
     void SetObstacle(CinematicMap &obstacle);
-    void SetCommand(float va_,float vg_,double dist2traj_,bool sideofpath_);
+    void SetCommand(float va_,float vg_,bool sideofpath_);
     void GetCommand(float &vad,float &vrot);
     void Draw();
     

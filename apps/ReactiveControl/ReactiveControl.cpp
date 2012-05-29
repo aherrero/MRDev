@@ -40,14 +40,13 @@ void ReactiveControl::SetObstacle(CinematicMap& obstacle)
     ObstacleDangerLateral();
 }
 
-void ReactiveControl::SetCommand(float va_, float vg_,double dist2traj_,bool sideofpath_)
+void ReactiveControl::SetCommand(float va_, float vg_,bool sideofpath_)
 {
     va=va_;
     vg=vg_;
-    dist2traj=dist2traj_;
     outputAdvance=va;
     outputRotation=vg;
-    Compute(sideofpath_);
+    Compute(sideofpath_);       //sideofpath true si robot a la derecha
 }
 
 void ReactiveControl::ObstacleDangerFront()
@@ -92,8 +91,9 @@ void ReactiveControl::Compute(bool sideofpath)
     outputRotation = vg;
     outputAdvance = va;
     //**************** No hay object
-    cout<<"LT "<<pointsObstacleDangerLT.size()<<" FT "<<pointsObstacleDangerFR.size()<<endl;
-    if(pointsObstacleDangerLT.size() <= 20 && pointsObstacleDangerFR.size() <= 20)
+    cout<<"pointsObstacleLateral "<<pointsObstacleDangerLT.size()<<" pointsObstacleFrontal "<<pointsObstacleDangerFR.size()<<endl;
+    
+    if(pointsObstacleDangerLT.size() <= 0 && pointsObstacleDangerFR.size() <= 0)
     {
         cout<<"TRAJECTORY CONTROL"<<endl;
         return;
@@ -120,7 +120,6 @@ void ReactiveControl::Compute(bool sideofpath)
             }
 
             float error = (auxrangeMin-distmin)/(distmax-distmin); 
-
             cout<<"REACTCTRL. ADVANCE"<<endl;
             outputAdvance = kadv * error *va;
 
@@ -142,8 +141,8 @@ void ReactiveControl::Compute(bool sideofpath)
             
 
             float errorg=PI/2+0.01-fabs(auxangleMin);
-                 
-            if(angizq<angdch)
+            //This loop doesn't do anything.
+         /*  if(angizq<angdch)
             {
                 if (!sideofpath)
                 {
@@ -156,8 +155,8 @@ void ReactiveControl::Compute(bool sideofpath)
                     outputRotation = -krot*errorg;
                 }
             }
-            else
-            {
+            else*/ 
+            //{
                 if (sideofpath)
                 {
                     cout<<"REACTCTRL. RIGHT"<<endl;
@@ -168,9 +167,8 @@ void ReactiveControl::Compute(bool sideofpath)
                     cout << "REACTCTRL. LEFT OBL" << endl;
                     outputRotation = krot*errorg;
                 }
-            }
+            //}
             
-            //if(outputAdvance<0.02) gira y avanza a cualquier direccion
         }
     }
     //SATURACION

@@ -78,16 +78,9 @@ public:
         Odometry odom;
         LaserData laserData;
 
-        bool laser_on = true;
 
         robot->getOdometry(odom);
-        if (laser_on) robot->getLaserData(laserData);
-
-        //The odometry is full 3D, lets handle it only in 2D, as a Pose (x, y, theta)
-        //Transformation3D pose=odom.pose;
-        //double roll,pitch,yaw;
-        //pose.orientation.getRPY(roll,pitch,yaw);
-        //Pose2D robotPose(pose.position.x,pose.position.y,yaw);
+        bool laser_on=robot->getLaserData(laserData);
 
         /************CONTROL TRAYECTORIA***************/
         //float va3,vg3;
@@ -102,8 +95,7 @@ public:
             cinematicmap.SetLaser(laserData);
             
             reactivecontrol.SetObstacle(cinematicmap);
-            reactivecontrol.SetCommand(va, vg,
-                    controlboth->GetDist2traj(),controlboth->GetSideOfPath());
+            reactivecontrol.SetCommand(va, vg,controlboth->GetSideOfPath());
         }
 
         float va2 = va, vg2 = vg;
