@@ -9,6 +9,8 @@
 #define	GLOBALFUNCTIONS_H
 
 #include "/usr/local/mrcore/include/mrcore/mrcore.h"
+#include "/usr/include/GL/glut.h"
+#include <string.h>
 
 namespace gf {
 
@@ -42,36 +44,36 @@ namespace gf {
         return rot_translation;
     };
     
-//    void inline Texto2D(char *mensaje, int x, int y, float r, float g, float b)
-//    {
-//        glDisable (GL_LIGHTING);
-//	glMatrixMode(GL_PROJECTION);
-//	glPushMatrix();
-//	glLoadIdentity();
-//	gluOrtho2D(0, glutGet(GLUT_WINDOW_WIDTH), 0, glutGet(GLUT_WINDOW_HEIGHT) );
-//
-//	glMatrixMode(GL_MODELVIEW);
-//	glPushMatrix();
-//	glLoadIdentity();
-//
-//	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-//	glDisable(GL_DEPTH_TEST);
-//	glDisable(GL_BLEND);
-//	glColor3f(r,g,b);
-//	glRasterPos3f(x, glutGet(GLUT_WINDOW_HEIGHT)-18-y, 0);
-//	int len = strlen (mensaje );
-//
-//	for (int i = 0; i < len; i++) 
-//		glutBitmapCharacter (GLUT_BITMAP_HELVETICA_18, mensaje[i] );
-//		
-//	glMatrixMode(GL_PROJECTION);
-//	glPopMatrix();
-//
-//	glMatrixMode(GL_MODELVIEW);
-//	glPopMatrix();
-//
-//	glEnable( GL_DEPTH_TEST );
-//    };
+    void inline Texto2D(char *mensaje, int x, int y, float r, float g, float b)
+    {
+        glDisable (GL_LIGHTING);
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	gluOrtho2D(0, glutGet(GLUT_WINDOW_WIDTH), 0, glutGet(GLUT_WINDOW_HEIGHT) );
+
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+	glLoadIdentity();
+
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	glDisable(GL_DEPTH_TEST);
+	glDisable(GL_BLEND);
+	glColor3f(r,g,b);
+	glRasterPos3f(x, glutGet(GLUT_WINDOW_HEIGHT)-18-y, 0);
+	int len = strlen (mensaje );
+
+	for (int i = 0; i < len; i++) 
+		glutBitmapCharacter (GLUT_BITMAP_HELVETICA_18, mensaje[i] );
+		
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+
+	glMatrixMode(GL_MODELVIEW);
+	glPopMatrix();
+
+	glEnable( GL_DEPTH_TEST );
+    };
 
 
 }

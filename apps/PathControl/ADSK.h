@@ -12,7 +12,8 @@
 
 class ADSK: public Control {
 public:
-    ADSK();
+    ADSK();     //Constructor por defecto
+    ADSK(float k1, float k2, float k3); //Constructor con parametros PID
     ADSK(const ADSK& orig);
     virtual ~ADSK();
         

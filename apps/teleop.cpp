@@ -10,6 +10,7 @@
 #include "PathControl/Control.h"
 #include "ReactiveControl/CinematicMap.h"
 #include "ReactiveControl/ReactiveControl.h"
+#include "globalFunctions.h"
 
 using namespace mr;
 using namespace std;
@@ -55,7 +56,11 @@ public:
         }
 
         //Crea el control
-        controlboth = new ADSK();
+        //RobotReal
+        controlboth = new ADSK(1.4,3.9,0.95);   //kpg,kpd,kadsk
+        //RobotSimulado
+        //controlboth = new ADSK(); 
+        
         //Mandar la trayectoria de entrada
         controlboth->SetTray(auxpath);
         STOP = false;
@@ -70,6 +75,12 @@ public:
         controlboth->drawGL();
         cinematicmap.drawGL();
         reactivecontrol.Draw();
+        
+        char mens[50];
+        sprintf(mens,"VelAvance: %.3f VelGiro: %.3f",
+                va2,vg2);
+        //mr::GLTools::Print(mens,10,10,0);
+        gf::Texto2D(mens,10,10,255,0,0); 
     }
 
     void Timer(float time)
@@ -84,6 +95,8 @@ public:
 
         /************CONTROL TRAYECTORIA***************/
         //float va3,vg3;
+        controlboth->SetVelLimit(1.8,0.2,0.05); //vgiro,vmaxav,vminav
+        //Si no introducimos limites, tiene unos por defecto.
         controlboth->SetPose(odom);
         controlboth->GetVel(va, vg);
 
@@ -98,13 +111,13 @@ public:
             reactivecontrol.SetCommand(va, vg,controlboth->GetSideOfPath());
         }
 
-        float va2 = va, vg2 = vg;
+        va2 = va;
+        vg2 = vg;
         if (laser_on) reactivecontrol.GetCommand(va2, vg2);
 
         if (STOP) va2 = vg2 = 0.0f;
 
         /************ACTUACION ROBOT***************/
-        //cout << "velavance: " << va2 << " velgiro: " << vg2 << endl;
         robot->move(va2, vg2);
     }
 
@@ -150,6 +163,7 @@ public:
     }
 private:
     float vg, va;
+    float vg2,va2;
     GLScene scene;
     World world;
     MobileRobot* robot;

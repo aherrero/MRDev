@@ -29,11 +29,11 @@ void AngDistToSeg::ComputeControl()
         ControlAngular();
         ControlDistToSeg();
         velavance = outputProp;
-        if(abs(outputDist+outputGiro)<velmax)        //Saturacion de los motores
+        if(abs(outputDist+outputGiro)<velmaxgi)        //Saturacion de los motores
                 velgiro = outputDist+outputGiro;
         else if((outputDist+outputGiro)<0)      //si era negativo, velmax negativa
-            velgiro=-velmax;
-        else velgiro=velmax;
+            velgiro=-velmaxgi;
+        else velgiro=velmaxgi;
         
 
     } else //Si esta dentro, parar control y pasar a siguiente segmento, si hubiese

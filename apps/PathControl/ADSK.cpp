@@ -15,8 +15,8 @@ ADSK::ADSK()
 //    kpd = 3.9;
 //    kadsk = 0.95;
 //    velmaxav = 0.2; //Ponemos velavance cte
-//    velmink = 0.05; //Minima mas min
-//    velmax = 1.8;
+//    velminav = 0.05; //Minima mas min
+//    velmaxgi = 1.8;
 
     //Simula reactivo:
     kpg = 1.2;
@@ -29,6 +29,15 @@ ADSK::ADSK()
     //Declaradas en Control.h
     //velmax=2.0;
     //velmink=0.5;
+}
+
+ADSK::ADSK(float k1, float k2, float k3)
+{
+    kpg = k1;
+    kpd = k2;
+    kadsk = k3;
+    distEndAcum.clear();
+    controladskON = false;
 }
 
 ADSK::ADSK(const ADSK& orig)
@@ -50,19 +59,19 @@ void ADSK::ComputeControl()
 
         //SATURACION
         //velavance
-        if ((outputProp < velmaxav) && (outputProp > velmink))
+        if ((outputProp < velmaxav) && (outputProp > velminav))
             velavance = outputProp;
         else if (outputProp >= velmaxav)
             velavance = velmaxav;
-        else if (outputProp <= velmink)
-            velavance = velmink;
+        else if (outputProp <= velminav)
+            velavance = velminav;
 
         //velgiro        
-        if (abs(outputDist + outputGiro) < velmax) //Saturacion de los motores
+        if (abs(outputDist + outputGiro) < velmaxgi) //Saturacion de los motores
             velgiro = outputDist + outputGiro;
         else if ((outputDist + outputGiro) < 0) //si era negativo, velmax negativa
-            velgiro = -velmax;
-             else velgiro = velmax;
+            velgiro = -velmaxgi;
+             else velgiro = velmaxgi;
 
     }
     else //Si esta dentro, parar control y pasar a siguiente segmento, si hubiese
@@ -138,7 +147,6 @@ bool ADSK::ControlAngular()
     }
 
     //cout<<"ang ideal "<<(int)(anguloideal*1000)<<" yaw "<<(int)(yaw*1000)<<endl;
-
     //salida
     outputGiro = kpg*error;
 
@@ -178,12 +186,12 @@ bool ADSK::ControlDistToSeg()
 
     //Si esta a la derecha de la recta,prodEsc positivo
     if (prodEsc > 0){    //line a la izq
-        error = -(distanceRef - dist2Seg);
-        sideofpath=false;
+            error = -(distanceRef - dist2Seg);
+            sideofpath=false;
     }
     else{
-        error = (distanceRef - dist2Seg);
-        sideofpath=true;
+            error = (distanceRef - dist2Seg);
+            sideofpath=true;
     }
     
     //salida
@@ -204,30 +212,30 @@ bool ADSK::ControlAnticipativo()
     float distMinFin = vecBA.module() / 2.0; //Distancia donde comenzara a actuar el controlador
 
     float distEndMultiply = 0.5 * distEnd; //Una proporcion para hacerlo equivalente con velmax
-    float error = velmax - distEndMultiply;
+    float error = velmaxgi - distEndMultiply;
 
 
 
     if (distToFinCL < distMinFin)
     { //Regulador funcionando
-        if ((kadsk * error) > velmink)
-            if ((kadsk * error) < velmax)
+        if ((kadsk * error) > velminav)
+            if ((kadsk * error) < velmaxgi)
                 outputProp = kadsk * error;
             else
-                outputProp = velmax;
+                outputProp = velmaxgi;
         else
-            outputProp = velmink;
+            outputProp = velminav;
 
         controladskON = true;
     }
     else
     {
-        if (outputProp < velmax)
+        if (outputProp < velmaxgi)
             outputProp = outputProp + 0.01; //Puede que esto no sea necesario en el robot real
             //Ya que en el real no va a aumentar la velocidad
             //tan rapido automaticamente
         else
-            outputProp = velmax;
+            outputProp = velmaxgi;
 
         controladskON = false;
     }

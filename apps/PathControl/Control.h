@@ -23,6 +23,7 @@ public:
     //IN
     void SetTray(vector <Vector3D>);
     void SetPose(Odometry recibeOdo);
+    void SetVelLimit(float vg1,float va1, float va2);
     //OUT
     void GetVel(float &, float &);
     virtual void Save();
@@ -56,8 +57,8 @@ protected:
     float velavance, velgiro;
     bool finTray;
     float outputGiro, outputDist, outputProp;
-    float velmaxav, velmink;
-    float velmax;
+    float velmaxav, velminav;
+    float velmaxgi;
     float anguloideal;
     
     vector <Vector2D> errorVariableAcumulado;

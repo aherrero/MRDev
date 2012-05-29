@@ -24,9 +24,9 @@ Control::Control() {
     reftray.clear();
     errorVariable = 0.0;
 
-    velmax = 1.5;       //VEL MAX GIRO!
+    velmaxgi = 1.5;       //VEL MAX GIRO!
     velmaxav = 1.0;     //VEL MAX AVANCE!
-    velmink = 0.5;      //VEL MIN AVANCE!
+    velminav = 0.5;      //VEL MIN AVANCE!
 
     globaltime.clear();
     runones = false;
@@ -47,6 +47,13 @@ Control::Control() {
 }
 
 Control::~Control() {
+}
+
+void Control::SetVelLimit(float vg1, float va1, float va2)
+{
+    velmaxgi = vg1;       //VEL MAX GIRO!
+    velmaxav = va1;     //VEL MAX AVANCE!
+    velminav = va2;      //VEL MIN AVANCE!
 }
 
 void Control::SetTray(vector <Vector3D> trayTeleop) {
