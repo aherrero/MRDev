@@ -10,13 +10,13 @@
 #include "ReactiveControl.h"
 
 ReactiveControl::ReactiveControl() {
-    rangeActionFront=1.5;
-    rangeActionLateral=1.2;
-    kadv=1;
-    krot=2;
+    rangeActionFront=0.9;
+    rangeActionLateral=0.7;
+    kadv=1.0;
+    krot=0.5;
     
-    velmaxad = 1.0;
-    velmaxrot = 1.5;
+    velmaxad = 0.2;
+    velmaxrot = 1.0;
     
     outputAdvance=0.0;
     outputRotation=0.0;
@@ -142,32 +142,32 @@ void ReactiveControl::Compute(bool sideofpath)
 
             float errorg=PI/2+0.01-fabs(auxangleMin);
             //This loop doesn't do anything.
-         /*  if(angizq<angdch)
+           if(angizq<angdch)
             {
-                if (!sideofpath)
-                {
+//                if (!sideofpath)
+//                {
                     cout << "REACTCTRL. LEFT" << endl;
                     outputRotation = krot*errorg;
-                }
-                else
-                {
-                    cout << "REACTCTRL. RIGHT OBL" << endl;
-                    outputRotation = -krot*errorg;
-                }
+//                }
+//                else
+//                {
+//                    cout << "REACTCTRL. RIGHT OBL" << endl;
+//                    outputRotation = -krot*errorg;
+//                }
             }
-            else*/ 
-            //{
-                if (sideofpath)
-                {
+            else
+            {
+//                if (sideofpath)
+//                {
                     cout<<"REACTCTRL. RIGHT"<<endl;
                     outputRotation=-krot*errorg;  
-                }
-                else
-                {
-                    cout << "REACTCTRL. LEFT OBL" << endl;
-                    outputRotation = krot*errorg;
-                }
-            //}
+//                }
+//                else
+//                {
+//                    cout << "REACTCTRL. LEFT OBL" << endl;
+//                    outputRotation = krot*errorg;
+//                }
+            }
             
         }
     }

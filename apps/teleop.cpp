@@ -57,7 +57,7 @@ public:
 
         //Crea el control
         //RobotReal
-        controlboth = new ADSK(1.4,3.9,0.95);   //kpg,kpd,kadsk
+        controlboth = new ADSK(1.2,2.2,0.95);   //kpg,kpd,kadsk
         //RobotSimulado
         //controlboth = new ADSK(); 
         
@@ -70,7 +70,7 @@ public:
     {
         
         scene.Draw();
-        scene.BackgroundColor(0.9,0.9,0.9);
+        scene.BackgroundColor(0.1,0.1,0.1);
 
         controlboth->drawGL();
         cinematicmap.drawGL();
@@ -91,11 +91,12 @@ public:
 
 
         robot->getOdometry(odom);
-        bool laser_on=robot->getLaserData(laserData);
+        bool laser_on=true;
+        if (laser_on) robot->getLaserData(laserData);
 
         /************CONTROL TRAYECTORIA***************/
         //float va3,vg3;
-        controlboth->SetVelLimit(1.8,0.2,0.05); //vgiro,vmaxav,vminav
+        controlboth->SetVelLimit(1.0,0.2,0.05); //vgiro,vmaxav,vminav
         //Si no introducimos limites, tiene unos por defecto.
         controlboth->SetPose(odom);
         controlboth->GetVel(va, vg);
@@ -115,27 +116,34 @@ public:
         vg2 = vg;
         if (laser_on) reactivecontrol.GetCommand(va2, vg2);
 
-        if (STOP) va2 = vg2 = 0.0f;
 
         /************ACTUACION ROBOT***************/
-        robot->move(va2, vg2);
+        if(!STOP){
+            vta=vtg=0.0;
+            robot->move(va2, vg2);
+        }
+        else{
+            //Teleoperado:
+            va2=vg2=0.0;
+            robot->move(vta,vtg);
+        }
     }
 
     void Key(unsigned char key)
     {
-        if (key == 'a')
-            vg += 0.01;
-        else if (key == 'd')
-            vg -= 0.01;
-        else if (key == 's')
-            va -= 0.01;
-        else if (key == 'w')
-            va += 0.01;
-        else if (key == ' ')
-            STOP = !STOP;
-        else
-        {
-            va = vg = 0;
+        if (key == ' ')
+                STOP = !STOP;
+        if(STOP){
+            if (key == 'a')
+                vtg += 0.01;
+            else if (key == 'd')
+                vtg -= 0.01;
+            else if (key == 's')
+                vta -= 0.01;
+            else if (key == 'w')
+                vta += 0.01;
+            else
+                vta = vtg = 0;
         }
     }
 
@@ -164,6 +172,7 @@ public:
 private:
     float vg, va;
     float vg2,va2;
+    float vta,vtg;
     GLScene scene;
     World world;
     MobileRobot* robot;
@@ -194,8 +203,8 @@ int main(int argc, char* argv[])
     cout << "Loading configuration file: " << pathinput << endl;
 
     MobileRobot* robot = new Neo();
-    robot->connectClients("127.0.0.1", 13000); //Simulation
-    //robot->connectClients("192.168.100.50",12000);        //Real          
+    //robot->connectClients("127.0.0.1", 13000); //Simulation
+    robot->connectClients("192.168.100.50",13008);        //Real          
     MyGlutApp myApp("teleop", robot);
 
     //Bucle
