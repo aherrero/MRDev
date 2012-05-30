@@ -204,7 +204,7 @@ int main(int argc, char* argv[])
 
     MobileRobot* robot = new Neo();
     //robot->connectClients("127.0.0.1", 13000); //Simulation
-    robot->connectClients("192.168.100.50",13008);        //Real          
+    robot->connectClients("192.168.100.50",13000);        //Real          
     MyGlutApp myApp("teleop", robot);
 
     //Bucle
@@ -213,7 +213,7 @@ int main(int argc, char* argv[])
 }
 
 void printUsage()
-{
+{       
     cout << "-------- Usage -----------------" << endl;
     cout << "> teleop config.txt    " << endl;
     cout << "example:    " << endl;
