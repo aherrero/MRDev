@@ -40,7 +40,7 @@ CalculoError::~CalculoError() {
 void CalculoError::ReadFile() {
     //LeerDatos
 
-    ifstream file("logs/data/DatosError.txt");
+    ifstream file("../../log/Control/DataError.txt");
 
     if (!file.is_open()) {
         printf("File not found!!\n");
@@ -174,7 +174,7 @@ void CalculoError::Error() {
     }
 
     //Salida error al archivo
-    std::ofstream file2("logs/data/Error.csv");
+    std::ofstream file2("../../log/Control/CalculoError.csv");
     file2 << "CocienteEntreDistancias[percent]" << endl;
     file2 << (int) (cocienteDistancias * 100) << endl;
     file2 << "currentSegment" << ";" << "Overshoot[mm]" <<

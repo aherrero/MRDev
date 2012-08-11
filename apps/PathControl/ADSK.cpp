@@ -8,48 +8,28 @@
 #include "ADSK.h"
 #include "../globalFunctions.h"
 
-ADSK::ADSK()
-{
-    //Valores para ControlReal
-//    kpg = 1.4;
-//    kpd = 3.9;
-//    kadsk = 0.95;
-//    velmaxav = 0.2; //Ponemos velavance cte
-//    velminav = 0.05; //Minima mas min
-//    velmaxgi = 1.8;
-
-    //Simula reactivo:
+ADSK::ADSK() {
+    //Simulate default
     kpg = 1.2;
     kpd = 0.5;
     kadsk = 0.95;
-    
-    distEndAcum.clear();
-    controladskON = false;
 
-    //Declaradas en Control.h
-    //velmax=2.0;
-    //velmink=0.5;
-}
-
-ADSK::ADSK(float k1, float k2, float k3)
-{
-    kpg = k1;
-    kpd = k2;
-    kadsk = k3;
     distEndAcum.clear();
     controladskON = false;
 }
 
-ADSK::ADSK(const ADSK& orig)
-{
+ADSK::ADSK(float k1, float k2, float k3) : kpg(k1), kpd(k2), kadsk(k3) {
+    distEndAcum.clear();
+    controladskON = false;
 }
 
-ADSK::~ADSK()
-{
+ADSK::ADSK(const ADSK& orig) {
 }
 
-void ADSK::ComputeControl()
-{
+ADSK::~ADSK() {
+}
+
+void ADSK::ComputeControl() {
     /******CONTROL*****/
     if (!finTray) //Si esta fuera de Segmento, hacer control.
     {
@@ -71,29 +51,28 @@ void ADSK::ComputeControl()
             velgiro = outputDist + outputGiro;
         else if ((outputDist + outputGiro) < 0) //si era negativo, velmax negativa
             velgiro = -velmaxgi;
-             else velgiro = velmaxgi;
+        else velgiro = velmaxgi;
 
     }
     else //Si esta dentro, parar control y pasar a siguiente segmento, si hubiese
     {
-        if (currentSegment <= reftray.size() - 1)
+        if (currentSegment < reftray.size() - 2)
         {
             currentSegment++;
-            cout << "CambioSegmento" << endl;
+            cout << "Segment Change" << endl;
 
         }
         else
         {
             velavance = 0.0;
             velgiro = 0.0;
-            cout << "No hay mas trayectoria" << endl;
+            cout << "No more path" << endl;
         }
+        
     }
-
 }
 
-bool ADSK::ControlAngular()
-{
+bool ADSK::ControlAngular() {
 
     //Calculo de angulo ideal
     double calculo = atan(abs(reftray[currentSegment + 1].y - pos.y) /
@@ -146,7 +125,6 @@ bool ADSK::ControlAngular()
         error = error1;
     }
 
-    //cout<<"ang ideal "<<(int)(anguloideal*1000)<<" yaw "<<(int)(yaw*1000)<<endl;
     //salida
     outputGiro = kpg*error;
 
@@ -156,15 +134,14 @@ bool ADSK::ControlAngular()
 
 }
 
-bool ADSK::ControlDistToSeg()
-{
+bool ADSK::ControlDistToSeg() {
     //Segmentos de trayectoria
-    Vector3D p1 = reftray[currentSegment];
-    Vector3D p2 = reftray[currentSegment + 1];
+    Vector3D p1(reftray[currentSegment].x, reftray[currentSegment].y, 0.0);
+    Vector3D p2(reftray[currentSegment + 1].x, reftray[currentSegment + 1].y, 0.0);
+    //Los calculos con distancia a segmenteos se hacen mejor con 3D en mrcore
     Segment3D segTray(p1, p2);
-
-    //Distancia del robot a la tray ideal
     double dist2Seg;
+    //Distancia del robot a la tray ideal
     dist2Seg = gf::distanceCtrl(pos, segTray);
 
 
@@ -180,34 +157,44 @@ bool ADSK::ControlDistToSeg()
 
     /******CONTROL DISTANCIA A LA TRAY IDEAL*****/
 
-    float error;
+    float error = 0.0;
+    float distMax = 10.0; //DistMax para que haga caso control distancia
 
-    float distanceRef = 0.0;
+    //float distanceRef = 0.0;
 
     //Si esta a la derecha de la recta,prodEsc positivo
-    if (prodEsc > 0){    //line a la izq
-            error = -(distanceRef - dist2Seg);
-            sideofpath=false;
+    //Haremos una parabola invertida, para que el control de distancia
+    //Actue suave cerca de la recta, fuerte a una distancia media, y despreciable
+    //Cuando se aleja mucho. Parabola invertida: y=-ax²+bx+c
+
+    if (prodEsc > 0)    //line a la izq
+    { 
+        //error = -(distanceRef - dist2Seg);
+        error =((-(dist2Seg*dist2Seg))/distMax)+dist2Seg;
     }
-    else{
-            error = (distanceRef - dist2Seg);
-            sideofpath=true;
+    else
+    {
+        //error = (distanceRef - dist2Seg);
+        error =-((-(dist2Seg*dist2Seg))/distMax)-dist2Seg;
     }
-    
+
     //salida
-    outputDist = kpd*error;
+    if(dist2Seg<=distMax)
+        outputDist = kpd*error;
+    else
+        outputDist=outputDist;
 
     if ((error < 0.001) && (error>-0.001)) return false; //Si error aprox cero, devuelve false
     else return true;
 }
 
-bool ADSK::ControlAnticipativo()
-{
+bool ADSK::ControlAnticipativo() {
 
     double distEnd = 1.0 / distToFinCL;
 
-    Vector3D ptoA = reftray[currentSegment];
-    Vector3D ptoB = reftray[currentSegment + 1];
+    Vector3D ptoA(reftray[currentSegment].x, reftray[currentSegment].y, 0.0);
+    Vector3D ptoB(reftray[currentSegment + 1].x, reftray[currentSegment + 1].y, 0.0);
+
     Vector3D vecBA = ptoA - ptoB;
     float distMinFin = vecBA.module() / 2.0; //Distancia donde comenzara a actuar el controlador
 
@@ -277,11 +264,10 @@ bool ADSK::ControlAnticipativo()
 
 }
 
-void ADSK::Save()
-{
+void ADSK::Save() {
     Control::Save();
 
-    std::ofstream file("logs/data/Datos.csv", ios::app);
+    std::ofstream file("../../log/Control/DataError.csv", ios::app);
     //ios::app Abre el archivo y escribe al final
     //Constantes
     file << "KpGiro" << ";" << "KpDistancia" << ";" << "KpAnticipativo" << endl;
@@ -296,7 +282,7 @@ void ADSK::Save()
     file.close();
     cout << "Archivo CSV guardado" << endl;
 
-    std::ofstream file2("logs/data/DatosError.txt", ios::app);
+    std::ofstream file2("../../log/Control/DataError.txt", ios::app);
     //Constantes K
     file2 << kpg << " " << kpd << " " << kadsk << endl;
 

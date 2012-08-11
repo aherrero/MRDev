@@ -21,7 +21,7 @@ public:
     virtual ~Control();
 
     //IN
-    void SetTray(vector <Vector3D>);
+    void SetTray(vector <Vector2D>);
     void SetPose(Odometry recibeOdo);
     void SetVelLimit(float vg1,float va1, float va2);
     //OUT
@@ -35,7 +35,6 @@ public:
     
 
     void drawGL();
-    bool GetSideOfPath(){return sideofpath;};
 
     //Implementar vacío los siguientes metodos para que Control derive de Object
     string getClassName() {};
@@ -48,10 +47,11 @@ protected:
     Vector3D pos;
     double roll, pitch, yaw;
 
-    vector <Vector3D> reftray;
+    vector <Vector2D> reftray;
     vector <Vector3D> posicionAcumulada;
     vector <Vector3D> posicionIdealAcumulada;
-    vector <Vector3D> refAcumulada;
+    vector <Vector2D> refAcumulada;
+    
     vector<double> giroAcumulado;
     vector<double> yawAcumulado;
     float velavance, velgiro;
@@ -73,8 +73,6 @@ protected:
     Vector2D perpvectTray;
     
     double distToFinCL;
-    
-    bool sideofpath;
 
 private:
     MRTime ti;

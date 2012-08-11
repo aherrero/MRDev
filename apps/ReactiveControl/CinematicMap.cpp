@@ -19,8 +19,6 @@ CinematicMap::CinematicMap()
     pointsObstacle.clear();
     rangeObstacle.clear();
     angleObstacle.clear();
-    
-    distMaxObstacle=10.0;
 }
 
 CinematicMap::CinematicMap(const CinematicMap& orig)
@@ -29,6 +27,11 @@ CinematicMap::CinematicMap(const CinematicMap& orig)
 
 CinematicMap::~CinematicMap()
 {
+}
+
+void CinematicMap::setDistance(float distanceObstacle)
+{
+    distMaxObstacle=distanceObstacle;
 }
 
 void CinematicMap::SetPose(Odometry odom){
@@ -92,6 +95,7 @@ void CinematicMap::drawGL()
     
     if(!pointsCloud.empty())
     {
+        //Laser verde central
         glPushMatrix();
         Vector2D center = gf::TransformationRT2D(pointsCloud[pointsCloud.size()/2], yaw, Vector2D(pos.x, pos.y));
 

@@ -11,6 +11,7 @@
 #include "ReactiveControl/CinematicMap.h"
 #include "ReactiveControl/ReactiveControl.h"
 #include "globalFunctions.h"
+#include "configControlDefine.h"
 
 using namespace mr;
 using namespace std;
@@ -20,141 +21,130 @@ class MyGlutApp : public GlutApp
 {
 public:
 
-    MyGlutApp(string name, MobileRobot* r) : GlutApp(name), robot(r)
-    {
+    MyGlutApp(string name, MobileRobot* r) : GlutApp(name), robot(r) {
         world += robot;
         scene.addObject(&world);
         scene.SetViewPoint(35, 160, 25);
         va = vg = 0;
 
-        //Leer archivo trayectoria
-        std::ifstream file(pathinput.c_str());
-        if (!file.is_open())
-        {
-            printf("File not found!!\n");
-        }
-        vector<Vector2D> path;
-        path.clear();
-        int numpath;
-        file >> numpath;
-        path.resize(numpath);
-        for (int i = 0; i < numpath; i++)
-        {
-            file >> path[i].x >> path[i].y;
-        }
-        file.close();
+        //Create the robot
+        controlboth = new ADSK(K_TRAJECTORY_ROT, K_TRAJECTORY_ADV, K_TRAJECTORY_DIST);
 
-        //Escribir trayectoria
-        vector<Vector3D> auxpath; //Hasta que SetTray de Control reciba vectores2d
-        auxpath.clear();
-        auxpath.resize(path.size());
-        for (int i = 0; i < path.size(); i++)
-        {
-            auxpath[i].x = path[i].x;
-            auxpath[i].y = path[i].y;
-            auxpath[i].z = 0.0;
-        }
+        //Read path file
+        vector<mr::Vector2D> path;
+        path = gf::ReadPathFile(pathinput);
 
-        //Crea el control
-        //RobotReal
-        controlboth = new ADSK(1.2,2.2,0.95);   //kpg,kpd,kadsk
-        //RobotSimulado
-        //controlboth = new ADSK(); 
-        
-        //Mandar la trayectoria de entrada
-        controlboth->SetTray(auxpath);
+        //Send input path
+        controlboth->SetTray(path);
+
+        //control variable
         STOP = false;
+        remoteControl = false;
+
     }
 
-    void Draw(void)
-    {
-        
+    void Draw(void) {
+
         scene.Draw();
-        scene.BackgroundColor(0.1,0.1,0.1);
+        scene.BackgroundColor(0.9, 0.9, 0.9);
 
-        controlboth->drawGL();
-        cinematicmap.drawGL();
-        reactivecontrol.Draw();
-        
+        controlboth->drawGL(); //draw trajectory
+        cinematicmap.drawGL(); //draw obstacles points
+        reactivecontrol.Draw(); //draw points of dangerous obstacles
+
+        //**INFORMATION OF SPEED AND POSITION
+
         char mens[50];
-        sprintf(mens,"VelAvance: %.3f VelGiro: %.3f",
-                va2,vg2);
+        sprintf(mens, "VelAvance: %.3f VelGiro: %.3f",
+                va2, vg2);
         //mr::GLTools::Print(mens,10,10,0);
-        gf::Texto2D(mens,10,10,255,0,0); 
+        gf::Texto2D(mens, 10, 10, 255, 0, 0);
+
+        char mens2[50];
+        Odometry auxodom;
+        double roll, pitch, yaw;
+        robot->getOdometry(auxodom);
+        auxodom.pose.orientation.getRPY(roll, pitch, yaw);
+        sprintf(mens2, "Posicion X:%.3f Y:%.3f Yaw:%.3f", auxodom.pose.position.x,
+                auxodom.pose.position.y, yaw);
+        gf::Texto2D(mens2, 10, 30, 100, 255, 0);
+
     }
 
-    void Timer(float time)
-    {
-
+    void Timer(float time) {
         Odometry odom;
         LaserData laserData;
 
-
         robot->getOdometry(odom);
-        bool laser_on=true;
-        if (laser_on) robot->getLaserData(laserData);
+        robot->getLaserData(laserData);
 
-        /************CONTROL TRAYECTORIA***************/
-        //float va3,vg3;
-        controlboth->SetVelLimit(1.0,0.2,0.05); //vgiro,vmaxav,vminav
-        //Si no introducimos limites, tiene unos por defecto.
-        controlboth->SetPose(odom);
-        controlboth->GetVel(va, vg);
-
-        /************CONTROL REACTIVO***************/
-
-        if (laser_on)
+        if (!remoteControl)
         {
+            /***********PATH CONTROL***************/
+            controlboth->SetVelLimit(MAX_SPEED_ROTATION, MAX_SPEED_FORWARD, MIN_SPEED_FORWARD);
+
+            controlboth->SetPose(odom);
+            controlboth->GetVel(va, vg);
+
+            /************REACTIVE CONTROL***************/
+            cinematicmap.setDistance(DISTANCE_MAX_OBSTACLE);
             cinematicmap.SetPose(odom);
             cinematicmap.SetLaser(laserData);
-            
+
+            reactivecontrol.RangeAction(RANGE_MAX_ACTION_FRONT, RANGE_MIN_ACTION_FRONT, RANGE_ACTION_LATERAL);
+            reactivecontrol.ConfigReactiveControl(K_REACTIVE_ADV, K_REACTIVE_ROT,
+                    MAX_SPEED_FORWARD, MAX_SPEED_ROTATION);
+
             reactivecontrol.SetObstacle(cinematicmap);
-            reactivecontrol.SetCommand(va, vg,controlboth->GetSideOfPath());
+            reactivecontrol.SetCommand(va, vg, controlboth->GetDist2traj());
+
+            va2 = va;
+            vg2 = vg;
+            reactivecontrol.GetCommand(va2, vg2);
+        }
+        else
+        {
+            //Remote control with ADWS
+            va2 = vta;
+            vg2 = vtg;
         }
 
-        va2 = va;
-        vg2 = vg;
-        if (laser_on) reactivecontrol.GetCommand(va2, vg2);
-
-
-        /************ACTUACION ROBOT***************/
-        if(!STOP){
-            vta=vtg=0.0;
+        /************ROBOT OPERATOR***************/
+        if (!STOP)
+        {
             robot->move(va2, vg2);
         }
-        else{
-            //Teleoperado:
-            va2=vg2=0.0;
-            robot->move(vta,vtg);
+        else
+        {
+            va2 = vg2 = vta = vtg = 0.0;
+            robot->move(0.0, 0.0);
         }
     }
 
-    void Key(unsigned char key)
-    {
+    void Key(unsigned char key) {
         if (key == ' ')
-                STOP = !STOP;
-        if(STOP){
-            if (key == 'a')
-                vtg += 0.01;
-            else if (key == 'd')
-                vtg -= 0.01;
-            else if (key == 's')
-                vta -= 0.01;
-            else if (key == 'w')
-                vta += 0.01;
-            else
-                vta = vtg = 0;
-        }
+            STOP = !STOP;
+        else if (key == 't' || key == 'T')
+            remoteControl = !remoteControl;
+
+        else if (key == 'a' || key == 'A')
+            vtg += 0.01;
+        else if (key == 'd' || key == 'D')
+            vtg -= 0.01;
+        else if (key == 's' || key == 'S')
+            vta -= 0.01;
+        else if (key == 'w' || key == 'W')
+            vta += 0.01;
+        else
+            vta = vtg = 0;
     }
 
-    void MouseMove(int x, int y)
-    {
+    void MouseMove(int x, int y) {
         scene.MouseMove(x, y);
         glutPostRedisplay();
     }
 
-    void MouseClick(int b, int state, int x, int y)
-    {
+    void MouseClick(int b, int state, int x, int y) {
         bool down = (state == GLUT_DOWN);
         int button;
         if (b == GLUT_LEFT_BUTTON)
@@ -170,50 +160,53 @@ public:
         glutPostRedisplay();
     }
 private:
-    float vg, va;
-    float vg2,va2;
-    float vta,vtg;
+    float vg, va; //Speed path control
+    float vg2, va2; //Speed reactive control
+    float vta, vtg; //Speed remote control
+
     GLScene scene;
     World world;
     MobileRobot* robot;
 
-    //Control
-    Control *controlangular;
-    Control *controldistancia;
+    //CONTROL:
+    //Control *controlangular;
+    //Control *controldistancia;
     Control *controlboth;
+
     CalculoError calculoerror;
     CinematicMap cinematicmap;
     ReactiveControl reactivecontrol;
+
     bool STOP;
+    bool remoteControl;
 };
 
 void printUsage();
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]) {
+    //Default path introduced in argv[1]
     if (argc == 2)
         pathinput = string(argv[1]);
     else
     {
         cout << "You have not specify a configuration file as command line parameter" << endl;
         cout << "Please type configuration file: ";
-        string pathinput;
         cin >> pathinput;
     }
     cout << "Loading configuration file: " << pathinput << endl;
 
+    //Creation of a robot and connection
     MobileRobot* robot = new Neo();
-    //robot->connectClients("127.0.0.1", 13000); //Simulation
-    robot->connectClients("192.168.100.50",13000);        //Real          
+    robot->connectClients("127.0.0.1", 13000); //Simulation
+    //robot->connectClients("192.168.100.50",13000);        //Real          
     MyGlutApp myApp("teleop", robot);
 
-    //Bucle
+    //Loop
     myApp.Run();
     return 0;
 }
 
-void printUsage()
-{       
+void printUsage() {
     cout << "-------- Usage -----------------" << endl;
     cout << "> teleop config.txt    " << endl;
     cout << "example:    " << endl;

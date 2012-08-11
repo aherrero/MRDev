@@ -114,8 +114,8 @@ bool AngDistToSeg::ControlAngular()
 bool AngDistToSeg::ControlDistToSeg()
 {
     //Segmentos de trayectoria
-    Vector3D p1 = reftray[currentSegment];
-    Vector3D p2 = reftray[currentSegment + 1];
+    Vector3D p1 (reftray[currentSegment].x,reftray[currentSegment].y,0.0);
+    Vector3D p2 (reftray[currentSegment+1].x,reftray[currentSegment+1].y,0.0);
     Segment3D segTray(p1, p2);
 
     //Distancia del robot a la tray ideal
@@ -166,7 +166,7 @@ void AngDistToSeg::Save()
 {    
     Control::Save();
     
-    std::ofstream file("logs/data/Datos.csv",ios::app); 
+    std::ofstream file("../../log/Control/DataError.csv",ios::app); 
     //ios::app Abre el archivo y escribe al final
     //Constantes
     file << "KpGiro" << ";" << "KpDistancia"  << endl;
@@ -174,7 +174,7 @@ void AngDistToSeg::Save()
     file.close();
     cout << "Archivo CSV guardado" << endl;
     
-    std::ofstream file2("logs/data/DatosError.txt",ios::app);
+    std::ofstream file2("../../log/Control/DataError.txt",ios::app);
     //Constantes K
     file2 << kpg << " " << kpd  << endl;
     

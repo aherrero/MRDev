@@ -24,10 +24,6 @@ Control::Control() {
     reftray.clear();
     errorVariable = 0.0;
 
-    velmaxgi = 1.5;       //VEL MAX GIRO!
-    velmaxav = 1.0;     //VEL MAX AVANCE!
-    velminav = 0.5;      //VEL MIN AVANCE!
-
     globaltime.clear();
     runones = false;
 
@@ -38,11 +34,10 @@ Control::Control() {
     longitudReal = 0.0;
     longitudIdeal = 0.0;
     refAcumulada.clear();
-    refAcumulada.push_back(Vector3D(0, 0, 0));
+    refAcumulada.push_back(Vector2D(0, 0));
     distToFinCL=0.0f;
     
     yawAcumulado.clear();
-    sideofpath=true;   //Solo variable en adsk
 
 }
 
@@ -51,27 +46,12 @@ Control::~Control() {
 
 void Control::SetVelLimit(float vg1, float va1, float va2)
 {
-    velmaxgi = vg1;       //VEL MAX GIRO!
+    velmaxgi = vg1;     //VEL MAX GIRO!
     velmaxav = va1;     //VEL MAX AVANCE!
-    velminav = va2;      //VEL MIN AVANCE!
+    velminav = va2;     //VEL MIN AVANCE!
 }
 
-void Control::SetTray(vector <Vector3D> trayTeleop) {
-    //        #define NUM_LADOS 8.0
-//        //circulo
-//        vector<Vector3D> auxpath; 
-//        float radioTray = 1;
-//        float cte=0;
-//        float fi = cte;
-//        auxpath.push_back(Vector3D(radioTray * cos(fi)-radioTray,radioTray * sin(fi), 0.0));
-//        
-//
-//        while (fi <= 2 * PI+cte) {
-//            fi = fi + 2.0*PI/NUM_LADOS;
-//            float ejex = radioTray * cos(fi)-radioTray;
-//            float ejey = radioTray * sin(fi);
-//            auxpath.push_back(Vector3D(ejex, ejey, 0));
-//        }
+void Control::SetTray(vector <Vector2D> trayTeleop) {
     
     for (int i = 0; i < trayTeleop.size(); i++)
         reftray = trayTeleop;
@@ -86,12 +66,13 @@ void Control::SetPose(Odometry recibeOdo) {
 
     //Func
     dataToSave();
+    //Compute
+    ComputeCurrentSegment();
+    ComputeControl();
 
 }
 
 void Control::GetVel(float & vela, float & velg) {
-    ComputeCurrentSegment();
-    ComputeControl();
 
     vela = velavance;
     velg = velgiro;
@@ -108,8 +89,8 @@ void Control::drawGL() {
             if (i % 2) glColor3ub(0, 0, 200);
             else glColor3ub(0, 100, 200);           
             glBegin(GL_LINES);
-            glVertex3f(reftray[i].x, reftray[i].y, reftray[i].z); // V0
-            glVertex3f(reftray[i + 1].x, reftray[i + 1].y, reftray[i + 1].z); // V1
+            glVertex3f(reftray[i].x, reftray[i].y, 0.0f); // V0
+            glVertex3f(reftray[i + 1].x, reftray[i + 1].y, 0.0f); // V1
             glEnd();
             glPopMatrix();
           
@@ -135,17 +116,18 @@ void Control::drawGL() {
         glColor3f(255,255,255);
         glPointSize(5.0);
         glBegin(GL_POINTS);
-        glVertex3f(reftray[currentSegment+1].x, reftray[currentSegment+1].y, reftray[currentSegment+1].z);
+        glVertex3f(reftray[currentSegment+1].x, reftray[currentSegment+1].y, 0.0f);
         glEnd();
         glEnable(GL_LIGHTING);
         glPopMatrix();
     }
+        
 }
 
 void Control::ComputeCurrentSegment() {
     //POR UNA PERPENDICULAR AL FINAL DEL SEGMENTO
-    Vector3D p1 = reftray[currentSegment];
-    Vector3D p2 = reftray[currentSegment + 1];
+    Vector3D p1 (reftray[currentSegment].x,reftray[currentSegment].y,0.0);
+    Vector3D p2 (reftray[currentSegment+1].x,reftray[currentSegment+1].y,0.0);
     Vector2D vectTray((p2.x - p1.x), (p2.y - p1.y));
     perpvectTray = vectTray.perpendicularVector();
 
@@ -231,7 +213,7 @@ void Control::Save() {
     int multiply = 1000000;
     //Otra solucion seria cambiar variable de entorno LC_NUMERIC
     
-    std::ofstream file("../log/Kinect/Datos.csv");
+    std::ofstream file("../../log/Control/DataError.csv");
     
     //Longitud en micrometros de las trayectorias
     file <<"LongitudTrayIdeal[umeters]" << ";" << "LongitudTrayReal[umeters]" << endl;
@@ -252,14 +234,13 @@ void Control::Save() {
                 << errorVariableAcumulado[j].y << ";"
                 << (int) (refAcumulada[j].x * multiply) << ";" 
                 << (int) (refAcumulada[j].y * multiply) << ";"
-                << (int) (refAcumulada[j].z * multiply) << ";"
                 << (int) (yawAcumulado[j] * 1000) << endl;
     }
 
     file.close();
 
     //ARCHIVO DE TEXTO PARA QUE LO LEA CLASE CALCULOERROR
-    std::ofstream file2("../log/Kinect/DatosError.txt");
+    std::ofstream file2("../../log/Control/DataError.txt");
 
     //Longitud en micrometros de las trayectorias
     file2 << longitudIdeal << " " << longitudReal << endl;

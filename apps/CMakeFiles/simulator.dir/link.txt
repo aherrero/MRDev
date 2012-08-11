@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/simulator.dir/simulator.o CMakeFiles/simulator.dir/glutapp.o  -o simulator -rdynamic -L/usr/local/mrcore/lib -lmrcore -lglut -lGL -lGLU -lpthread -Wl,-rpath,/usr/local/mrcore/lib: 

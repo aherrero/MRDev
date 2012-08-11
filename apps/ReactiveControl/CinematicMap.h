@@ -24,11 +24,13 @@ public:
     void writeToStream(Stream& stream) {};
     void readFromStream(Stream& stream) {};
     
+    //FuncCinematicMap
+    void setDistance(float distanceObstacle);
     void SetPose(Odometry odom);
     void SetLaser(LaserData laserdata);
     void GetObstacle(vector<Vector2D> &pointsObstacle_,
             vector<double> &rangeObstacle_,vector<Angle> &angleObstacle_);
-    
+        
 private:
     Vector3D pos;
     double roll,pitch,yaw;

@@ -44,6 +44,27 @@ namespace gf {
         return rot_translation;
     };
     
+    inline vector<Vector2D> ReadPathFile(string pathinput) {
+        
+        std::ifstream file(pathinput.c_str());
+        if (!file.is_open())
+        {
+            printf("File not found!!\n");
+        }
+        vector<Vector2D> path;
+        path.clear();
+        int numpath;
+        file >> numpath;
+        path.resize(numpath);
+        for (int i = 0; i < numpath; i++)
+        {
+            file >> path[i].x >> path[i].y;
+        }
+        file.close();
+        
+        return path;
+    };
+    
     void inline Texto2D(char *mensaje, int x, int y, float r, float g, float b)
     {
         glDisable (GL_LIGHTING);
