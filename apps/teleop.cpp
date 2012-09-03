@@ -46,7 +46,7 @@ public:
     void Draw(void) {
 
         scene.Draw();
-        scene.BackgroundColor(0.9, 0.9, 0.9);
+        scene.BackgroundColor(0.75, 0.75, 0.75);
 
         controlboth->drawGL(); //draw trajectory
         cinematicmap.drawGL(); //draw obstacles points
@@ -87,7 +87,7 @@ public:
             controlboth->GetVel(va, vg);
 
             /************REACTIVE CONTROL***************/
-            cinematicmap.setDistance(DISTANCE_MAX_OBSTACLE);
+            cinematicmap.setDistance(DISTANCE_MAX_OBSTACLE);    //Initially 10 meters
             cinematicmap.SetPose(odom);
             cinematicmap.SetLaser(laserData);
 
@@ -96,7 +96,7 @@ public:
                     MAX_SPEED_FORWARD, MAX_SPEED_ROTATION);
 
             reactivecontrol.SetObstacle(cinematicmap);
-            reactivecontrol.SetCommand(va, vg, controlboth->GetDist2traj());
+            reactivecontrol.SetCommand(va, vg);
 
             va2 = va;
             vg2 = vg;

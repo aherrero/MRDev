@@ -18,6 +18,9 @@ ReactiveControl::ReactiveControl() {
     rangeObstacle.clear();
     angleObstacle.clear();
     
+    openingangleFR=PI/3.0;
+    openingangleLT=PI/2.0;
+    
 }
 
 ReactiveControl::ReactiveControl(const ReactiveControl& orig) {
@@ -45,13 +48,18 @@ void ReactiveControl::SetObstacle(CinematicMap& obstacle) {
     ObstacleDangerLateral();
 }
 
-void ReactiveControl::SetCommand(float va_, float vg_, float dist2traj_) {
+void ReactiveControl::SetCommand(float va_, float vg_) {
     va = va_;
     vg = vg_;
     outputAdvance = va;
     outputRotation = vg;
-    dist2traj=dist2traj_;
     Compute();
+    
+    if (va < 0.01 && vg < 0.01)
+    { //Fin de la trayectoria
+        outputRotation = 0.0;
+        outputAdvance = 0.0;
+    }
 }
 
 void ReactiveControl::ObstacleDangerFront() {
@@ -61,7 +69,7 @@ void ReactiveControl::ObstacleDangerFront() {
 
     for (int i = 0; i < pointsObstacle.size(); i++)
     {
-        if (fabs(angleObstacle[i].getValue()) < PI / 3)
+        if (fabs(angleObstacle[i].getValue()) < openingangleFR)
         {
             if (rangeObstacle[i] < rangeMaxActionFront)
             {
@@ -83,7 +91,7 @@ void ReactiveControl::ObstacleDangerLateral() {
 
     for (int i = 0; i < pointsObstacle.size(); i++)
     {
-        if (fabs(angleObstacle[i].getValue()) < PI / 2) //Solo nos importa de -90º a 90º
+        if (fabs(angleObstacle[i].getValue()) < openingangleLT) //Solo nos importa de -90º a 90º
         {
             if (rangeObstacle[i] < rangeActionLateral)
             { //Cuando dist menor a uno dado
@@ -123,8 +131,6 @@ void ReactiveControl::Compute() {
         float distmax = rangeMaxActionFront;
         float distmin = rangeMinActionFront;
         
-        if (pointsObstacleDangerFR.size() > 0)
-        {
             for (int i = 0; i < pointsObstacleDangerFR.size(); i++)
             {
                 if (rangeObstacleDangerFR[i] < auxRangeObstacle)
@@ -152,9 +158,6 @@ void ReactiveControl::Compute() {
                 outputAdvance = kadv * error;
                 cout << "REACTCTRL. ADVANCE" << endl;
             }
-
-
-        }
     }
     
     //****** 2) Velocidad de giro  
@@ -177,7 +180,7 @@ void ReactiveControl::Compute() {
 
 
 
-            float errorg = PI / 2 + 0.01 - fabs(auxangleMin);
+            float errorg = openingangleLT + 0.01 - fabs(auxangleMin);
             
             if(pointsObstacleDangerLT.size()>=smallObstacle || pointSecureObstacle<areaSecureObstacle)
             {
@@ -216,12 +219,6 @@ void ReactiveControl::Compute() {
             outputRotation = -velmaxrot;
         else
             outputRotation = outputRotation;
-    }
-
-    if (va < 0.01 && vg < 0.01)
-    { //Fin de la trayectoria
-        outputRotation = 0.0;
-        outputAdvance = 0.0;
     }
 
 }

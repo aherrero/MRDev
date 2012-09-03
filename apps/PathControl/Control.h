@@ -27,7 +27,6 @@ public:
     //OUT
     void GetVel(float &, float &);
     virtual void Save();
-    double GetDist2traj(){return errorVariable;};
 
     virtual void ComputeControl() = 0;
     void ComputeCurrentSegment();

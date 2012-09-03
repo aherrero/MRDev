@@ -22,7 +22,7 @@ public:
     void RangeAction(float frontal,float frontalmin, float lateral);
     void ConfigReactiveControl(float kav,float krt, float veladv, float velrot);
     void SetObstacle(CinematicMap &obstacle);
-    void SetCommand(float va_,float vg_, float dist2traj_);
+    void SetCommand(float va_,float vg_);
     void GetCommand(float &vad,float &vrot);
     void Draw();
     
@@ -64,8 +64,11 @@ private:
     float rangeMinActionFront;
     float rangeActionLateral;
     
-    float dist2traj;
     float pointSecureObstacle;
+    
+    //Vision angle
+    float openingangleFR;
+    float openingangleLT;
 
 };
 
