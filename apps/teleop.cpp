@@ -198,7 +198,8 @@ int main(int argc, char* argv[]) {
     //Creation of a robot and connection
     MobileRobot* robot = new Neo();
     robot->connectClients("127.0.0.1", 13000); //Simulation
-    //robot->connectClients("192.168.100.50",13000);        //Real          
+    //robot->connectClients("192.168.100.50",13000);        //Real 
+
     MyGlutApp myApp("teleop", robot);
 
     //Loop
