@@ -196,20 +196,20 @@ bool ADSK::ControlAnticipativo() {
     Vector3D ptoB(reftray[currentSegment + 1].x, reftray[currentSegment + 1].y, 0.0);
 
     Vector3D vecBA = ptoA - ptoB;
-    float distMinFin = vecBA.module() / 2.0; //Distancia donde comenzara a actuar el controlador
+    float distMinFin = vecBA.module() / 3.0; //Distancia donde comenzara a actuar el controlador
 
-    float distEndMultiply = 0.5 * distEnd; //Una proporcion para hacerlo equivalente con velmax
-    float error = velmaxgi - distEndMultiply;
+    float distEndMultiply = 0.1 * distEnd; //Una proporcion para hacerlo equivalente con velmax
+    float error = velmaxav - distEndMultiply;
 
 
 
     if (distToFinCL < distMinFin)
     { //Regulador funcionando
         if ((kadsk * error) > velminav)
-            if ((kadsk * error) < velmaxgi)
+            if ((kadsk * error) < velmaxav)
                 outputProp = kadsk * error;
             else
-                outputProp = velmaxgi;
+                outputProp = velmaxav;
         else
             outputProp = velminav;
 
@@ -217,12 +217,12 @@ bool ADSK::ControlAnticipativo() {
     }
     else
     {
-        if (outputProp < velmaxgi)
+        if (outputProp < velmaxav)
             outputProp = outputProp + 0.01; //Puede que esto no sea necesario en el robot real
             //Ya que en el real no va a aumentar la velocidad
             //tan rapido automaticamente
         else
-            outputProp = velmaxgi;
+            outputProp = velmaxav;
 
         controladskON = false;
     }

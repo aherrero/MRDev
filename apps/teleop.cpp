@@ -27,8 +27,15 @@ public:
         scene.SetViewPoint(35, 160, 25);
         va = vg = 0;
 
-        //Create the robot
+        //Create trajectory control
         controlboth = new ADSK(K_TRAJECTORY_ROT, K_TRAJECTORY_ADV, K_TRAJECTORY_DIST);
+        controlboth->SetVelLimit(MAX_SPEED_ROTATION, MAX_SPEED_FORWARD, MIN_SPEED_FORWARD);
+        
+        //Config cinematic map and reactive control
+        cinematicmap.setDistance(DISTANCE_MAX_OBSTACLE);    //Initially 10 meters
+        reactivecontrol.RangeAction(RANGE_MAX_ACTION_FRONT, RANGE_MIN_ACTION_FRONT, RANGE_ACTION_LATERAL);
+        reactivecontrol.ConfigReactiveControl(K_REACTIVE_ADV, K_REACTIVE_ROT,
+                    MAX_SPEED_FORWARD, MAX_SPEED_ROTATION);
 
         //Read path file
         vector<mr::Vector2D> path;
@@ -81,19 +88,12 @@ public:
         if (!remoteControl)
         {
             /***********PATH CONTROL***************/
-            controlboth->SetVelLimit(MAX_SPEED_ROTATION, MAX_SPEED_FORWARD, MIN_SPEED_FORWARD);
-
             controlboth->SetPose(odom);
             controlboth->GetVel(va, vg);
 
             /************REACTIVE CONTROL***************/
-            cinematicmap.setDistance(DISTANCE_MAX_OBSTACLE);    //Initially 10 meters
             cinematicmap.SetPose(odom);
             cinematicmap.SetLaser(laserData);
-
-            reactivecontrol.RangeAction(RANGE_MAX_ACTION_FRONT, RANGE_MIN_ACTION_FRONT, RANGE_ACTION_LATERAL);
-            reactivecontrol.ConfigReactiveControl(K_REACTIVE_ADV, K_REACTIVE_ROT,
-                    MAX_SPEED_FORWARD, MAX_SPEED_ROTATION);
 
             reactivecontrol.SetObstacle(cinematicmap);
             reactivecontrol.SetCommand(va, vg);

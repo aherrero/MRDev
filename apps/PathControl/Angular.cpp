@@ -27,22 +27,31 @@ void Angular::ComputeControl()
     if (!finTray) //Si esta fuera de circunf de fin de segmento, hacer control.
     {
         ControlAngular();
+        
         velavance = outputProp;
-        velgiro = outputGiro;
+        //SATURACION
+        //velgiro        
+        if (abs(outputDist + outputGiro) < velmaxgi) //Saturacion de los motores
+            velgiro = outputDist + outputGiro;
+        else if ((outputDist + outputGiro) < 0) //si era negativo, velmax negativa
+            velgiro = -velmaxgi;
+        else velgiro = velmaxgi;
 
-    } else //Si esta dentro, parar control y pasar a siguiente segmento, si hubiese
+    }     else //Si esta dentro, parar control y pasar a siguiente segmento, si hubiese
     {
-        if (currentSegment < reftray.size() - 2) //el -2 necesario porque reftray tiene inicio 0,0,0
+        if (currentSegment < reftray.size() - 2)
         {
             currentSegment++;
-            cout << "CambioSegmento" << endl;
+            cout << "Segment Change" << endl;
 
-        } else
+        }
+        else
         {
             velavance = 0.0;
             velgiro = 0.0;
-            cout << "No hay mas trayectoria" << endl;
+            cout << "No more path" << endl;
         }
+        
     }
 
 }

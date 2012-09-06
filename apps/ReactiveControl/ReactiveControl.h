@@ -69,6 +69,8 @@ private:
     //Vision angle
     float openingangleFR;
     float openingangleLT;
+    
+    int turning;
 
 };
 
