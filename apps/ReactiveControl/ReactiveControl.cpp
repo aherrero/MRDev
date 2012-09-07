@@ -159,8 +159,6 @@ void ReactiveControl::Compute() {
         double auxangleMin;
         float auxrangeGiroMin = rangeActionLateral;
 
-        if (pointsObstacleDangerLT.size() > 0) {
-
             for (int i = 0; i < pointsObstacleDangerLT.size(); i++) {
                 if (rangeObstacleDangerLT[i] < auxrangeGiroMin) {
                     auxrangeGiroMin = rangeObstacleDangerLT[i];
@@ -197,9 +195,6 @@ void ReactiveControl::Compute() {
 
             }
 
-
-
-        }
     }
     //SATURACION
     if (outputAdvance > velmaxad)
