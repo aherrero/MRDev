@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/localizerTest.dir/testlocalizer.cpp.o CMakeFiles/localizerTest.dir/glutapp.cpp.o  -o localizerTest -rdynamic -L/usr/local/mrcore/lib 
