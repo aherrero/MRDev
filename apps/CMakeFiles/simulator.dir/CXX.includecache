@@ -1750,3 +1750,21 @@ positionableentity.h
 entityset.h
 /usr/local/mrcore/include/mrcore/world/entityset.h
 
+libraries/freeglut/include/GL/freeglut_std.h
+windows.h
+-
+gl/gl.h
+-
+gl/glu.h
+-
+GL/gl.h
+-
+GL/glu.h
+-
+stdlib.h
+-
+
+libraries/freeglut/include/GL/glut.h
+freeglut_std.h
+libraries/freeglut/include/GL/freeglut_std.h
+

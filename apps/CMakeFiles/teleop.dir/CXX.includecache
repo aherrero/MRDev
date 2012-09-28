@@ -82,6 +82,20 @@ mrcore/mrcore.h
 iostream
 -
 
+/home/alex/mrdevgit/apps/ReactiveControl/../globalFunctions.h
+/usr/local/mrcore/include/mrcore/mrcore.h
+-
+/usr/include/GL/glut.h
+-
+string.h
+-
+
+/home/alex/mrdevgit/apps/ReactiveControl/CinematicMap.cpp
+CinematicMap.h
+/home/alex/mrdevgit/apps/ReactiveControl/CinematicMap.h
+../globalFunctions.h
+/home/alex/mrdevgit/apps/ReactiveControl/../globalFunctions.h
+
 /home/alex/mrdevgit/apps/ReactiveControl/CinematicMap.h
 /usr/local/mrcore/include/mrcore/mrcore.h
 -
@@ -110,6 +124,12 @@ iostream
 /usr/include/GL/glut.h
 -
 string.h
+-
+
+/home/alex/mrdevgit/apps/glutapp.cpp
+glutapp.h
+/home/alex/mrdevgit/apps/glutapp.h
+iostream
 -
 
 /home/alex/mrdevgit/apps/glutapp.h
@@ -1881,4 +1901,22 @@ positionableentity.h
 /usr/local/mrcore/include/mrcore/world/positionableentity.h
 entityset.h
 /usr/local/mrcore/include/mrcore/world/entityset.h
+
+libraries/freeglut/include/GL/freeglut_std.h
+windows.h
+-
+gl/gl.h
+-
+gl/glu.h
+-
+GL/gl.h
+-
+GL/glu.h
+-
+stdlib.h
+-
+
+libraries/freeglut/include/GL/glut.h
+freeglut_std.h
+libraries/freeglut/include/GL/freeglut_std.h
 

@@ -1,0 +1,4 @@
+world: InitWorld1.world
+robots: 1
+neo 13000 10 10 0
+persons: 0

@@ -43,58 +43,63 @@ void InitWorldTry2();
 void InitWolrdTrySquare();
 void WorldSelector();
 
-int main(int argc, char* argv[])
-{
-	mrcoreInit();
-	//GL Initialization stuff
-	glutInit(&argc, argv);
-	glutInitWindowSize(800,600);
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-	glutCreateWindow("GL");
-	glutDisplayFunc(OnDraw);
-	glutMotionFunc(OnMouseMove);
-	glutMouseFunc(OnMouseClick);
-	glutKeyboardFunc(OnKeyboardDown);
-	glutTimerFunc(100,OnTimer,0);
-	scene.init();
+int main(int argc, char* argv[]) {
+    mrcoreInit();
+    //GL Initialization stuff
+    glutInit(&argc, argv);
+    glutInitWindowSize(800, 600);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+    glutCreateWindow("GL");
+    glutDisplayFunc(OnDraw);
+    glutMotionFunc(OnMouseMove);
+    glutMouseFunc(OnMouseClick);
+    glutKeyboardFunc(OnKeyboardDown);
+    glutTimerFunc(100, OnTimer, 0);
+    scene.init();
 
-	//InitWorldColumns2();
 
-	//InitWorldSquaredRingWalls();
-	//InitWorldTry();
-	//InitWorldColumns();
-	//InitWorldTry2();
-	//InitWolrdTrySquare();
-	WorldSelector();
+
+    InitWorld1(); //Mundo de prueba de robots y objetos.
+    //InitWorldColumns();     //Dos habitaciones, columnas y vacia    
+    //InitWorldColumns2();    //Lleno de columnas en 1 habitacion
+    //InitWorld3();            //Habitacion cuadrada vacia
+    //InitWorldSquaredRingNoWalls();   //Pasillos haciendo un cuadrado
+    //InitWorldSquaredRingWalls();    //Pasillos haciendo cuadrado con paredes
+    
+    
+    //InitWorldTry();         //Habitacion muy grande con 3 objetos
+    // InitWorldTry2();         //Habitacio muy grande con 3 x8 filas de columnas
+    //InitWolrdTrySquare();  //Habitacion cuadrada muy grande
+    //WorldSelector();      //Hab muy grande con un objeto para la toma de decision izq o dch
+
+
+
+    //	InitWorld1();
+    //probador de grabar y cargar
+    //probando a grabar en un fichero el prismatic part, despues lo aï¿½ado
+    /*	if(1){
+            StreamFile myfile("tmp.txt",false);
+            myfile.write(&world);
+            }*/
+
+    /*	PositionableEntity *test2=dynamic_cast<PositionableEntity *>(test1);
 	
-	
-	
-//	InitWorld1();
-//probador de grabar y cargar
-	//probando a grabar en un fichero el prismatic part, despues lo añado
-/*	if(1){
-	StreamFile myfile("tmp.txt",false);
-	myfile.write(&world);
-	}*/
+            if(test2){
+                    test2->LinkTo(mypart);
+            }*/
 
-/*	PositionableEntity *test2=dynamic_cast<PositionableEntity *>(test1);
-	
-	if(test2){
-		test2->LinkTo(mypart);
-	}*/
+    //Adding objects to scene. As everything belongs to world, only world is added to the scene
+    //	scene.addObject(test2);
 
-//Adding objects to scene. As everything belongs to world, only world is added to the scene
-//	scene.addObject(test2);
-
-	/*WheeledBaseSim *prueba=dynamic_cast<WheeledBaseSim *>(test2->getObjectByName("Neo"));
-	if(prueba)myrobot=prueba;*/
-	scene.addObject(&world);	
-	//scene.addObject(myrobot);
-	//scene.addObject(pruebaLaser);
-	glutMainLoop();
-	world.destroyContent();
-	cout<<"PULSE S PARA GRABAR EN TMP.TXT EL ENTORNO"<<std::endl;
-	return 0;
+    /*WheeledBaseSim *prueba=dynamic_cast<WheeledBaseSim *>(test2->getObjectByName("Neo"));
+    if(prueba)myrobot=prueba;*/
+    scene.addObject(&world);
+    //scene.addObject(myrobot);
+    //scene.addObject(pruebaLaser);
+    glutMainLoop();
+    world.destroyContent();
+    cout << "PULSE S PARA GRABAR EN TMP.TXT EL ENTORNO" << std::endl;
+    return 0;
 }
 
 void OnDraw(void)
@@ -118,13 +123,13 @@ void OnKeyboardDown(unsigned char key, int x, int y)
 	scene.KeyDown(key);
 	if(key=='s'){
 		LOG_INFO("Writing world");
-		StreamFile myfile("myRoom2.world",false);
+		StreamFile myfile("ROOM.world",false);
 		myfile.write(&world);
 		}
 
 
 	static double angle=0;
-/*	if(key=='0')
+	if(key=='0')
 		pruebaLaser->setDrawGLMode(0);
 	if(key=='1')
 		pruebaLaser->setDrawGLMode(1);
@@ -150,13 +155,13 @@ void OnKeyboardDown(unsigned char key, int x, int y)
 	if(key=='b')speed-=0.1;
 	if(key=='h')rotspeed-=0.2;
 	if(key=='f')rotspeed+=0.2;
-	if(key==' ')rotspeed=speed=0;*/
+	if(key==' ')rotspeed=speed=0;
 
 	if(key=='S'){
 		StreamFile myfile("tmp.txt",false);
 		myfile.write(&world);
 		}
-/*
+
 	
 	if(key=='o'){
 		manipulator->getJoint(0)->setTarget(0.5);
@@ -172,7 +177,7 @@ void OnKeyboardDown(unsigned char key, int x, int y)
 	}
 	
 	myrobot->move(speed,rotspeed);
-	pruebaLaser->updateSensorData();*/
+	pruebaLaser->updateSensorData();
 
 	scene.KeyDown(key);
 	glutPostRedisplay();	
@@ -420,7 +425,7 @@ void InitWorldSquaredRingNoWalls()
 	suelo3.setColor(0.3f, 0.3f, 0.4f, 1);
 	suelo4.setColor(0.3f, 0.3f, 0.4f, 1);
 	
-	Face paredexterna1(Transformation3D(-20,0,0,Y_AXIS,PI/2),-5,-10,0,10); //añadida por el problema con las glut
+	Face paredexterna1(Transformation3D(-20,0,0,Y_AXIS,PI/2),-5,-10,0,10); //aï¿½adida por el problema con las glut
 	paredexterna1.setColor(0.5f, 0.5f, 0.0f, 1);
 	
 	FaceSetPart *building=new FaceSetPart; 
@@ -556,16 +561,23 @@ void InitWorldColumns2()
 
 	world+=building;
 }
-void InitWorld1()
-{
-	//Intializing test environment Faces included in a FacePart
-	Face suelo(Transformation3D(0,0,0),0,-10,10,10);
-	Face tablon_fino1(Transformation3D(8,3,2,X_AXIS,-0.53),0,0,0.2,3.95);
-	Face tablon_fino2(Transformation3D(8.5,3,2,X_AXIS,-0.53),0,0,0.2,3.95);
-	Face tablon_grueso(Transformation3D(2,3,2,X_AXIS,-0.53),0,0,1,3.95);
-	Face plataforma(Transformation3D(2,0,2),0,0,8,3);
-	Face paredfondo1(Transformation3D(0,0,0,Y_AXIS,PI/2),-4,-10,0,10);
-	Face paredfondo2;
+void InitWorld1() {
+    
+        //Intializing test environment Faces included in a FacePart
+        Face suelo(Transformation3D(0, 0, 0), 0, -10, 10, 10);
+        Face tablon_fino1(Transformation3D(8, 3, 2, X_AXIS, -0.53), 0, 0, 0.2, 3.95);
+        Face tablon_fino2(Transformation3D(8.5, 3, 2, X_AXIS, -0.53), 0, 0, 0.2, 3.95);
+        Face tablon_grueso(Transformation3D(2, 3, 2, X_AXIS, -0.53), 0, 0, 1, 3.95);
+        Face plataforma(Transformation3D(2, 0, 2), 0, 0, 8, 3);
+        Face paredfondo1(Transformation3D(0, 0, 0, Y_AXIS, PI / 2), -4, -10, 0, 10);
+        Face paredfondo2;
+
+        suelo.setColor(0.3f, 0.3f, 0.4f, 1);
+        tablon_fino1.setColor(0.3f, 0.3f, 0.4f, 1);
+        tablon_fino2.setColor(0.3f, 0.3f, 0.4f, 1);
+        tablon_grueso.setColor(0.3f, 0.3f, 0.4f, 1);
+        plataforma.setColor(0.3f, 0.3f, 0.4f, 1);
+        paredfondo1.setColor(0.3f, 0.3f, 0.4f, 1);
 
 	paredfondo2.setBase(Transformation3D(0,0,0,X_AXIS,-PI/2));
 	paredfondo2.addVertex(0,-4);
@@ -576,6 +588,7 @@ void InitWorld1()
 	paredfondo2.addVertex(4,-1.5);
 	paredfondo2.addVertex(4,0);
 	paredfondo2.addVertex(0,0);
+        paredfondo2.setColor(0.3f, 0.3f, 0.4f, 1);
 
 	FaceSetPart *building=new FaceSetPart; 
 	building->addFace(suelo);
@@ -594,6 +607,7 @@ void InitWorld1()
 	world+=paux2;
 	
 //probando el prismaticpart
+        /*
 	PrismaticPart *mypart=new PrismaticPart;
 	vector<Vector2D> list;
 	list.push_back(Vector2D(0,0));
@@ -610,6 +624,7 @@ void InitWorld1()
 	esfera->setRelativePosition(Vector3D(7,7,6));
 	world+=mypart;
 	world+=esfera;
+         */
 //it works!!!
 
 //probando el mesh
@@ -639,7 +654,7 @@ void InitWorld1()
 	pruebaLaser->setColor(0,1,0);
 	pruebaLaser->LinkTo(myrobot);//lo fijo a mano al final del mecanismo
 	pruebaLaser->setRelativePosition(Vector3D(0.1,0,0.285));
-	pruebaLaser->updateSensorData(); //actualizo las medidas para la primera impresión
+	pruebaLaser->updateSensorData(); //actualizo las medidas para la primera impresiï¿½n
 
 	arm=(dynamic_cast<NemoLaserSensor3DSim *>(pruebaLaser))->getPowerCube70();
 */

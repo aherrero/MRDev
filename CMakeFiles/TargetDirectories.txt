@@ -1,0 +1,3 @@
+/home/alex/mrdevgit/apps/CMakeFiles/simulator.dir
+/home/alex/mrdevgit/apps/CMakeFiles/teleop.dir
+/home/alex/mrdevgit/tests/CMakeFiles/worldTest.dir
