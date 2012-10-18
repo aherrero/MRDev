@@ -15,16 +15,16 @@ LINK_DIRECTORIES(${MRCORE_DIR}/lib)
 ##
 
 ## Kinect: Libfreenect and PCL
-INCLUDE_DIRECTORIES(/usr/local/include)
-INCLUDE_DIRECTORIES(/usr/local/include/libfreenect)
-LINK_DIRECTORIES(/usr/local/include)
+#INCLUDE_DIRECTORIES(/usr/local/include)
+#INCLUDE_DIRECTORIES(/usr/local/include/libfreenect)
+#LINK_DIRECTORIES(/usr/local/include)
 
-INCLUDE_DIRECTORIES(/usr/include/pcl-1.6)
-INCLUDE_DIRECTORIES(/usr/include/pcl-1.6/pcl)
-LINK_DIRECTORIES(/usr/include/pcl-1.6)
+#INCLUDE_DIRECTORIES(/usr/include/pcl-1.6)
+#INCLUDE_DIRECTORIES(/usr/include/pcl-1.6/pcl)
+#LINK_DIRECTORIES(/usr/include/pcl-1.6)
 
-INCLUDE_DIRECTORIES(/usr/include/eigen3)
-LINK_DIRECTORIES(/usr/include/eigen3)
+#INCLUDE_DIRECTORIES(/usr/include/eigen3)
+#LINK_DIRECTORIES(/usr/include/eigen3)
 ##
 
 ADD_DEFINITIONS(-DFREEGLUT_STATIC -D_CRT_SECURE_NO_WARNINGS)
@@ -39,9 +39,11 @@ ADD_EXECUTABLE(	teleop
 		PathControl/ADSK.cpp
 		ReactiveControl/CinematicMap.cpp
 		ReactiveControl/ReactiveControl.cpp
-                LaserKinect/KinectCloud.cpp
-                LaserKinect/KinectData.cpp
+
 		)
+
+                #LaserKinect/KinectCloud.cpp
+                #LaserKinect/KinectData.cpp
 
 IF(WIN32)
 	TARGET_LINK_LIBRARIES(simulator debug mrcore_d freeglut_static)
@@ -50,7 +52,8 @@ IF(WIN32)
 	TARGET_LINK_LIBRARIES(teleop optimized mrcore freeglut_static)
 ELSE(WIN32) #LINUX	
 	TARGET_LINK_LIBRARIES(simulator mrcore glut GL GLU pthread)
-	TARGET_LINK_LIBRARIES(teleop mrcore glut GL GLU pthread pcl_io freenect freenect_sync)
+	#TARGET_LINK_LIBRARIES(teleop mrcore glut GL GLU pthread pcl_io freenect freenect_sync)
+        TARGET_LINK_LIBRARIES(teleop mrcore glut GL GLU pthread)
 ENDIF(WIN32)
 		
 ##################################

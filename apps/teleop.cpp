@@ -14,17 +14,17 @@
 #include "globalFunctions.h"
 #include "configControlDefine.h"
 
-#include "libfreenect.h"
-#include "libfreenect_sync.h"
-#include "LaserKinect/KinectData.h"
-#include "LaserKinect/KinectCloud.h"
+//#include "libfreenect.h"
+//#include "libfreenect_sync.h"
+//#include "LaserKinect/KinectData.h"
+////#include "LaserKinect/KinectCloud.h"
 
 using namespace mr;
 using namespace std;
 string pathinput;
 
-KinectData kinectd;
-KinectCloud kinect;
+//KinectData kinectd;
+//KinectCloud kinect;
 
 class MyGlutApp : public GlutApp
 {
@@ -84,12 +84,12 @@ public:
                 auxodom.pose.position.y, yaw);
         gf::Texto2D(mens2, 10, 30, 100, 255, 0);
         
-        kinectd.Draw(yaw,Vector2D(auxodom.pose.position.x,auxodom.pose.position.y));
+        //kinectd.Draw(yaw,Vector2D(auxodom.pose.position.x,auxodom.pose.position.y));
 
     }
 
     void Timer(float time) {
-        kinectd.Update(kinect.GetDepth(),kinect.GetRGB());
+        //kinectd.Update(kinect.GetDepth(),kinect.GetRGB());
         
         Odometry odom;
         LaserData laserData;
@@ -213,7 +213,7 @@ int main(int argc, char* argv[]) {
     //robot->connectClients("192.168.100.50",13000);        //Real 
 
     MyGlutApp myApp("teleop", robot);
-    kinectd.Update(kinect.GetDepth(),kinect.GetRGB());
+    //kinectd.Update(kinect.GetDepth(),kinect.GetRGB());
 
     //Loop
     myApp.Run();

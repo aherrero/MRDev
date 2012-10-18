@@ -12,11 +12,6 @@ SET(CMAKE_FORCE_UNIX_PATHS 1)
 SET(CMAKE_C_INCLUDE_PATH
   "/usr/local/mrcore/include"
   "/usr/local/mrcore/include/mrcore"
-  "/usr/local/include"
-  "/usr/local/include/libfreenect"
-  "/usr/include/pcl-1.6"
-  "/usr/include/pcl-1.6/pcl"
-  "/usr/include/eigen3"
   )
 SET(CMAKE_CXX_INCLUDE_PATH ${CMAKE_C_INCLUDE_PATH})
 SET(CMAKE_Fortran_INCLUDE_PATH ${CMAKE_C_INCLUDE_PATH})
