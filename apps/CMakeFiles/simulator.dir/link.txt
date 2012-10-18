@@ -1,1 +1,1 @@
-/usr/bin/c++       CMakeFiles/simulator.dir/simulator.cpp.o CMakeFiles/simulator.dir/glutapp.cpp.o  -o simulator -rdynamic -L/usr/local/mrcore/lib -lmrcore -lglut -lGL -lGLU -lpthread -Wl,-rpath,/usr/local/mrcore/lib: 
+/usr/bin/c++       CMakeFiles/simulator.dir/simulator.o CMakeFiles/simulator.dir/glutapp.o  -o simulator -rdynamic -L/usr/local/mrcore/lib -L/usr/local/include -L/usr/include/pcl-1.6 -L/usr/include/eigen3 -lmrcore -lglut -lGL -lGLU -lpthread -Wl,-rpath,/usr/local/mrcore/lib:/usr/local/include:/usr/include/pcl-1.6:/usr/include/eigen3: 

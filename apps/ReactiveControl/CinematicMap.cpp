@@ -98,6 +98,8 @@ void CinematicMap::drawGL()
         //Laser verde central
         glPushMatrix();
         Vector2D center = gf::TransformationRT2D(pointsCloud[pointsCloud.size()/2], yaw, Vector2D(pos.x, pos.y));
+        
+        mr::Transformation3D
 
         glLineWidth(1.0);
         glColor3ub(0, 200, 0);

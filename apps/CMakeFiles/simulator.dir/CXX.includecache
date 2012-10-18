@@ -19,8 +19,8 @@ GL/glut.h
 /home/alex/mrdevgit/apps/GL/glut.h
 
 /home/alex/mrdevgit/apps/simulator.cpp
-/usr/local/mrcore/include/mrcore/mrcore.h
--
+mrcore/mrcore.h
+/home/alex/mrdevgit/apps/mrcore/mrcore.h
 iostream
 -
 glutapp.h
@@ -602,6 +602,14 @@ transformation3d.h
 vector
 -
 
+/usr/local/mrcore/include/mrcore/math/gaussian.h
+iostream
+-
+math.h
+-
+vector
+-
+
 /usr/local/mrcore/include/mrcore/math/geometryfunctions.h
 cmath
 -
@@ -967,6 +975,8 @@ math/transformation3d.h
 /usr/local/mrcore/include/mrcore/math/transformation3d.h
 math/segment2d.h
 /usr/local/mrcore/include/mrcore/math/segment2d.h
+math/gaussian.h
+/usr/local/mrcore/include/mrcore/math/gaussian.h
 math/segment3d.h
 /usr/local/mrcore/include/mrcore/math/segment3d.h
 math/transformation2d.h
@@ -1749,22 +1759,4 @@ positionableentity.h
 /usr/local/mrcore/include/mrcore/world/positionableentity.h
 entityset.h
 /usr/local/mrcore/include/mrcore/world/entityset.h
-
-libraries/freeglut/include/GL/freeglut_std.h
-windows.h
--
-gl/gl.h
--
-gl/glu.h
--
-GL/gl.h
--
-GL/glu.h
--
-stdlib.h
--
-
-libraries/freeglut/include/GL/glut.h
-freeglut_std.h
-libraries/freeglut/include/GL/freeglut_std.h
 

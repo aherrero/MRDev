@@ -1,5 +1,4 @@
-//#include "mrcore/mrcore.h"
-#include "/usr/local/mrcore/include/mrcore/mrcore.h"
+#include "mrcore/mrcore.h"
 #include <iostream>
 #include "glutapp.h"
 

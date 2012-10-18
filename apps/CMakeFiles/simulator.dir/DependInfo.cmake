@@ -4,8 +4,8 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/alex/mrdevgit/apps/glutapp.cpp" "/home/alex/mrdevgit/apps/CMakeFiles/simulator.dir/glutapp.cpp.o"
-  "/home/alex/mrdevgit/apps/simulator.cpp" "/home/alex/mrdevgit/apps/CMakeFiles/simulator.dir/simulator.cpp.o"
+  "/home/alex/mrdevgit/apps/glutapp.cpp" "/home/alex/mrdevgit/apps/CMakeFiles/simulator.dir/glutapp.o"
+  "/home/alex/mrdevgit/apps/simulator.cpp" "/home/alex/mrdevgit/apps/CMakeFiles/simulator.dir/simulator.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

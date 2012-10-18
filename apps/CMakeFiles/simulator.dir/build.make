@@ -32,94 +32,94 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alex/mrdevgit
+CMAKE_SOURCE_DIR = /home/alex/mrdevgit/apps
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alex/mrdevgit
+CMAKE_BINARY_DIR = /home/alex/mrdevgit/apps
 
 # Include any dependencies generated for this target.
-include apps/CMakeFiles/simulator.dir/depend.make
+include CMakeFiles/simulator.dir/depend.make
 
 # Include the progress variables for this target.
-include apps/CMakeFiles/simulator.dir/progress.make
+include CMakeFiles/simulator.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include apps/CMakeFiles/simulator.dir/flags.make
+include CMakeFiles/simulator.dir/flags.make
 
-apps/CMakeFiles/simulator.dir/simulator.cpp.o: apps/CMakeFiles/simulator.dir/flags.make
-apps/CMakeFiles/simulator.dir/simulator.cpp.o: apps/simulator.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/alex/mrdevgit/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object apps/CMakeFiles/simulator.dir/simulator.cpp.o"
-	cd /home/alex/mrdevgit/apps && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/simulator.dir/simulator.cpp.o -c /home/alex/mrdevgit/apps/simulator.cpp
+CMakeFiles/simulator.dir/simulator.o: CMakeFiles/simulator.dir/flags.make
+CMakeFiles/simulator.dir/simulator.o: simulator.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/alex/mrdevgit/apps/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/simulator.dir/simulator.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/simulator.dir/simulator.o -c /home/alex/mrdevgit/apps/simulator.cpp
 
-apps/CMakeFiles/simulator.dir/simulator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simulator.dir/simulator.cpp.i"
-	cd /home/alex/mrdevgit/apps && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevgit/apps/simulator.cpp > CMakeFiles/simulator.dir/simulator.cpp.i
+CMakeFiles/simulator.dir/simulator.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simulator.dir/simulator.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevgit/apps/simulator.cpp > CMakeFiles/simulator.dir/simulator.i
 
-apps/CMakeFiles/simulator.dir/simulator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simulator.dir/simulator.cpp.s"
-	cd /home/alex/mrdevgit/apps && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevgit/apps/simulator.cpp -o CMakeFiles/simulator.dir/simulator.cpp.s
+CMakeFiles/simulator.dir/simulator.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simulator.dir/simulator.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevgit/apps/simulator.cpp -o CMakeFiles/simulator.dir/simulator.s
 
-apps/CMakeFiles/simulator.dir/simulator.cpp.o.requires:
-.PHONY : apps/CMakeFiles/simulator.dir/simulator.cpp.o.requires
+CMakeFiles/simulator.dir/simulator.o.requires:
+.PHONY : CMakeFiles/simulator.dir/simulator.o.requires
 
-apps/CMakeFiles/simulator.dir/simulator.cpp.o.provides: apps/CMakeFiles/simulator.dir/simulator.cpp.o.requires
-	$(MAKE) -f apps/CMakeFiles/simulator.dir/build.make apps/CMakeFiles/simulator.dir/simulator.cpp.o.provides.build
-.PHONY : apps/CMakeFiles/simulator.dir/simulator.cpp.o.provides
+CMakeFiles/simulator.dir/simulator.o.provides: CMakeFiles/simulator.dir/simulator.o.requires
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/simulator.o.provides.build
+.PHONY : CMakeFiles/simulator.dir/simulator.o.provides
 
-apps/CMakeFiles/simulator.dir/simulator.cpp.o.provides.build: apps/CMakeFiles/simulator.dir/simulator.cpp.o
+CMakeFiles/simulator.dir/simulator.o.provides.build: CMakeFiles/simulator.dir/simulator.o
 
-apps/CMakeFiles/simulator.dir/glutapp.cpp.o: apps/CMakeFiles/simulator.dir/flags.make
-apps/CMakeFiles/simulator.dir/glutapp.cpp.o: apps/glutapp.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/alex/mrdevgit/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object apps/CMakeFiles/simulator.dir/glutapp.cpp.o"
-	cd /home/alex/mrdevgit/apps && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/simulator.dir/glutapp.cpp.o -c /home/alex/mrdevgit/apps/glutapp.cpp
+CMakeFiles/simulator.dir/glutapp.o: CMakeFiles/simulator.dir/flags.make
+CMakeFiles/simulator.dir/glutapp.o: glutapp.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/alex/mrdevgit/apps/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/simulator.dir/glutapp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/simulator.dir/glutapp.o -c /home/alex/mrdevgit/apps/glutapp.cpp
 
-apps/CMakeFiles/simulator.dir/glutapp.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simulator.dir/glutapp.cpp.i"
-	cd /home/alex/mrdevgit/apps && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevgit/apps/glutapp.cpp > CMakeFiles/simulator.dir/glutapp.cpp.i
+CMakeFiles/simulator.dir/glutapp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simulator.dir/glutapp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevgit/apps/glutapp.cpp > CMakeFiles/simulator.dir/glutapp.i
 
-apps/CMakeFiles/simulator.dir/glutapp.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simulator.dir/glutapp.cpp.s"
-	cd /home/alex/mrdevgit/apps && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevgit/apps/glutapp.cpp -o CMakeFiles/simulator.dir/glutapp.cpp.s
+CMakeFiles/simulator.dir/glutapp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simulator.dir/glutapp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevgit/apps/glutapp.cpp -o CMakeFiles/simulator.dir/glutapp.s
 
-apps/CMakeFiles/simulator.dir/glutapp.cpp.o.requires:
-.PHONY : apps/CMakeFiles/simulator.dir/glutapp.cpp.o.requires
+CMakeFiles/simulator.dir/glutapp.o.requires:
+.PHONY : CMakeFiles/simulator.dir/glutapp.o.requires
 
-apps/CMakeFiles/simulator.dir/glutapp.cpp.o.provides: apps/CMakeFiles/simulator.dir/glutapp.cpp.o.requires
-	$(MAKE) -f apps/CMakeFiles/simulator.dir/build.make apps/CMakeFiles/simulator.dir/glutapp.cpp.o.provides.build
-.PHONY : apps/CMakeFiles/simulator.dir/glutapp.cpp.o.provides
+CMakeFiles/simulator.dir/glutapp.o.provides: CMakeFiles/simulator.dir/glutapp.o.requires
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/glutapp.o.provides.build
+.PHONY : CMakeFiles/simulator.dir/glutapp.o.provides
 
-apps/CMakeFiles/simulator.dir/glutapp.cpp.o.provides.build: apps/CMakeFiles/simulator.dir/glutapp.cpp.o
+CMakeFiles/simulator.dir/glutapp.o.provides.build: CMakeFiles/simulator.dir/glutapp.o
 
 # Object files for target simulator
 simulator_OBJECTS = \
-"CMakeFiles/simulator.dir/simulator.cpp.o" \
-"CMakeFiles/simulator.dir/glutapp.cpp.o"
+"CMakeFiles/simulator.dir/simulator.o" \
+"CMakeFiles/simulator.dir/glutapp.o"
 
 # External object files for target simulator
 simulator_EXTERNAL_OBJECTS =
 
-apps/simulator: apps/CMakeFiles/simulator.dir/simulator.cpp.o
-apps/simulator: apps/CMakeFiles/simulator.dir/glutapp.cpp.o
-apps/simulator: apps/CMakeFiles/simulator.dir/build.make
-apps/simulator: apps/CMakeFiles/simulator.dir/link.txt
+simulator: CMakeFiles/simulator.dir/simulator.o
+simulator: CMakeFiles/simulator.dir/glutapp.o
+simulator: CMakeFiles/simulator.dir/build.make
+simulator: CMakeFiles/simulator.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable simulator"
-	cd /home/alex/mrdevgit/apps && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/simulator.dir/link.txt --verbose=$(VERBOSE)
+	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/simulator.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-apps/CMakeFiles/simulator.dir/build: apps/simulator
-.PHONY : apps/CMakeFiles/simulator.dir/build
+CMakeFiles/simulator.dir/build: simulator
+.PHONY : CMakeFiles/simulator.dir/build
 
-apps/CMakeFiles/simulator.dir/requires: apps/CMakeFiles/simulator.dir/simulator.cpp.o.requires
-apps/CMakeFiles/simulator.dir/requires: apps/CMakeFiles/simulator.dir/glutapp.cpp.o.requires
-.PHONY : apps/CMakeFiles/simulator.dir/requires
+CMakeFiles/simulator.dir/requires: CMakeFiles/simulator.dir/simulator.o.requires
+CMakeFiles/simulator.dir/requires: CMakeFiles/simulator.dir/glutapp.o.requires
+.PHONY : CMakeFiles/simulator.dir/requires
 
-apps/CMakeFiles/simulator.dir/clean:
-	cd /home/alex/mrdevgit/apps && $(CMAKE_COMMAND) -P CMakeFiles/simulator.dir/cmake_clean.cmake
-.PHONY : apps/CMakeFiles/simulator.dir/clean
+CMakeFiles/simulator.dir/clean:
+	$(CMAKE_COMMAND) -P CMakeFiles/simulator.dir/cmake_clean.cmake
+.PHONY : CMakeFiles/simulator.dir/clean
 
-apps/CMakeFiles/simulator.dir/depend:
-	cd /home/alex/mrdevgit && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alex/mrdevgit /home/alex/mrdevgit/apps /home/alex/mrdevgit /home/alex/mrdevgit/apps /home/alex/mrdevgit/apps/CMakeFiles/simulator.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : apps/CMakeFiles/simulator.dir/depend
+CMakeFiles/simulator.dir/depend:
+	cd /home/alex/mrdevgit/apps && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alex/mrdevgit/apps /home/alex/mrdevgit/apps /home/alex/mrdevgit/apps /home/alex/mrdevgit/apps /home/alex/mrdevgit/apps/CMakeFiles/simulator.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : CMakeFiles/simulator.dir/depend
 

@@ -36,10 +36,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alex/mrdevgit
+CMAKE_SOURCE_DIR = /home/alex/mrdevgit/apps
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alex/mrdevgit
+CMAKE_BINARY_DIR = /home/alex/mrdevgit/apps
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -107,14 +107,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/alex/mrdevgit && $(CMAKE_COMMAND) -E cmake_progress_start /home/alex/mrdevgit/CMakeFiles /home/alex/mrdevgit/apps/CMakeFiles/progress.marks
-	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 apps/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/mrdevgit/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/mrdevgit/apps/CMakeFiles /home/alex/mrdevgit/apps/CMakeFiles/progress.marks
+	$(MAKE) -f CMakeFiles/Makefile2 all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/mrdevgit/apps/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 apps/clean
+	$(MAKE) -f CMakeFiles/Makefile2 clean
 .PHONY : clean
 
 # The main clean target
@@ -123,289 +123,227 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 apps/preinstall
+	$(MAKE) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 apps/preinstall
+	$(MAKE) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/alex/mrdevgit && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-# Convenience name for target.
-apps/CMakeFiles/simulator.dir/rule:
-	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 apps/CMakeFiles/simulator.dir/rule
-.PHONY : apps/CMakeFiles/simulator.dir/rule
+#=============================================================================
+# Target rules for targets named simulator
 
-# Convenience name for target.
-simulator: apps/CMakeFiles/simulator.dir/rule
+# Build rule for target.
+simulator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 simulator
 .PHONY : simulator
 
 # fast build rule for target.
 simulator/fast:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/simulator.dir/build.make apps/CMakeFiles/simulator.dir/build
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/build
 .PHONY : simulator/fast
 
-# Convenience name for target.
-apps/CMakeFiles/teleop.dir/rule:
-	cd /home/alex/mrdevgit && $(MAKE) -f CMakeFiles/Makefile2 apps/CMakeFiles/teleop.dir/rule
-.PHONY : apps/CMakeFiles/teleop.dir/rule
+#=============================================================================
+# Target rules for targets named teleop
 
-# Convenience name for target.
-teleop: apps/CMakeFiles/teleop.dir/rule
+# Build rule for target.
+teleop: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 teleop
 .PHONY : teleop
 
 # fast build rule for target.
 teleop/fast:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/build
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/build
 .PHONY : teleop/fast
 
-PathControl/ADSK.o: PathControl/ADSK.cpp.o
+# target to build an object file
+LaserKinect/KinectCloud.o:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/LaserKinect/KinectCloud.o
+.PHONY : LaserKinect/KinectCloud.o
+
+# target to preprocess a source file
+LaserKinect/KinectCloud.i:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/LaserKinect/KinectCloud.i
+.PHONY : LaserKinect/KinectCloud.i
+
+# target to generate assembly for a file
+LaserKinect/KinectCloud.s:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/LaserKinect/KinectCloud.s
+.PHONY : LaserKinect/KinectCloud.s
+
+# target to build an object file
+LaserKinect/KinectData.o:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/LaserKinect/KinectData.o
+.PHONY : LaserKinect/KinectData.o
+
+# target to preprocess a source file
+LaserKinect/KinectData.i:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/LaserKinect/KinectData.i
+.PHONY : LaserKinect/KinectData.i
+
+# target to generate assembly for a file
+LaserKinect/KinectData.s:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/LaserKinect/KinectData.s
+.PHONY : LaserKinect/KinectData.s
+
+# target to build an object file
+PathControl/ADSK.o:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/PathControl/ADSK.o
 .PHONY : PathControl/ADSK.o
 
-# target to build an object file
-PathControl/ADSK.cpp.o:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/PathControl/ADSK.cpp.o
-.PHONY : PathControl/ADSK.cpp.o
-
-PathControl/ADSK.i: PathControl/ADSK.cpp.i
+# target to preprocess a source file
+PathControl/ADSK.i:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/PathControl/ADSK.i
 .PHONY : PathControl/ADSK.i
 
-# target to preprocess a source file
-PathControl/ADSK.cpp.i:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/PathControl/ADSK.cpp.i
-.PHONY : PathControl/ADSK.cpp.i
-
-PathControl/ADSK.s: PathControl/ADSK.cpp.s
+# target to generate assembly for a file
+PathControl/ADSK.s:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/PathControl/ADSK.s
 .PHONY : PathControl/ADSK.s
 
-# target to generate assembly for a file
-PathControl/ADSK.cpp.s:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/PathControl/ADSK.cpp.s
-.PHONY : PathControl/ADSK.cpp.s
-
-PathControl/AngDistToSeg.o: PathControl/AngDistToSeg.cpp.o
+# target to build an object file
+PathControl/AngDistToSeg.o:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/PathControl/AngDistToSeg.o
 .PHONY : PathControl/AngDistToSeg.o
 
-# target to build an object file
-PathControl/AngDistToSeg.cpp.o:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/PathControl/AngDistToSeg.cpp.o
-.PHONY : PathControl/AngDistToSeg.cpp.o
-
-PathControl/AngDistToSeg.i: PathControl/AngDistToSeg.cpp.i
+# target to preprocess a source file
+PathControl/AngDistToSeg.i:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/PathControl/AngDistToSeg.i
 .PHONY : PathControl/AngDistToSeg.i
 
-# target to preprocess a source file
-PathControl/AngDistToSeg.cpp.i:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/PathControl/AngDistToSeg.cpp.i
-.PHONY : PathControl/AngDistToSeg.cpp.i
-
-PathControl/AngDistToSeg.s: PathControl/AngDistToSeg.cpp.s
+# target to generate assembly for a file
+PathControl/AngDistToSeg.s:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/PathControl/AngDistToSeg.s
 .PHONY : PathControl/AngDistToSeg.s
 
-# target to generate assembly for a file
-PathControl/AngDistToSeg.cpp.s:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/PathControl/AngDistToSeg.cpp.s
-.PHONY : PathControl/AngDistToSeg.cpp.s
-
-PathControl/Angular.o: PathControl/Angular.cpp.o
+# target to build an object file
+PathControl/Angular.o:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/PathControl/Angular.o
 .PHONY : PathControl/Angular.o
 
-# target to build an object file
-PathControl/Angular.cpp.o:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/PathControl/Angular.cpp.o
-.PHONY : PathControl/Angular.cpp.o
-
-PathControl/Angular.i: PathControl/Angular.cpp.i
+# target to preprocess a source file
+PathControl/Angular.i:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/PathControl/Angular.i
 .PHONY : PathControl/Angular.i
 
-# target to preprocess a source file
-PathControl/Angular.cpp.i:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/PathControl/Angular.cpp.i
-.PHONY : PathControl/Angular.cpp.i
-
-PathControl/Angular.s: PathControl/Angular.cpp.s
+# target to generate assembly for a file
+PathControl/Angular.s:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/PathControl/Angular.s
 .PHONY : PathControl/Angular.s
 
-# target to generate assembly for a file
-PathControl/Angular.cpp.s:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/PathControl/Angular.cpp.s
-.PHONY : PathControl/Angular.cpp.s
-
-PathControl/CalculoError.o: PathControl/CalculoError.cpp.o
+# target to build an object file
+PathControl/CalculoError.o:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/PathControl/CalculoError.o
 .PHONY : PathControl/CalculoError.o
 
-# target to build an object file
-PathControl/CalculoError.cpp.o:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/PathControl/CalculoError.cpp.o
-.PHONY : PathControl/CalculoError.cpp.o
-
-PathControl/CalculoError.i: PathControl/CalculoError.cpp.i
+# target to preprocess a source file
+PathControl/CalculoError.i:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/PathControl/CalculoError.i
 .PHONY : PathControl/CalculoError.i
 
-# target to preprocess a source file
-PathControl/CalculoError.cpp.i:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/PathControl/CalculoError.cpp.i
-.PHONY : PathControl/CalculoError.cpp.i
-
-PathControl/CalculoError.s: PathControl/CalculoError.cpp.s
+# target to generate assembly for a file
+PathControl/CalculoError.s:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/PathControl/CalculoError.s
 .PHONY : PathControl/CalculoError.s
 
-# target to generate assembly for a file
-PathControl/CalculoError.cpp.s:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/PathControl/CalculoError.cpp.s
-.PHONY : PathControl/CalculoError.cpp.s
-
-PathControl/Control.o: PathControl/Control.cpp.o
+# target to build an object file
+PathControl/Control.o:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/PathControl/Control.o
 .PHONY : PathControl/Control.o
 
-# target to build an object file
-PathControl/Control.cpp.o:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/PathControl/Control.cpp.o
-.PHONY : PathControl/Control.cpp.o
-
-PathControl/Control.i: PathControl/Control.cpp.i
+# target to preprocess a source file
+PathControl/Control.i:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/PathControl/Control.i
 .PHONY : PathControl/Control.i
 
-# target to preprocess a source file
-PathControl/Control.cpp.i:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/PathControl/Control.cpp.i
-.PHONY : PathControl/Control.cpp.i
-
-PathControl/Control.s: PathControl/Control.cpp.s
+# target to generate assembly for a file
+PathControl/Control.s:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/PathControl/Control.s
 .PHONY : PathControl/Control.s
 
-# target to generate assembly for a file
-PathControl/Control.cpp.s:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/PathControl/Control.cpp.s
-.PHONY : PathControl/Control.cpp.s
-
-ReactiveControl/CinematicMap.o: ReactiveControl/CinematicMap.cpp.o
+# target to build an object file
+ReactiveControl/CinematicMap.o:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/ReactiveControl/CinematicMap.o
 .PHONY : ReactiveControl/CinematicMap.o
 
-# target to build an object file
-ReactiveControl/CinematicMap.cpp.o:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/ReactiveControl/CinematicMap.cpp.o
-.PHONY : ReactiveControl/CinematicMap.cpp.o
-
-ReactiveControl/CinematicMap.i: ReactiveControl/CinematicMap.cpp.i
+# target to preprocess a source file
+ReactiveControl/CinematicMap.i:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/ReactiveControl/CinematicMap.i
 .PHONY : ReactiveControl/CinematicMap.i
 
-# target to preprocess a source file
-ReactiveControl/CinematicMap.cpp.i:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/ReactiveControl/CinematicMap.cpp.i
-.PHONY : ReactiveControl/CinematicMap.cpp.i
-
-ReactiveControl/CinematicMap.s: ReactiveControl/CinematicMap.cpp.s
+# target to generate assembly for a file
+ReactiveControl/CinematicMap.s:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/ReactiveControl/CinematicMap.s
 .PHONY : ReactiveControl/CinematicMap.s
 
-# target to generate assembly for a file
-ReactiveControl/CinematicMap.cpp.s:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/ReactiveControl/CinematicMap.cpp.s
-.PHONY : ReactiveControl/CinematicMap.cpp.s
-
-ReactiveControl/ReactiveControl.o: ReactiveControl/ReactiveControl.cpp.o
+# target to build an object file
+ReactiveControl/ReactiveControl.o:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/ReactiveControl/ReactiveControl.o
 .PHONY : ReactiveControl/ReactiveControl.o
 
-# target to build an object file
-ReactiveControl/ReactiveControl.cpp.o:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/ReactiveControl/ReactiveControl.cpp.o
-.PHONY : ReactiveControl/ReactiveControl.cpp.o
-
-ReactiveControl/ReactiveControl.i: ReactiveControl/ReactiveControl.cpp.i
+# target to preprocess a source file
+ReactiveControl/ReactiveControl.i:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/ReactiveControl/ReactiveControl.i
 .PHONY : ReactiveControl/ReactiveControl.i
 
-# target to preprocess a source file
-ReactiveControl/ReactiveControl.cpp.i:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/ReactiveControl/ReactiveControl.cpp.i
-.PHONY : ReactiveControl/ReactiveControl.cpp.i
-
-ReactiveControl/ReactiveControl.s: ReactiveControl/ReactiveControl.cpp.s
+# target to generate assembly for a file
+ReactiveControl/ReactiveControl.s:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/ReactiveControl/ReactiveControl.s
 .PHONY : ReactiveControl/ReactiveControl.s
 
-# target to generate assembly for a file
-ReactiveControl/ReactiveControl.cpp.s:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/ReactiveControl/ReactiveControl.cpp.s
-.PHONY : ReactiveControl/ReactiveControl.cpp.s
-
-glutapp.o: glutapp.cpp.o
+# target to build an object file
+glutapp.o:
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/glutapp.o
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/glutapp.o
 .PHONY : glutapp.o
 
-# target to build an object file
-glutapp.cpp.o:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/simulator.dir/build.make apps/CMakeFiles/simulator.dir/glutapp.cpp.o
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/glutapp.cpp.o
-.PHONY : glutapp.cpp.o
-
-glutapp.i: glutapp.cpp.i
+# target to preprocess a source file
+glutapp.i:
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/glutapp.i
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/glutapp.i
 .PHONY : glutapp.i
 
-# target to preprocess a source file
-glutapp.cpp.i:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/simulator.dir/build.make apps/CMakeFiles/simulator.dir/glutapp.cpp.i
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/glutapp.cpp.i
-.PHONY : glutapp.cpp.i
-
-glutapp.s: glutapp.cpp.s
+# target to generate assembly for a file
+glutapp.s:
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/glutapp.s
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/glutapp.s
 .PHONY : glutapp.s
 
-# target to generate assembly for a file
-glutapp.cpp.s:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/simulator.dir/build.make apps/CMakeFiles/simulator.dir/glutapp.cpp.s
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/glutapp.cpp.s
-.PHONY : glutapp.cpp.s
-
-simulator.o: simulator.cpp.o
+# target to build an object file
+simulator.o:
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/simulator.o
 .PHONY : simulator.o
 
-# target to build an object file
-simulator.cpp.o:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/simulator.dir/build.make apps/CMakeFiles/simulator.dir/simulator.cpp.o
-.PHONY : simulator.cpp.o
-
-simulator.i: simulator.cpp.i
+# target to preprocess a source file
+simulator.i:
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/simulator.i
 .PHONY : simulator.i
 
-# target to preprocess a source file
-simulator.cpp.i:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/simulator.dir/build.make apps/CMakeFiles/simulator.dir/simulator.cpp.i
-.PHONY : simulator.cpp.i
-
-simulator.s: simulator.cpp.s
+# target to generate assembly for a file
+simulator.s:
+	$(MAKE) -f CMakeFiles/simulator.dir/build.make CMakeFiles/simulator.dir/simulator.s
 .PHONY : simulator.s
 
-# target to generate assembly for a file
-simulator.cpp.s:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/simulator.dir/build.make apps/CMakeFiles/simulator.dir/simulator.cpp.s
-.PHONY : simulator.cpp.s
-
-teleop.o: teleop.cpp.o
+# target to build an object file
+teleop.o:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/teleop.o
 .PHONY : teleop.o
 
-# target to build an object file
-teleop.cpp.o:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/teleop.cpp.o
-.PHONY : teleop.cpp.o
-
-teleop.i: teleop.cpp.i
+# target to preprocess a source file
+teleop.i:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/teleop.i
 .PHONY : teleop.i
 
-# target to preprocess a source file
-teleop.cpp.i:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/teleop.cpp.i
-.PHONY : teleop.cpp.i
-
-teleop.s: teleop.cpp.s
-.PHONY : teleop.s
-
 # target to generate assembly for a file
-teleop.cpp.s:
-	cd /home/alex/mrdevgit && $(MAKE) -f apps/CMakeFiles/teleop.dir/build.make apps/CMakeFiles/teleop.dir/teleop.cpp.s
-.PHONY : teleop.cpp.s
+teleop.s:
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/teleop.s
+.PHONY : teleop.s
 
 # Help Target
 help:
@@ -421,6 +359,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... simulator"
 	@echo "... teleop"
+	@echo "... LaserKinect/KinectCloud.o"
+	@echo "... LaserKinect/KinectCloud.i"
+	@echo "... LaserKinect/KinectCloud.s"
+	@echo "... LaserKinect/KinectData.o"
+	@echo "... LaserKinect/KinectData.i"
+	@echo "... LaserKinect/KinectData.s"
 	@echo "... PathControl/ADSK.o"
 	@echo "... PathControl/ADSK.i"
 	@echo "... PathControl/ADSK.s"
@@ -462,6 +406,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/alex/mrdevgit && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
