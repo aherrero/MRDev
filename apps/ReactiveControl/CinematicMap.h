@@ -28,6 +28,7 @@ public:
     void setDistance(float distanceObstacle);
     void SetPose(Odometry odom);
     void SetLaser(LaserData laserdata);
+    //void SetLaser(PointCloud kinectData);
     void GetObstacle(vector<Vector2D> &pointsObstacle_,
             vector<double> &rangeObstacle_,vector<Angle> &angleObstacle_);
         

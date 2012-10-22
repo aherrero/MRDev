@@ -122,6 +122,9 @@ CMakeFiles/teleop.dir/PathControl/ADSK.o
  /usr/local/mrcore/include/mrcore/simulation/../data/laserdata.h
  /usr/local/mrcore/include/mrcore/simulation/../data/laserdata3d.h
  /usr/local/mrcore/include/mrcore/simulation/../data/pointcloud.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectclient.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectserver.h
  /usr/local/mrcore/include/mrcore/simulation/../math/transformation2d.h
  /usr/local/mrcore/include/mrcore/simulation/../system/mutex.h
  /usr/local/mrcore/include/mrcore/simulation/../world/composedentity.h
@@ -297,6 +300,9 @@ CMakeFiles/teleop.dir/PathControl/AngDistToSeg.o
  /usr/local/mrcore/include/mrcore/simulation/../data/laserdata.h
  /usr/local/mrcore/include/mrcore/simulation/../data/laserdata3d.h
  /usr/local/mrcore/include/mrcore/simulation/../data/pointcloud.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectclient.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectserver.h
  /usr/local/mrcore/include/mrcore/simulation/../math/transformation2d.h
  /usr/local/mrcore/include/mrcore/simulation/../system/mutex.h
  /usr/local/mrcore/include/mrcore/simulation/../world/composedentity.h
@@ -472,6 +478,9 @@ CMakeFiles/teleop.dir/PathControl/Angular.o
  /usr/local/mrcore/include/mrcore/simulation/../data/laserdata.h
  /usr/local/mrcore/include/mrcore/simulation/../data/laserdata3d.h
  /usr/local/mrcore/include/mrcore/simulation/../data/pointcloud.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectclient.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectserver.h
  /usr/local/mrcore/include/mrcore/simulation/../math/transformation2d.h
  /usr/local/mrcore/include/mrcore/simulation/../system/mutex.h
  /usr/local/mrcore/include/mrcore/simulation/../world/composedentity.h
@@ -644,6 +653,9 @@ CMakeFiles/teleop.dir/PathControl/CalculoError.o
  /usr/local/mrcore/include/mrcore/simulation/../data/laserdata.h
  /usr/local/mrcore/include/mrcore/simulation/../data/laserdata3d.h
  /usr/local/mrcore/include/mrcore/simulation/../data/pointcloud.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectclient.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectserver.h
  /usr/local/mrcore/include/mrcore/simulation/../math/transformation2d.h
  /usr/local/mrcore/include/mrcore/simulation/../system/mutex.h
  /usr/local/mrcore/include/mrcore/simulation/../world/composedentity.h
@@ -818,6 +830,9 @@ CMakeFiles/teleop.dir/PathControl/Control.o
  /usr/local/mrcore/include/mrcore/simulation/../data/laserdata.h
  /usr/local/mrcore/include/mrcore/simulation/../data/laserdata3d.h
  /usr/local/mrcore/include/mrcore/simulation/../data/pointcloud.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectclient.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectserver.h
  /usr/local/mrcore/include/mrcore/simulation/../math/transformation2d.h
  /usr/local/mrcore/include/mrcore/simulation/../system/mutex.h
  /usr/local/mrcore/include/mrcore/simulation/../world/composedentity.h
@@ -992,6 +1007,9 @@ CMakeFiles/teleop.dir/ReactiveControl/CinematicMap.o
  /usr/local/mrcore/include/mrcore/simulation/../data/laserdata.h
  /usr/local/mrcore/include/mrcore/simulation/../data/laserdata3d.h
  /usr/local/mrcore/include/mrcore/simulation/../data/pointcloud.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectclient.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectserver.h
  /usr/local/mrcore/include/mrcore/simulation/../math/transformation2d.h
  /usr/local/mrcore/include/mrcore/simulation/../system/mutex.h
  /usr/local/mrcore/include/mrcore/simulation/../world/composedentity.h
@@ -1164,6 +1182,9 @@ CMakeFiles/teleop.dir/ReactiveControl/ReactiveControl.o
  /usr/local/mrcore/include/mrcore/simulation/../data/laserdata.h
  /usr/local/mrcore/include/mrcore/simulation/../data/laserdata3d.h
  /usr/local/mrcore/include/mrcore/simulation/../data/pointcloud.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectclient.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectserver.h
  /usr/local/mrcore/include/mrcore/simulation/../math/transformation2d.h
  /usr/local/mrcore/include/mrcore/simulation/../system/mutex.h
  /usr/local/mrcore/include/mrcore/simulation/../world/composedentity.h
@@ -1349,6 +1370,9 @@ CMakeFiles/teleop.dir/teleop.o
  /usr/local/mrcore/include/mrcore/simulation/../data/laserdata.h
  /usr/local/mrcore/include/mrcore/simulation/../data/laserdata3d.h
  /usr/local/mrcore/include/mrcore/simulation/../data/pointcloud.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectclient.h
+ /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectserver.h
  /usr/local/mrcore/include/mrcore/simulation/../math/transformation2d.h
  /usr/local/mrcore/include/mrcore/simulation/../system/mutex.h
  /usr/local/mrcore/include/mrcore/simulation/../world/composedentity.h

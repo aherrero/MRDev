@@ -119,6 +119,9 @@ CMakeFiles/simulator.dir/simulator.o: /usr/local/mrcore/include/mrcore/pathplann
 CMakeFiles/simulator.dir/simulator.o: /usr/local/mrcore/include/mrcore/simulation/../data/laserdata.h
 CMakeFiles/simulator.dir/simulator.o: /usr/local/mrcore/include/mrcore/simulation/../data/laserdata3d.h
 CMakeFiles/simulator.dir/simulator.o: /usr/local/mrcore/include/mrcore/simulation/../data/pointcloud.h
+CMakeFiles/simulator.dir/simulator.o: /usr/local/mrcore/include/mrcore/simulation/../hw/kinect.h
+CMakeFiles/simulator.dir/simulator.o: /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectclient.h
+CMakeFiles/simulator.dir/simulator.o: /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectserver.h
 CMakeFiles/simulator.dir/simulator.o: /usr/local/mrcore/include/mrcore/simulation/../math/transformation2d.h
 CMakeFiles/simulator.dir/simulator.o: /usr/local/mrcore/include/mrcore/simulation/../system/mutex.h
 CMakeFiles/simulator.dir/simulator.o: /usr/local/mrcore/include/mrcore/simulation/../world/composedentity.h

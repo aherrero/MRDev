@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/alex/mrdevgit/apps/glutapp.cpp
-glutapp.h
-/home/alex/mrdevgit/apps/glutapp.h
-iostream
--
-
 /home/alex/mrdevgit/apps/glutapp.h
 string
 -
@@ -1202,6 +1196,22 @@ vector
 data.h
 /usr/local/mrcore/include/mrcore/simulation/../data/data.h
 
+/usr/local/mrcore/include/mrcore/simulation/../hw/kinect.h
+data/pointcloud.h
+/usr/local/mrcore/include/mrcore/simulation/../hw/data/pointcloud.h
+
+/usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectclient.h
+net/client.h
+/usr/local/mrcore/include/mrcore/simulation/../hw/kinect/net/client.h
+../kinect.h
+/usr/local/mrcore/include/mrcore/simulation/../hw/kinect/../kinect.h
+
+/usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectserver.h
+net/server.h
+/usr/local/mrcore/include/mrcore/simulation/../hw/kinect/net/server.h
+../kinect.h
+/usr/local/mrcore/include/mrcore/simulation/../hw/kinect/../kinect.h
+
 /usr/local/mrcore/include/mrcore/simulation/../math/transformation2d.h
 vector2d.h
 /usr/local/mrcore/include/mrcore/simulation/../math/vector2d.h
@@ -1367,6 +1377,14 @@ pioneer3atsim.h
 /usr/local/mrcore/include/mrcore/simulation/pioneer3atsim.h
 lms100sim.h
 /usr/local/mrcore/include/mrcore/simulation/lms100sim.h
+kinectsim.h
+/usr/local/mrcore/include/mrcore/simulation/kinectsim.h
+../hw/kinect.h
+/usr/local/mrcore/include/mrcore/simulation/../hw/kinect.h
+../hw/kinect/kinectserver.h
+/usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectserver.h
+../hw/kinect/kinectclient.h
+/usr/local/mrcore/include/mrcore/simulation/../hw/kinect/kinectclient.h
 
 /usr/local/mrcore/include/mrcore/simulation/nemolasersensor3dsim.h
 lasersensor3dsim.h

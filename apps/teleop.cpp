@@ -93,9 +93,11 @@ public:
         
         Odometry odom;
         LaserData laserData;
+        PointCloud kinectData;
 
         robot->getOdometry(odom);
-        robot->getLaserData(laserData);
+        //robot->getLaserData(laserData);
+        robot->getLaserDataKinect(kinectData);
 
         if (!remoteControl)
         {
@@ -208,7 +210,8 @@ int main(int argc, char* argv[]) {
     cout << "Loading configuration file: " << pathinput << endl;
 
     //Creation of a robot and connection
-    MobileRobot* robot = new Neo();
+    //MobileRobot* robot = new Neo();
+    MobileRobot* robot=new NeoKinect();
     robot->connectClients("127.0.0.1", 13000); //Simulation
     //robot->connectClients("192.168.100.50",13000);        //Real 
 
