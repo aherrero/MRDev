@@ -253,6 +253,52 @@ CMakeFiles/teleop.dir/ReactiveControl/ReactiveControl.o.provides: CMakeFiles/tel
 
 CMakeFiles/teleop.dir/ReactiveControl/ReactiveControl.o.provides.build: CMakeFiles/teleop.dir/ReactiveControl/ReactiveControl.o
 
+CMakeFiles/teleop.dir/LaserKinect/KinectCloud.o: CMakeFiles/teleop.dir/flags.make
+CMakeFiles/teleop.dir/LaserKinect/KinectCloud.o: LaserKinect/KinectCloud.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/alex/mrdevgit/apps/CMakeFiles $(CMAKE_PROGRESS_10)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/teleop.dir/LaserKinect/KinectCloud.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/teleop.dir/LaserKinect/KinectCloud.o -c /home/alex/mrdevgit/apps/LaserKinect/KinectCloud.cpp
+
+CMakeFiles/teleop.dir/LaserKinect/KinectCloud.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/teleop.dir/LaserKinect/KinectCloud.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevgit/apps/LaserKinect/KinectCloud.cpp > CMakeFiles/teleop.dir/LaserKinect/KinectCloud.i
+
+CMakeFiles/teleop.dir/LaserKinect/KinectCloud.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/teleop.dir/LaserKinect/KinectCloud.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevgit/apps/LaserKinect/KinectCloud.cpp -o CMakeFiles/teleop.dir/LaserKinect/KinectCloud.s
+
+CMakeFiles/teleop.dir/LaserKinect/KinectCloud.o.requires:
+.PHONY : CMakeFiles/teleop.dir/LaserKinect/KinectCloud.o.requires
+
+CMakeFiles/teleop.dir/LaserKinect/KinectCloud.o.provides: CMakeFiles/teleop.dir/LaserKinect/KinectCloud.o.requires
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/LaserKinect/KinectCloud.o.provides.build
+.PHONY : CMakeFiles/teleop.dir/LaserKinect/KinectCloud.o.provides
+
+CMakeFiles/teleop.dir/LaserKinect/KinectCloud.o.provides.build: CMakeFiles/teleop.dir/LaserKinect/KinectCloud.o
+
+CMakeFiles/teleop.dir/LaserKinect/KinectData.o: CMakeFiles/teleop.dir/flags.make
+CMakeFiles/teleop.dir/LaserKinect/KinectData.o: LaserKinect/KinectData.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/alex/mrdevgit/apps/CMakeFiles $(CMAKE_PROGRESS_11)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/teleop.dir/LaserKinect/KinectData.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/teleop.dir/LaserKinect/KinectData.o -c /home/alex/mrdevgit/apps/LaserKinect/KinectData.cpp
+
+CMakeFiles/teleop.dir/LaserKinect/KinectData.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/teleop.dir/LaserKinect/KinectData.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/alex/mrdevgit/apps/LaserKinect/KinectData.cpp > CMakeFiles/teleop.dir/LaserKinect/KinectData.i
+
+CMakeFiles/teleop.dir/LaserKinect/KinectData.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/teleop.dir/LaserKinect/KinectData.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/alex/mrdevgit/apps/LaserKinect/KinectData.cpp -o CMakeFiles/teleop.dir/LaserKinect/KinectData.s
+
+CMakeFiles/teleop.dir/LaserKinect/KinectData.o.requires:
+.PHONY : CMakeFiles/teleop.dir/LaserKinect/KinectData.o.requires
+
+CMakeFiles/teleop.dir/LaserKinect/KinectData.o.provides: CMakeFiles/teleop.dir/LaserKinect/KinectData.o.requires
+	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/LaserKinect/KinectData.o.provides.build
+.PHONY : CMakeFiles/teleop.dir/LaserKinect/KinectData.o.provides
+
+CMakeFiles/teleop.dir/LaserKinect/KinectData.o.provides.build: CMakeFiles/teleop.dir/LaserKinect/KinectData.o
+
 # Object files for target teleop
 teleop_OBJECTS = \
 "CMakeFiles/teleop.dir/teleop.o" \
@@ -263,7 +309,9 @@ teleop_OBJECTS = \
 "CMakeFiles/teleop.dir/PathControl/CalculoError.o" \
 "CMakeFiles/teleop.dir/PathControl/ADSK.o" \
 "CMakeFiles/teleop.dir/ReactiveControl/CinematicMap.o" \
-"CMakeFiles/teleop.dir/ReactiveControl/ReactiveControl.o"
+"CMakeFiles/teleop.dir/ReactiveControl/ReactiveControl.o" \
+"CMakeFiles/teleop.dir/LaserKinect/KinectCloud.o" \
+"CMakeFiles/teleop.dir/LaserKinect/KinectData.o"
 
 # External object files for target teleop
 teleop_EXTERNAL_OBJECTS =
@@ -277,6 +325,8 @@ teleop: CMakeFiles/teleop.dir/PathControl/CalculoError.o
 teleop: CMakeFiles/teleop.dir/PathControl/ADSK.o
 teleop: CMakeFiles/teleop.dir/ReactiveControl/CinematicMap.o
 teleop: CMakeFiles/teleop.dir/ReactiveControl/ReactiveControl.o
+teleop: CMakeFiles/teleop.dir/LaserKinect/KinectCloud.o
+teleop: CMakeFiles/teleop.dir/LaserKinect/KinectData.o
 teleop: CMakeFiles/teleop.dir/build.make
 teleop: CMakeFiles/teleop.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable teleop"
@@ -295,6 +345,8 @@ CMakeFiles/teleop.dir/requires: CMakeFiles/teleop.dir/PathControl/CalculoError.o
 CMakeFiles/teleop.dir/requires: CMakeFiles/teleop.dir/PathControl/ADSK.o.requires
 CMakeFiles/teleop.dir/requires: CMakeFiles/teleop.dir/ReactiveControl/CinematicMap.o.requires
 CMakeFiles/teleop.dir/requires: CMakeFiles/teleop.dir/ReactiveControl/ReactiveControl.o.requires
+CMakeFiles/teleop.dir/requires: CMakeFiles/teleop.dir/LaserKinect/KinectCloud.o.requires
+CMakeFiles/teleop.dir/requires: CMakeFiles/teleop.dir/LaserKinect/KinectData.o.requires
 .PHONY : CMakeFiles/teleop.dir/requires
 
 CMakeFiles/teleop.dir/clean:

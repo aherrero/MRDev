@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+/home/alex/mrdevgit/apps/glutapp.cpp
+glutapp.h
+/home/alex/mrdevgit/apps/glutapp.h
+iostream
+-
+
 /home/alex/mrdevgit/apps/glutapp.h
 string
 -

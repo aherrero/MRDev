@@ -14,20 +14,21 @@
 #include "globalFunctions.h"
 #include "configControlDefine.h"
 
-//#include "libfreenect.h"
-//#include "libfreenect_sync.h"
-//#include "LaserKinect/KinectData.h"
-////#include "LaserKinect/KinectCloud.h"
+#include "libfreenect.h"
+#include "libfreenect_sync.h"
+#include "LaserKinect/KinectData.h"
+#include "LaserKinect/KinectCloud.h"
 
 using namespace mr;
 using namespace std;
 string pathinput;
 
-//KinectData kinectd;
-//KinectCloud kinect;
+KinectData kinectd;
+KinectCloud kinect;
+bool kinectOn = false;
+bool kinectsimulate = true;
 
-class MyGlutApp : public GlutApp
-{
+class MyGlutApp : public GlutApp {
 public:
 
     MyGlutApp(string name, MobileRobot* r) : GlutApp(name), robot(r) {
@@ -39,12 +40,12 @@ public:
         //Create trajectory control
         controlboth = new ADSK(K_TRAJECTORY_ROT, K_TRAJECTORY_ADV, K_TRAJECTORY_DIST);
         controlboth->SetVelLimit(MAX_SPEED_ROTATION, MAX_SPEED_FORWARD, MIN_SPEED_FORWARD);
-        
+
         //Config cinematic map and reactive control
-        cinematicmap.setDistance(DISTANCE_MAX_OBSTACLE);    //Initially 10 meters
+        cinematicmap.setDistance(DISTANCE_MAX_OBSTACLE); //Initially 10 meters
         reactivecontrol.RangeAction(RANGE_MAX_ACTION_FRONT, RANGE_MIN_ACTION_FRONT, RANGE_ACTION_LATERAL);
         reactivecontrol.ConfigReactiveControl(K_REACTIVE_ADV, K_REACTIVE_ROT,
-                    MAX_SPEED_FORWARD, MAX_SPEED_ROTATION);
+                MAX_SPEED_FORWARD, MAX_SPEED_ROTATION);
 
         //Read path file
         vector<mr::Vector2D> path;
@@ -62,12 +63,12 @@ public:
     void Draw(void) {
 
         scene.Draw();
-        scene.BackgroundColor(0.75, 0.75, 0.75);
+        scene.BackgroundColor(0.3, 0.3, 0.3);
 
         controlboth->drawGL(); //draw trajectory
         cinematicmap.drawGL(); //draw obstacles points
         reactivecontrol.Draw(); //draw points of dangerous obstacles
-        
+
         //**INFORMATION OF SPEED AND POSITION
         char mens[50];
         sprintf(mens, "VelAvance: %.3f VelGiro: %.3f",
@@ -83,24 +84,26 @@ public:
         sprintf(mens2, "Posicion X:%.3f Y:%.3f Yaw:%.3f", auxodom.pose.position.x,
                 auxodom.pose.position.y, yaw);
         gf::Texto2D(mens2, 10, 30, 100, 255, 0);
-        
-        //kinectd.Draw(yaw,Vector2D(auxodom.pose.position.x,auxodom.pose.position.y));
+
+        if (kinectOn) kinectd.Draw(yaw, Vector2D(auxodom.pose.position.x, auxodom.pose.position.y));
 
     }
 
     void Timer(float time) {
-        //kinectd.Update(kinect.GetDepth(),kinect.GetRGB());
-        
+        if (kinectOn) kinectd.Update(kinect.GetDepth(), kinect.GetRGB());
+
         Odometry odom;
         LaserData laserData;
         PointCloud kinectData;
 
         robot->getOdometry(odom);
-        //robot->getLaserData(laserData);
-        robot->getLaserDataKinect(kinectData);
+        if (!kinectsimulate)
+            robot->getLaserData(laserData);
+        else
+            robot->getLaserDataKinect(kinectData);
 
-        if (!remoteControl)
-        {
+
+        if (!remoteControl) {
             /***********PATH CONTROL***************/
             controlboth->SetPose(odom);
             controlboth->GetVel(va, vg);
@@ -115,21 +118,16 @@ public:
             va2 = va;
             vg2 = vg;
             reactivecontrol.GetCommand(va2, vg2);
-        }
-        else
-        {
+        } else {
             //Remote control with ADWS
             va2 = vta;
             vg2 = vtg;
         }
 
         /************ROBOT OPERATOR***************/
-        if (!STOP)
-        {
+        if (!STOP) {
             robot->move(va2, vg2);
-        }
-        else
-        {
+        } else {
             va2 = vg2 = vta = vtg = 0.0;
             robot->move(0.0, 0.0);
         }
@@ -201,8 +199,7 @@ int main(int argc, char* argv[]) {
     //Default path introduced in argv[1]
     if (argc == 2)
         pathinput = string(argv[1]);
-    else
-    {
+    else {
         cout << "You have not specify a configuration file as command line parameter" << endl;
         cout << "Please type configuration file: ";
         cin >> pathinput;
@@ -210,13 +207,16 @@ int main(int argc, char* argv[]) {
     cout << "Loading configuration file: " << pathinput << endl;
 
     //Creation of a robot and connection
-    //MobileRobot* robot = new Neo();
-    MobileRobot* robot=new NeoKinect();
+    MobileRobot* robot;
+    if (!kinectsimulate)
+        robot = new Neo();
+    else
+        robot = new NeoKinect();
     robot->connectClients("127.0.0.1", 13000); //Simulation
     //robot->connectClients("192.168.100.50",13000);        //Real 
 
     MyGlutApp myApp("teleop", robot);
-    //kinectd.Update(kinect.GetDepth(),kinect.GetRGB());
+    if (kinectOn) kinectd.Update(kinect.GetDepth(), kinect.GetRGB());
 
     //Loop
     myApp.Run();

@@ -41,7 +41,7 @@ void KinectData::Draw(double yaw,Vector2D pos)
 	    if(cloud.points[ind].x > 0.0f || state == RGB)
 	    {
 		if(state == DEPTH)
-		    glColor3f(255, 255, 255);
+		    glColor3f(0.5f, 0.5f, 0.0f);
 		else
 		    glColor3f(camera.points[ind].r, camera.points[ind].g, camera.points[ind].b);
 

@@ -4,6 +4,8 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
+  "/home/alex/mrdevgit/apps/LaserKinect/KinectCloud.cpp" "/home/alex/mrdevgit/apps/CMakeFiles/teleop.dir/LaserKinect/KinectCloud.o"
+  "/home/alex/mrdevgit/apps/LaserKinect/KinectData.cpp" "/home/alex/mrdevgit/apps/CMakeFiles/teleop.dir/LaserKinect/KinectData.o"
   "/home/alex/mrdevgit/apps/PathControl/ADSK.cpp" "/home/alex/mrdevgit/apps/CMakeFiles/teleop.dir/PathControl/ADSK.o"
   "/home/alex/mrdevgit/apps/PathControl/AngDistToSeg.cpp" "/home/alex/mrdevgit/apps/CMakeFiles/teleop.dir/PathControl/AngDistToSeg.o"
   "/home/alex/mrdevgit/apps/PathControl/Angular.cpp" "/home/alex/mrdevgit/apps/CMakeFiles/teleop.dir/PathControl/Angular.o"
