@@ -8,8 +8,6 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/teleop.dir/PathControl/ADSK.o"
   "CMakeFiles/teleop.dir/ReactiveControl/CinematicMap.o"
   "CMakeFiles/teleop.dir/ReactiveControl/ReactiveControl.o"
-  "CMakeFiles/teleop.dir/LaserKinect/KinectCloud.o"
-  "CMakeFiles/teleop.dir/LaserKinect/KinectData.o"
   "teleop.pdb"
   "teleop"
 )

@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/alex/mrdevgit/apps/glutapp.cpp
-glutapp.h
-/home/alex/mrdevgit/apps/glutapp.h
-iostream
--
-
 /home/alex/mrdevgit/apps/glutapp.h
 string
 -
@@ -368,6 +362,30 @@ net/server.h
 data/pointcloud.h
 /usr/local/mrcore/include/mrcore/hw/data/pointcloud.h
 
+/usr/local/mrcore/include/mrcore/hw/kinect/../../data/pointcloud.h
+math/vector3d.h
+/usr/local/mrcore/include/mrcore/hw/kinect/../../data/math/vector3d.h
+iostream
+-
+vector
+-
+data.h
+/usr/local/mrcore/include/mrcore/hw/kinect/../../data/data.h
+
+/usr/local/mrcore/include/mrcore/hw/kinect/../../simulation/kinectsim.h
+hw/kinect.h
+/usr/local/mrcore/include/mrcore/hw/kinect/../../simulation/hw/kinect.h
+../world/composedentity.h
+/usr/local/mrcore/include/mrcore/hw/kinect/../../simulation/../world/composedentity.h
+vector
+-
+../data/pointcloud.h
+/usr/local/mrcore/include/mrcore/hw/kinect/../../simulation/../data/pointcloud.h
+../world/world.h
+/usr/local/mrcore/include/mrcore/hw/kinect/../../simulation/../world/world.h
+../system/mutex.h
+/usr/local/mrcore/include/mrcore/hw/kinect/../../simulation/../system/mutex.h
+
 /usr/local/mrcore/include/mrcore/hw/kinect/../kinect.h
 data/pointcloud.h
 /usr/local/mrcore/include/mrcore/hw/kinect/../data/pointcloud.h
@@ -383,6 +401,10 @@ net/server.h
 /usr/local/mrcore/include/mrcore/hw/kinect/net/server.h
 ../kinect.h
 /usr/local/mrcore/include/mrcore/hw/kinect/../kinect.h
+../../simulation/kinectsim.h
+/usr/local/mrcore/include/mrcore/hw/kinect/../../simulation/kinectsim.h
+../../data/pointcloud.h
+/usr/local/mrcore/include/mrcore/hw/kinect/../../data/pointcloud.h
 
 /usr/local/mrcore/include/mrcore/hw/lasersensor.h
 data/laserdata.h
@@ -1217,6 +1239,10 @@ net/server.h
 /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/net/server.h
 ../kinect.h
 /usr/local/mrcore/include/mrcore/simulation/../hw/kinect/../kinect.h
+../../simulation/kinectsim.h
+/usr/local/mrcore/include/mrcore/simulation/../hw/kinect/../../simulation/kinectsim.h
+../../data/pointcloud.h
+/usr/local/mrcore/include/mrcore/simulation/../hw/kinect/../../data/pointcloud.h
 
 /usr/local/mrcore/include/mrcore/simulation/../math/transformation2d.h
 vector2d.h

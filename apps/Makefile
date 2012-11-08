@@ -163,36 +163,6 @@ teleop/fast:
 .PHONY : teleop/fast
 
 # target to build an object file
-LaserKinect/KinectCloud.o:
-	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/LaserKinect/KinectCloud.o
-.PHONY : LaserKinect/KinectCloud.o
-
-# target to preprocess a source file
-LaserKinect/KinectCloud.i:
-	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/LaserKinect/KinectCloud.i
-.PHONY : LaserKinect/KinectCloud.i
-
-# target to generate assembly for a file
-LaserKinect/KinectCloud.s:
-	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/LaserKinect/KinectCloud.s
-.PHONY : LaserKinect/KinectCloud.s
-
-# target to build an object file
-LaserKinect/KinectData.o:
-	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/LaserKinect/KinectData.o
-.PHONY : LaserKinect/KinectData.o
-
-# target to preprocess a source file
-LaserKinect/KinectData.i:
-	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/LaserKinect/KinectData.i
-.PHONY : LaserKinect/KinectData.i
-
-# target to generate assembly for a file
-LaserKinect/KinectData.s:
-	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/LaserKinect/KinectData.s
-.PHONY : LaserKinect/KinectData.s
-
-# target to build an object file
 PathControl/ADSK.o:
 	$(MAKE) -f CMakeFiles/teleop.dir/build.make CMakeFiles/teleop.dir/PathControl/ADSK.o
 .PHONY : PathControl/ADSK.o
@@ -359,12 +329,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... simulator"
 	@echo "... teleop"
-	@echo "... LaserKinect/KinectCloud.o"
-	@echo "... LaserKinect/KinectCloud.i"
-	@echo "... LaserKinect/KinectCloud.s"
-	@echo "... LaserKinect/KinectData.o"
-	@echo "... LaserKinect/KinectData.i"
-	@echo "... LaserKinect/KinectData.s"
 	@echo "... PathControl/ADSK.o"
 	@echo "... PathControl/ADSK.i"
 	@echo "... PathControl/ADSK.s"

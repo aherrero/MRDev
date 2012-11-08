@@ -9,17 +9,30 @@
 #define	KINECTDATA_H
 #include <vector>
 #include "mrcore/mrcore.h"
+#include "KinectCloud.h"
 #include <pcl-1.6/pcl/point_types.h>
 #include <pcl/io/pcd_io.h>
 #include <pcl-1.6/pcl/io/pcd_io.h>
 using namespace std;
 using namespace mr;
 
-class KinectData {
+class KinectData: public Kinect {
 public:
     KinectData();
     KinectData(const KinectData& orig);
     virtual ~KinectData();
+   
+    Mutex m;
+    KinectCloud kinect;
+    PointCloud data;
+    
+    virtual bool getData(PointCloud& d){
+		m.Lock();
+                Update(kinect.GetDepth());
+		d=data;
+		m.Unlock();
+		return true;
+    }
     
     void Draw(double yaw,Vector2D pos);
     void Update(pcl::PointCloud<pcl::PointXYZ> depth, pcl::PointCloud<pcl::RGB> cam);

@@ -1,0 +1,36 @@
+PROJECT(ariaServer)
+
+IF(WIN32)
+	INCLUDE_DIRECTORIES(C:/usr/include/mrcore) 
+	LINK_DIRECTORIES(C:/usr/lib)
+ELSE(WIN32)
+	INCLUDE_DIRECTORIES(/usr/local/mrcore/include /usr/local/mrcore/include/mrcore /usr/local/Aria/include)
+	LINK_DIRECTORIES(/usr/local/mrcore/lib /usr/local/Aria/lib)
+
+	## Kinect: Libfreenect and PCL
+	INCLUDE_DIRECTORIES(/usr/local/include)
+	INCLUDE_DIRECTORIES(/usr/local/include/libfreenect)
+	LINK_DIRECTORIES(/usr/local/include)
+
+	INCLUDE_DIRECTORIES(/usr/include/pcl-1.6)
+	INCLUDE_DIRECTORIES(/usr/include/pcl-1.6/pcl)
+	LINK_DIRECTORIES(/usr/include/pcl-1.6)
+
+	INCLUDE_DIRECTORIES(/usr/include/eigen3)
+	LINK_DIRECTORIES(/usr/include/eigen3)
+	##
+
+ENDIF(WIN32)
+
+ADD_EXECUTABLE(kinectserver kinectmain.cpp kinectReal.cpp)
+
+IF(WIN32)
+	TARGET_LINK_LIBRARIES(mrcore)
+ELSE(WIN32)
+	TARGET_LINK_LIBRARIES(kinectserver mrcore pthread rt GL GLU glut pcl_io freenect freenect_sync)
+
+ENDIF(WIN32)
+
+		
+
+

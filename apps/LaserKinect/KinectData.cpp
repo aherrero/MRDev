@@ -73,6 +73,23 @@ void KinectData::Update(pcl::PointCloud<pcl::PointXYZ> depth)
 	cloud.points[i].z = depth.points[i].z;
     }
     state = DEPTH;
+    
+    //Convertir a PointCloud
+    data.width=cloud.width;
+    data.height=cloud.height;
+    for(int j = 0;j < cloud.height - 20;j++){
+	for(int i = 0;i < cloud.width;i++)
+	{
+	    int ind = j * cloud.width + i;
+	    if(cloud.points[ind].x > 0.0f || state == RGB)
+	    {
+                //vector<Vector3D> points;
+                data.points[ind].x=cloud.points[ind].x;
+                data.points[ind].y=cloud.points[ind].y;
+                data.points[ind].z=cloud.points[ind].z;
+	    }
+	}
+    }
 }
 void KinectData::Update(pcl::PointCloud<pcl::RGB> cam)
 {

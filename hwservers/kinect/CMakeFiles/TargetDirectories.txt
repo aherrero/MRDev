@@ -1,0 +1,1 @@
+/home/alex/mrdevgit/hwservers/kinect/CMakeFiles/kinectserver.dir

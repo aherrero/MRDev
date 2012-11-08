@@ -43,6 +43,8 @@ CMakeFiles/simulator.dir/simulator.o: /usr/local/mrcore/include/mrcore/hw/camera
 CMakeFiles/simulator.dir/simulator.o: /usr/local/mrcore/include/mrcore/hw/camera/cameraclient.h
 CMakeFiles/simulator.dir/simulator.o: /usr/local/mrcore/include/mrcore/hw/camera/cameraserver.h
 CMakeFiles/simulator.dir/simulator.o: /usr/local/mrcore/include/mrcore/hw/kinect.h
+CMakeFiles/simulator.dir/simulator.o: /usr/local/mrcore/include/mrcore/hw/kinect/../../data/pointcloud.h
+CMakeFiles/simulator.dir/simulator.o: /usr/local/mrcore/include/mrcore/hw/kinect/../../simulation/kinectsim.h
 CMakeFiles/simulator.dir/simulator.o: /usr/local/mrcore/include/mrcore/hw/kinect/../kinect.h
 CMakeFiles/simulator.dir/simulator.o: /usr/local/mrcore/include/mrcore/hw/kinect/kinectclient.h
 CMakeFiles/simulator.dir/simulator.o: /usr/local/mrcore/include/mrcore/hw/kinect/kinectserver.h

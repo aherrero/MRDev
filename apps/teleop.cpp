@@ -14,19 +14,11 @@
 #include "globalFunctions.h"
 #include "configControlDefine.h"
 
-#include "libfreenect.h"
-#include "libfreenect_sync.h"
-#include "LaserKinect/KinectData.h"
-#include "LaserKinect/KinectCloud.h"
-
 using namespace mr;
 using namespace std;
 string pathinput;
 
-KinectData kinectd;
-KinectCloud kinect;
-bool kinectOn = false;
-bool kinectsimulate = true;
+bool kinectON = true;
 
 class MyGlutApp : public GlutApp {
 public:
@@ -56,7 +48,7 @@ public:
 
         //control variable
         STOP = false;
-        remoteControl = false;
+        remoteControl = true; //remotecontrol activado por DEFECTO!!!!!!!!!!!!
 
     }
 
@@ -79,28 +71,67 @@ public:
         char mens2[50];
         Odometry auxodom;
         double roll, pitch, yaw;
-        robot->getOdometry(auxodom);
+
+        /*robot->getOdometry(auxodom);
         auxodom.pose.orientation.getRPY(roll, pitch, yaw);
         sprintf(mens2, "Posicion X:%.3f Y:%.3f Yaw:%.3f", auxodom.pose.position.x,
                 auxodom.pose.position.y, yaw);
-        gf::Texto2D(mens2, 10, 30, 100, 255, 0);
+        gf::Texto2D(mens2, 10, 30, 100, 255, 0);*/
 
-        if (kinectOn) kinectd.Draw(yaw, Vector2D(auxodom.pose.position.x, auxodom.pose.position.y));
+
+
+
+        //Draw Kinect
+        if (kinectON) {
+            glColor3f(0.0f, 0.0f, 1.0f);
+            glScalef(1, 5.0f, 1);
+            glutSolidCube(0.05f);
+            glScalef(1, .20f, 1);
+            glDisable(GL_LIGHTING);
+
+            if (kinectData.points.size() > 0) {
+
+                for (int j = 0; j < kinectData.height - 20; j++) {
+                    for (int i = 0; i < kinectData.width; i++) {
+                        int ind = j * kinectData.width + i;
+                        if (kinectData.points[ind].x > 0.0f) {
+                            glColor3f(0.5f, 0.5f, 0.0f);
+
+                            glPointSize(0.8f);
+                            glBegin(GL_POINTS);
+                            //Vector2D pointsTransf=gf::TransformationRT2D(Vector2D(kinectData.points[ind].x,kinectData.points[ind].y), yaw, pos);
+                            glVertex3d(kinectData.points[ind].x, kinectData.points[ind].y, kinectData.points[ind].z);
+
+                        }
+                    }
+                }
+            }
+
+            glEnd();
+            glEnable(GL_LIGHTING);
+            glPopMatrix();
+        }
+
+
+
+
+
+
+
 
     }
 
     void Timer(float time) {
-        if (kinectOn) kinectd.Update(kinect.GetDepth(), kinect.GetRGB());
 
         Odometry odom;
         LaserData laserData;
-        PointCloud kinectData;
 
-        robot->getOdometry(odom);
-        if (!kinectsimulate)
+        //robot->getOdometry(odom);
+        
+        if (!kinectON)
             robot->getLaserData(laserData);
         else
-            robot->getLaserDataKinect(kinectData);
+            robot->getLaserDataKinectReal(kinectData);
 
 
         if (!remoteControl) {
@@ -126,10 +157,10 @@ public:
 
         /************ROBOT OPERATOR***************/
         if (!STOP) {
-            robot->move(va2, vg2);
+            //robot->move(va2, vg2);
         } else {
             va2 = vg2 = vta = vtg = 0.0;
-            robot->move(0.0, 0.0);
+            //robot->move(0.0, 0.0);
         }
     }
 
@@ -189,6 +220,8 @@ private:
     CinematicMap cinematicmap;
     ReactiveControl reactivecontrol;
 
+    PointCloud kinectData;
+
     bool STOP;
     bool remoteControl;
 };
@@ -208,7 +241,7 @@ int main(int argc, char* argv[]) {
 
     //Creation of a robot and connection
     MobileRobot* robot;
-    if (!kinectsimulate)
+    if (!kinectON)
         robot = new Neo();
     else
         robot = new NeoKinect();
@@ -216,7 +249,6 @@ int main(int argc, char* argv[]) {
     //robot->connectClients("192.168.100.50",13000);        //Real 
 
     MyGlutApp myApp("teleop", robot);
-    if (kinectOn) kinectd.Update(kinect.GetDepth(), kinect.GetRGB());
 
     //Loop
     myApp.Run();

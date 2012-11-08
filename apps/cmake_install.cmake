@@ -33,6 +33,26 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  IF(EXISTS "$ENV{DESTDIR}/usr/local/mrcore/bin/teleop" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/usr/local/mrcore/bin/teleop")
+    FILE(RPATH_CHECK
+         FILE "$ENV{DESTDIR}/usr/local/mrcore/bin/teleop"
+         RPATH "")
+  ENDIF()
+  list(APPEND CPACK_ABSOLUTE_DESTINATION_FILES
+   "/usr/local/mrcore/bin/teleop")
+FILE(INSTALL DESTINATION "/usr/local/mrcore/bin" TYPE EXECUTABLE FILES "/home/alex/mrdevgit/apps/teleop")
+  IF(EXISTS "$ENV{DESTDIR}/usr/local/mrcore/bin/teleop" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/usr/local/mrcore/bin/teleop")
+    FILE(RPATH_REMOVE
+         FILE "$ENV{DESTDIR}/usr/local/mrcore/bin/teleop")
+    IF(CMAKE_INSTALL_DO_STRIP)
+      EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/usr/local/mrcore/bin/teleop")
+    ENDIF(CMAKE_INSTALL_DO_STRIP)
+  ENDIF()
+ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+
+IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   IF(EXISTS "$ENV{DESTDIR}/usr/local/mrcore/bin/simulator" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}/usr/local/mrcore/bin/simulator")
     FILE(RPATH_CHECK

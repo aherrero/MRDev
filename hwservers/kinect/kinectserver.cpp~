@@ -1,0 +1,32 @@
+#include "mrcore/mrcore.h"
+#include "libfreenect.h"
+#include "libfreenect_sync.h"
+#include "KinectData.h"
+#include "KinectCloud.h"
+
+int main(int argc, char** argv)
+{
+	mrcoreInit();
+        KinectServer kinectserver(&robot,"kinect");
+	
+	kinectserver.init(13002,1,false);
+	KinectData kinectd;
+	KinectCloud kinect;
+	while(1)
+	{
+		Sleep(500);
+		robot.watchdog();
+
+		kinectd.Update(kinect.GetDepth(), kinect.GetRGB());
+
+		LaserData data;
+		robot.getData(data);
+		cout<<"MEdidas: "<<data.getRanges().size()<<endl;
+		if(data.getRanges().size()>0)
+			cout<<"Medida: "<<data.getRanges()[data.getRanges().size()/2]<<endl;
+	}	
+
+	server.close();
+	LOG_INFO("End of server");
+	return 1;
+}
