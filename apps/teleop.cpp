@@ -72,14 +72,11 @@ public:
         Odometry auxodom;
         double roll, pitch, yaw;
 
-        /*robot->getOdometry(auxodom);
+        robot->getOdometry(auxodom);
         auxodom.pose.orientation.getRPY(roll, pitch, yaw);
         sprintf(mens2, "Posicion X:%.3f Y:%.3f Yaw:%.3f", auxodom.pose.position.x,
                 auxodom.pose.position.y, yaw);
-        gf::Texto2D(mens2, 10, 30, 100, 255, 0);*/
-
-
-
+        gf::Texto2D(mens2, 10, 30, 100, 255, 0);
 
         //Draw Kinect
         if (kinectON) {
@@ -99,8 +96,9 @@ public:
 
                             glPointSize(0.8f);
                             glBegin(GL_POINTS);
-                            //Vector2D pointsTransf=gf::TransformationRT2D(Vector2D(kinectData.points[ind].x,kinectData.points[ind].y), yaw, pos);
-                            glVertex3d(kinectData.points[ind].x, kinectData.points[ind].y, kinectData.points[ind].z);
+                            Vector2D pointsTransf=gf::TransformationRT2D
+                                    (Vector2D(kinectData.points[ind].x,kinectData.points[ind].y), yaw, Vector2D(auxodom.pose.position.x,auxodom.pose.position.y));
+                            glVertex3d(pointsTransf.x, pointsTransf.y, kinectData.points[ind].z);
 
                         }
                     }
@@ -126,7 +124,7 @@ public:
         Odometry odom;
         LaserData laserData;
 
-        //robot->getOdometry(odom);
+        robot->getOdometry(odom);
         
         if (!kinectON)
             robot->getLaserData(laserData);
@@ -157,10 +155,10 @@ public:
 
         /************ROBOT OPERATOR***************/
         if (!STOP) {
-            //robot->move(va2, vg2);
+            robot->move(va2, vg2);
         } else {
             va2 = vg2 = vta = vtg = 0.0;
-            //robot->move(0.0, 0.0);
+            robot->move(0.0, 0.0);
         }
     }
 
@@ -241,10 +239,11 @@ int main(int argc, char* argv[]) {
 
     //Creation of a robot and connection
     MobileRobot* robot;
-    if (!kinectON)
-        robot = new Neo();
-    else
-        robot = new NeoKinect();
+//    if (!kinectON)
+//        robot = new Neo();
+//    else
+//        robot = new NeoKinect();
+    robot=new Pioneer();
     robot->connectClients("127.0.0.1", 13000); //Simulation
     //robot->connectClients("192.168.100.50",13000);        //Real 
 

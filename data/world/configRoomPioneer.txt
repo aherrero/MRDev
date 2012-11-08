@@ -1,0 +1,4 @@
+world: myRoom3.world
+robots: 1
+pioneer 13000 0 0 0
+persons: 0

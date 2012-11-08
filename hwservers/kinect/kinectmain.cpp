@@ -5,7 +5,6 @@ int main(int argc, char** argv)
 {
 	mrcoreInit();
         
-        //KinectData kinectdata;
         KinectReal kinectreal;
 	KinectServer kinectserver(&kinectreal,"kinect");
 	
@@ -15,7 +14,7 @@ int main(int argc, char** argv)
 		Sleep(500);                
 	}	
 
-	//server.close();
+	kinectserver.close();
 	LOG_INFO("End of server");
 	return 1;
 }
