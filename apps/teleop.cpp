@@ -18,7 +18,7 @@ using namespace mr;
 using namespace std;
 string pathinput;
 
-bool kinectON = true;
+bool kinectON = false;
 
 class MyGlutApp : public GlutApp {
 public:
@@ -109,12 +109,6 @@ public:
             glEnable(GL_LIGHTING);
             glPopMatrix();
         }
-
-
-
-
-
-
 
 
     }
@@ -243,7 +237,7 @@ int main(int argc, char* argv[]) {
 //        robot = new Neo();
 //    else
 //        robot = new NeoKinect();
-    robot=new Pioneer();
+    robot=new Neo();
     robot->connectClients("127.0.0.1", 13000); //Simulation
     //robot->connectClients("192.168.100.50",13000);        //Real 
 
