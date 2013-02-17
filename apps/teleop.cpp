@@ -18,7 +18,7 @@ using namespace mr;
 using namespace std;
 string pathinput;
 
-bool kinectON = false;
+bool kinectON = true;
 
 class MyGlutApp : public GlutApp {
 public:
@@ -78,37 +78,43 @@ public:
                 auxodom.pose.position.y, yaw);
         gf::Texto2D(mens2, 10, 30, 100, 255, 0);
 
-        //Draw Kinect
-        if (kinectON) {
-            glColor3f(0.0f, 0.0f, 1.0f);
-            glScalef(1, 5.0f, 1);
-            glutSolidCube(0.05f);
-            glScalef(1, .20f, 1);
-            glDisable(GL_LIGHTING);
-
-            if (kinectData.points.size() > 0) {
-
-                for (int j = 0; j < kinectData.height - 20; j++) {
-                    for (int i = 0; i < kinectData.width; i++) {
-                        int ind = j * kinectData.width + i;
-                        if (kinectData.points[ind].x > 0.0f) {
-                            glColor3f(0.5f, 0.5f, 0.0f);
-
-                            glPointSize(0.8f);
-                            glBegin(GL_POINTS);
-                            Vector2D pointsTransf=gf::TransformationRT2D
-                                    (Vector2D(kinectData.points[ind].x,kinectData.points[ind].y), yaw, Vector2D(auxodom.pose.position.x,auxodom.pose.position.y));
-                            glVertex3d(pointsTransf.x, pointsTransf.y, kinectData.points[ind].z);
-
-                        }
-                    }
-                }
-            }
-
-            glEnd();
-            glEnable(GL_LIGHTING);
-            glPopMatrix();
-        }
+//        //Draw Kinect
+//        if (kinectON) {
+//            glColor3f(0.0f, 0.0f, 1.0f);
+//            glScalef(1, 5.0f, 1);
+//            glutSolidCube(0.05f);
+//            glScalef(1, .20f, 1);
+//            glDisable(GL_LIGHTING);
+//
+//            if (kinectData.points.size() > 0) {
+//                
+//                glPointSize(0.8f);
+//                glPushMatrix();
+//                glBegin(GL_POINTS);
+//               
+//
+//                for (int j = 0; j < kinectData.height - 20; j++) {
+//                    for (int i = 0; i < kinectData.width; i++) {
+//                        int ind = j * kinectData.width + i;
+//                        if (kinectData.points[ind].x > 0.0f) {
+//                            glColor3f(1.0f, 1.0f, 0.0f);
+//
+//                            Vector2D pointsTransf=gf::TransformationRT2D
+//                                    (Vector2D(kinectData.points[ind].x,kinectData.points[ind].y), yaw, Vector2D(auxodom.pose.position.x,auxodom.pose.position.y));
+//                            glVertex3d(pointsTransf.x, pointsTransf.y, kinectData.points[ind].z+0.5);
+//
+//                        }
+//                    }
+//                }
+//                
+//                glEnd();
+//                glPopMatrix();
+//            }
+//            
+//            glEnable(GL_LIGHTING);
+//
+//
+//        }
 
 
     }
@@ -133,8 +139,12 @@ public:
 
             /************REACTIVE CONTROL***************/
             cinematicmap.SetPose(odom);
-            cinematicmap.SetLaser(laserData);
-
+            
+            if (!kinectON)
+                cinematicmap.SetLaser(laserData);
+            else
+                cinematicmap.SetLaser3D(kinectData);
+            
             reactivecontrol.SetObstacle(cinematicmap);
             reactivecontrol.SetCommand(va, vg);
 
@@ -233,11 +243,10 @@ int main(int argc, char* argv[]) {
 
     //Creation of a robot and connection
     MobileRobot* robot;
-//    if (!kinectON)
-//        robot = new Neo();
-//    else
-//        robot = new NeoKinect();
-    robot=new Neo();
+    if (!kinectON)
+        robot = new Neo();
+    else
+        robot = new NeoKinect();
     robot->connectClients("127.0.0.1", 13000); //Simulation
     //robot->connectClients("192.168.100.50",13000);        //Real 
 

@@ -5,9 +5,10 @@
 #include "libfreenect.h"
 #include "libfreenect_sync.h"
 #include <vector>
-#include <pcl-1.6/pcl/point_types.h>
-#include <pcl/io/pcd_io.h>
-#include <pcl-1.6/pcl/io/pcd_io.h>
+
+//#include <pcl-1.6/pcl/point_types.h>
+//#include <pcl/io/pcd_io.h>
+//#include <pcl-1.6/pcl/io/pcd_io.h>
 
 
 using namespace std;
@@ -20,7 +21,7 @@ protected:
 public:
     //attributes
 
-    pcl::PointCloud<pcl::PointXYZ> cloud;
+    //pcl::PointCloud<pcl::PointXYZ> cloud;
     mr::PointCloud data;
 
     //constructors
@@ -34,7 +35,8 @@ public:
     //methods
 
     bool getData(mr::PointCloud& d);
-    void Update(pcl::PointCloud<pcl::PointXYZ> depth);
+    //void Update(pcl::PointCloud<pcl::PointXYZ> depth);
+    void Update(vector <mr::Vector3D> depth, int width, int height);
 };
 
 #endif

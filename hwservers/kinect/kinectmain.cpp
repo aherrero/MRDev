@@ -5,7 +5,7 @@ int main(int argc, char** argv)
 {
 	mrcoreInit();
         
-        KinectReal kinectreal;
+    KinectReal kinectreal;
 	KinectServer kinectserver(&kinectreal,"kinect");
 	
 	kinectserver.init(13001,1,true);

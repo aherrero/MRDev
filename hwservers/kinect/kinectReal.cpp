@@ -16,12 +16,14 @@ bool KinectReal::getData(mr::PointCloud& d) {
     m.Lock();
     //updateSensorData();
     short *result = 0;
-    pcl::PointCloud<pcl::PointXYZ> depth;
+    vector <mr::Vector3D> depth;
+    //pcl::PointCloud<pcl::PointXYZ> depth;
     int width = 640;
     int height = 480;
-    depth.width = width;
-    depth.height = height;
-    depth.points.resize(depth.width * depth.height);
+//    depth.width = width;
+//    depth.height = height;
+    depth.resize(width*height);
+    
     uint32_t ts;
     if (freenect_sync_get_depth((void**) &result, &ts, 0, FREENECT_DEPTH_11BIT) < 0)
         printf("Hey, Kinect is not connected\n");
@@ -31,40 +33,32 @@ bool KinectReal::getData(mr::PointCloud& d) {
         for (int j = 0; j < height - 20; j++)
             for (int i = 0; i < width; i++) {
                 int ind = j * width + i;
-                depth.points[ind].x = (0.1236 * tan((result[ind] / 2842.5) + 1.1863));
-                depth.points[ind].y = (i - width / 2)*0.001602 * depth.points[ind].x; /// 0.001602=1.025/640 from: http://www.google.es/url?sa=t&rct=j&q=view-dependent%203d%20projection%20using%20depth-image-based%20head%20tracking&source=web&cd=1&ved=0CCAQFjAA&url=http%3A%2F%2Fwww.cs.ubc.ca%2Flabs%2Fimager%2FPROCAMS2011%2F0008.pdf&ei=vCqjTvSyIYi3hQerrOmaDA&usg=AFQjCNHL8nvvxEbONsTlFjw-5NbnIL0DpQ&sig2=4NSb91eQt0szqNXrwsXuvA&cad=rja
-                depth.points[ind].z = -(j - height / 2)*0.001602 * depth.points[ind].x;
+                depth[ind].x = (0.1236 * tan((result[ind] / 2842.5) + 1.1863));
+                depth[ind].y = (i - width / 2)*0.001602 * depth[ind].x; /// 0.001602=1.025/640 from: http://www.google.es/url?sa=t&rct=j&q=view-dependent%203d%20projection%20using%20depth-image-based%20head%20tracking&source=web&cd=1&ved=0CCAQFjAA&url=http%3A%2F%2Fwww.cs.ubc.ca%2Flabs%2Fimager%2FPROCAMS2011%2F0008.pdf&ei=vCqjTvSyIYi3hQerrOmaDA&usg=AFQjCNHL8nvvxEbONsTlFjw-5NbnIL0DpQ&sig2=4NSb91eQt0szqNXrwsXuvA&cad=rja
+                depth[ind].z = -(j - height / 2)*0.001602 * depth[ind].x;
             }
     }
-    Update(depth);
+    Update(depth, width, height);
     d = data;
 
     m.Unlock();
     return true;
 }
 
-void KinectReal::Update(pcl::PointCloud<pcl::PointXYZ> depth) {
-    cloud.width = depth.width;
-    cloud.height = depth.height;
-    cloud.points.resize(cloud.width * cloud.height);
-    for (int i = 0; i < depth.size(); i++) {
-        cloud.points[i].x = depth.points[i].x;
-        cloud.points[i].y = depth.points[i].y;
-        cloud.points[i].z = depth.points[i].z;
-    }
-
+void KinectReal::Update(vector <mr::Vector3D> depth, int width, int height) {
+    
     //Convertir a PointCloud
-    data.width = cloud.width;
-    data.height = cloud.height;
+    data.width = width;
+    data.height = height;
     data.points.resize(data.width * data.height);
-    for (int j = 0; j < cloud.height - 20; j++) {
-        for (int i = 0; i < cloud.width; i++) {
-            int ind = j * cloud.width + i;
-            if (cloud.points[ind].x > 0.0f) {
-                //vector<Vector3D> points;
-                data.points[ind].x = cloud.points[ind].x;
-                data.points[ind].y = cloud.points[ind].y;
-                data.points[ind].z = cloud.points[ind].z;
+    for (int j = 0; j <  data.height - 20; j++) {
+        for (int i = 0; i < data.width; i++) {
+            int ind = j * data.width + i;
+            if (depth[ind].x > 0.0f) {
+
+                data.points[ind].x = depth[ind].x;
+                data.points[ind].y = depth[ind].y;
+                data.points[ind].z = depth[ind].z;
 
                 //it works with cloud.points[ind].x;
                 //Eigen::Map<const Eigen::Vector3f> aux;
