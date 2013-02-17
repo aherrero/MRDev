@@ -18,7 +18,7 @@ using namespace mr;
 using namespace std;
 string pathinput;
 
-bool kinectON = true;
+bool kinectON = false;
 
 class MyGlutApp : public GlutApp {
 public:
@@ -77,45 +77,6 @@ public:
         sprintf(mens2, "Posicion X:%.3f Y:%.3f Yaw:%.3f", auxodom.pose.position.x,
                 auxodom.pose.position.y, yaw);
         gf::Texto2D(mens2, 10, 30, 100, 255, 0);
-
-//        //Draw Kinect
-//        if (kinectON) {
-//            glColor3f(0.0f, 0.0f, 1.0f);
-//            glScalef(1, 5.0f, 1);
-//            glutSolidCube(0.05f);
-//            glScalef(1, .20f, 1);
-//            glDisable(GL_LIGHTING);
-//
-//            if (kinectData.points.size() > 0) {
-//                
-//                glPointSize(0.8f);
-//                glPushMatrix();
-//                glBegin(GL_POINTS);
-//               
-//
-//                for (int j = 0; j < kinectData.height - 20; j++) {
-//                    for (int i = 0; i < kinectData.width; i++) {
-//                        int ind = j * kinectData.width + i;
-//                        if (kinectData.points[ind].x > 0.0f) {
-//                            glColor3f(1.0f, 1.0f, 0.0f);
-//
-//                            Vector2D pointsTransf=gf::TransformationRT2D
-//                                    (Vector2D(kinectData.points[ind].x,kinectData.points[ind].y), yaw, Vector2D(auxodom.pose.position.x,auxodom.pose.position.y));
-//                            glVertex3d(pointsTransf.x, pointsTransf.y, kinectData.points[ind].z+0.5);
-//
-//                        }
-//                    }
-//                }
-//                
-//                glEnd();
-//                glPopMatrix();
-//            }
-//            
-//            glEnable(GL_LIGHTING);
-//
-//
-//        }
-
 
     }
 
@@ -247,6 +208,7 @@ int main(int argc, char* argv[]) {
         robot = new Neo();
     else
         robot = new NeoKinect();
+    
     robot->connectClients("127.0.0.1", 13000); //Simulation
     //robot->connectClients("192.168.100.50",13000);        //Real 
 

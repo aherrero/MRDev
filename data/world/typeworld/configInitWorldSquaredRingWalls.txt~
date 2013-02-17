@@ -1,4 +1,4 @@
 world: InitWorldSquaredRingWalls.world
 robots: 1
-neo 13000 8.5 8.5 0
+neo 13000 8 8 0
 persons: 0

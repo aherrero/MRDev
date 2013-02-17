@@ -1,4 +1,4 @@
 world: worldSelector.world
 robots: 1
-neoKinect 13000 0.5 2 0 0
+neoKinect 13000 0.5 2 0
 persons: 0
