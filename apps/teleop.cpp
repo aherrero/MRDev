@@ -84,6 +84,7 @@ public:
 
         Odometry odom;
         LaserData laserData;
+        PointCloud kinectData;
 
         robot->getOdometry(odom);
         
@@ -182,8 +183,6 @@ private:
     CalculoError calculoerror;
     CinematicMap cinematicmap;
     ReactiveControl reactivecontrol;
-
-    PointCloud kinectData;
 
     bool STOP;
     bool remoteControl;
