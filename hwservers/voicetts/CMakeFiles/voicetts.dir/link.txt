@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/voicetts.dir/voicetts.o  -o voicetts -rdynamic -L/usr/local/mrcore/lib -L/usr/local/Aria/lib -lespeak -lmrcore -Wl,-rpath,/usr/local/mrcore/lib:/usr/local/Aria/lib 

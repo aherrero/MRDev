@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/voiceclient.dir/voiceclient.o  -o voiceclient -rdynamic -L/usr/local/mrcore/lib -L/usr/local/Aria/lib -lmrcore -Wl,-rpath,/usr/local/mrcore/lib:/usr/local/Aria/lib 

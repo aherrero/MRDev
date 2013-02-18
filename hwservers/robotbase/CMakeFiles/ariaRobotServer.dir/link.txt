@@ -1,0 +1,1 @@
+/usr/bin/c++       CMakeFiles/ariaRobotServer.dir/ariarobotserver.o CMakeFiles/ariaRobotServer.dir/ariabase.o  -o ariaRobotServer -rdynamic -L/usr/local/mrcore/lib -L/usr/local/Aria/lib -lmrcore -lAria -lpthread -lrt -lGL -lGLU -Wl,-rpath,/usr/local/mrcore/lib:/usr/local/Aria/lib 

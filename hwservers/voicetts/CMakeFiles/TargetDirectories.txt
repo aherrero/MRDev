@@ -1,0 +1,2 @@
+/home/alex/drodrimrdev/hwservers/voicetts/CMakeFiles/voiceclient.dir
+/home/alex/drodrimrdev/hwservers/voicetts/CMakeFiles/voicetts.dir

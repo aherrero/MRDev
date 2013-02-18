@@ -12,9 +12,9 @@ ELSE(WIN32)
 	INCLUDE_DIRECTORIES(/usr/local/include/libfreenect)
 	LINK_DIRECTORIES(/usr/local/include)
 
-	INCLUDE_DIRECTORIES(/usr/include/pcl-1.6)
-	INCLUDE_DIRECTORIES(/usr/include/pcl-1.6/pcl)
-	LINK_DIRECTORIES(/usr/include/pcl-1.6)
+	#INCLUDE_DIRECTORIES(/usr/include/pcl-1.6)
+	#INCLUDE_DIRECTORIES(/usr/include/pcl-1.6/pcl)
+	#LINK_DIRECTORIES(/usr/include/pcl-1.6)
 
 	INCLUDE_DIRECTORIES(/usr/include/eigen3)
 	LINK_DIRECTORIES(/usr/include/eigen3)
@@ -27,7 +27,8 @@ ADD_EXECUTABLE(kinectserver kinectmain.cpp kinectReal.cpp)
 IF(WIN32)
 	TARGET_LINK_LIBRARIES(mrcore)
 ELSE(WIN32)
-	TARGET_LINK_LIBRARIES(kinectserver mrcore pthread rt GL GLU glut pcl_io freenect freenect_sync)
+	TARGET_LINK_LIBRARIES(kinectserver mrcore pthread rt GL GLU glut freenect freenect_sync)
+	#TARGET_LINK_LIBRARIES(kinectserver mrcore pthread rt GL GLU glut pcl_io freenect freenect_sync)
 
 ENDIF(WIN32)
 

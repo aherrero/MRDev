@@ -1,0 +1,409 @@
+In file included from /usr/local/mrcore/include/mrcore/world/../math/transformation3d.h:35,
+                 from /usr/local/mrcore/include/mrcore/world/composedentity.h:40,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:2,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/world/../math/vector3d.h:38:25: error: base/stream.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/world/robotsim.h:37,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:6,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/world/simplejoint.h:38:25: error: math/mrmath.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:19,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/camera.h:36:24: error: data/image.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:20,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/wheeledmobilerobot.h:35:27: error: data/odometry.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/hw/wheeledmobilerobot.h:37,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:20,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/lasersensor.h:36:28: error: data/laserdata.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/hw/powercube70/powercube70hw.h:6,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:22,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/powercube70/../powercube70.h:36:29: error: base/datasource.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:23,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/kinect/kinectclient.h:35:24: error: net/client.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/hw/kinect/kinectclient.h:36,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:23,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/kinect/../kinect.h:36:29: error: data/pointcloud.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:24,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/kinect/kinectserver.h:35:24: error: net/server.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:28,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/wheeledbase/wheeledbaseserver.h:36:28: error: hw/wheeledbase.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:33,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/voicetts/voicettsserver.h:36:25: error: hw/voicetts.h: No existe el fichero o el directorio
+/usr/local/mrcore/include/mrcore/hw/voicetts/voicettsserver.h:37:31: error: base/streamstring.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:35,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/quadrotor/quadrotorserver.h:36:26: error: hw/quadrotor.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/hw/quadrotor/quadrotorclient.h:36,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:36,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/quadrotor/../quadrotor.h:35:32: error: data/quadrotordata.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:41,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/lasersensor3d.h:36:30: error: data/laserdata3d.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:48,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/lms200/protlms.h:35:31: error: system/serialport.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:56,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/base/logger.h:11:26: error: system/mutex.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:57,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/base/datalog.h:35:23: error: data/data.h: No existe el fichero o el directorio
+/usr/local/mrcore/include/mrcore/base/datalog.h:36:29: error: base/streamfile.h: No existe el fichero o el directorio
+/usr/local/mrcore/include/mrcore/base/datalog.h:37:31: error: system/filesystem.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:59,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/gl/glscene.h:3:27: error: base/globject.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/math/geometryfunctions.h:42,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:65,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/math/segment2d.h:6:24: error: gl/gltools.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:80,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/system/thread.h:27:25: error: base/logger.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:85,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/navigation2d/path2d.h:36:27: error: math/vector2d.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:86,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/navigation2d/gridmap.h:39:35: error: math/transformation2d.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:90,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/kinectsim.h:36:23: error: hw/kinect.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/simulation/kinectsim.h:39,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:90,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/../data/pointcloud.h:35:27: error: math/vector3d.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/simulation/../data/pointcloud.h:38,
+                 from /usr/local/mrcore/include/mrcore/simulation/kinectsim.h:39,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:90,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/../data/data.h:35:25: error: system/time.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/simulation/lms200sim.h:36,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:91,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/lasersensorsim.h:36:28: error: hw/lasersensor.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:92,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/camerasim.h:36:23: error: hw/camera.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:94,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/simulator.h:64:25: error: world/world.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/simulation/simulator.h:65,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:94,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:37:46: error: hw/wheeledbase/wheeledbaseserver.h: No existe el fichero o el directorio
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:38:46: error: hw/wheeledbase/wheeledbaseclient.h: No existe el fichero o el directorio
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:39:44: error: hw/wheeledbase/wheeledbasefile.h: No existe el fichero o el directorio
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:40:46: error: hw/lasersensor/lasersensorserver.h: No existe el fichero o el directorio
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:41:46: error: hw/lasersensor/lasersensorclient.h: No existe el fichero o el directorio
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:43:44: error: hw/lasersensor/lasersensorfile.h: No existe el fichero o el directorio
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:44:50: error: hw/lasersensor3d/lasersensor3dserver.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/simulation/nemolasersensor3dsim.h:36,
+                 from /usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:45,
+                 from /usr/local/mrcore/include/mrcore/simulation/simulator.h:65,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:94,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/lasersensor3dsim.h:36:30: error: hw/lasersensor3d.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/simulation/nemolasersensor3dsim.h:38,
+                 from /usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:45,
+                 from /usr/local/mrcore/include/mrcore/simulation/simulator.h:65,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:94,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/powercube70sim.h:36:28: error: hw/powercube70.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/simulation/simulator.h:65,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:94,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:46:50: error: hw/lasersensor3d/lasersensor3dclient.h: No existe el fichero o el directorio
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:48:48: error: hw/lasersensor3d/lasersensor3dfile.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:51,
+                 from /usr/local/mrcore/include/mrcore/simulation/simulator.h:65,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:94,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/pioneer3atsim.h:37:27: error: hw/pioneer3at.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/simulation/simulator.h:65,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:94,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:53:42: error: hw/quadrotor/quadrotorserver.h: No existe el fichero o el directorio
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:54:42: error: hw/quadrotor/quadrotorclient.h: No existe el fichero o el directorio
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:57:36: error: hw/camera/cameraserver.h: No existe el fichero o el directorio
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:58:36: error: hw/camera/cameraclient.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:100,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/personsim.h:35:34: error: world/composedentity.h: No existe el fichero o el directorio
+/usr/local/mrcore/include/mrcore/simulation/personsim.h:36:35: error: math/transformation3d.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:117,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/net/client.h:8:27: error: system/socket.h: No existe el fichero o el directorio
+/usr/local/mrcore/include/mrcore/net/client.h:9:27: error: system/thread.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/net/client.h:10,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:117,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/net/message.h:5:28: error: base/serialize.h: No existe el fichero o el directorio
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:19,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/camera.h:44: error: ‘Image’ has not been declared
+In file included from /usr/local/mrcore/include/mrcore/hw/wheeledmobilerobot.h:36,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:20,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/wheeledbase.h:44: error: ‘Odometry’ has not been declared
+In file included from /usr/local/mrcore/include/mrcore/hw/wheeledmobilerobot.h:37,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:20,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/lasersensor.h:44: error: ‘LaserData’ has not been declared
+In file included from /usr/local/mrcore/include/mrcore/hw/powercube70/powercube70hw.h:6,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:22,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/powercube70/../powercube70.h:42: error: expected class-name before ‘{’ token
+In file included from /usr/local/mrcore/include/mrcore/hw/kinect/kinectclient.h:36,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:23,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/kinect/../kinect.h:44: error: ‘PointCloud’ has not been declared
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:23,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/kinect/kinectclient.h:42: error: expected class-name before ‘{’ token
+/usr/local/mrcore/include/mrcore/hw/kinect/kinectclient.h:44: error: ‘PointCloud’ has not been declared
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:24,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/kinect/kinectserver.h:42: error: expected class-name before ‘{’ token
+/usr/local/mrcore/include/mrcore/hw/kinect/kinectserver.h: In constructor ‘mr::KinectServer::KinectServer(mr::Kinect*, std::string)’:
+/usr/local/mrcore/include/mrcore/hw/kinect/kinectserver.h:45: error: class ‘mr::KinectServer’ does not have any field named ‘Server’
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:25,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/camera/cameraserver.h: At global scope:
+/usr/local/mrcore/include/mrcore/hw/camera/cameraserver.h:42: error: expected class-name before ‘{’ token
+/usr/local/mrcore/include/mrcore/hw/camera/cameraserver.h: In constructor ‘mr::CameraServer::CameraServer(mr::Camera*, std::string)’:
+/usr/local/mrcore/include/mrcore/hw/camera/cameraserver.h:45: error: class ‘mr::CameraServer’ does not have any field named ‘Server’
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:26,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/camera/cameraclient.h: At global scope:
+/usr/local/mrcore/include/mrcore/hw/camera/cameraclient.h:42: error: expected class-name before ‘{’ token
+/usr/local/mrcore/include/mrcore/hw/camera/cameraclient.h:44: error: ‘Image’ has not been declared
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:28,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/wheeledbase/wheeledbaseserver.h:42: error: expected class-name before ‘{’ token
+/usr/local/mrcore/include/mrcore/hw/wheeledbase/wheeledbaseserver.h: In constructor ‘mr::WheeledBaseServer::WheeledBaseServer(mr::WheeledBase*, std::string)’:
+/usr/local/mrcore/include/mrcore/hw/wheeledbase/wheeledbaseserver.h:45: error: class ‘mr::WheeledBaseServer’ does not have any field named ‘Server’
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:29,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/wheeledbase/wheeledbaseclient.h: At global scope:
+/usr/local/mrcore/include/mrcore/hw/wheeledbase/wheeledbaseclient.h:42: error: expected class-name before ‘{’ token
+/usr/local/mrcore/include/mrcore/hw/wheeledbase/wheeledbaseclient.h:45: error: ‘Odometry’ has not been declared
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:30,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/wheeledbase/wheeledbasefile.h:46: error: ‘Odometry’ has not been declared
+/usr/local/mrcore/include/mrcore/hw/wheeledbase/wheeledbasefile.h:50: error: ISO C++ forbids declaration of ‘Odometry’ with no type
+/usr/local/mrcore/include/mrcore/hw/wheeledbase/wheeledbasefile.h:50: error: expected ‘,’ or ‘...’ before ‘&’ token
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:33,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/voicetts/voicettsserver.h:42: error: expected class-name before ‘{’ token
+/usr/local/mrcore/include/mrcore/hw/voicetts/voicettsserver.h: In constructor ‘mr::VoiceTTSServer::VoiceTTSServer(mr::VoiceTTS*, std::string)’:
+/usr/local/mrcore/include/mrcore/hw/voicetts/voicettsserver.h:45: error: class ‘mr::VoiceTTSServer’ does not have any field named ‘Server’
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:34,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/voicetts/voicettsclient.h: At global scope:
+/usr/local/mrcore/include/mrcore/hw/voicetts/voicettsclient.h:42: error: expected class-name before ‘,’ token
+/usr/local/mrcore/include/mrcore/hw/voicetts/voicettsclient.h: In member function ‘virtual bool mr::VoiceTTSClient::say(const std::string&)’:
+/usr/local/mrcore/include/mrcore/hw/voicetts/voicettsclient.h:51: error: ‘sendRequest’ was not declared in this scope
+/usr/local/mrcore/include/mrcore/hw/voicetts/voicettsclient.h:52: error: ‘COMM_OK’ was not declared in this scope
+/usr/local/mrcore/include/mrcore/hw/voicetts/voicettsclient.h:54: error: invalid operands of types ‘const char [20]’ and ‘int’ to binary ‘operator<<’
+/usr/local/mrcore/include/mrcore/hw/voicetts/voicettsclient.h:54: error: ‘LOG_ERROR’ was not declared in this scope
+/usr/local/mrcore/include/mrcore/hw/voicetts/voicettsclient.h:61: error: no match for ‘operator<<’ in ‘"Error mesnaje SAY response not empty " << response’
+/usr/local/mrcore/include/mrcore/hw/voicetts/voicettsclient.h:61: error: ‘LOG_ERROR’ was not declared in this scope
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:35,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/quadrotor/quadrotorserver.h: At global scope:
+/usr/local/mrcore/include/mrcore/hw/quadrotor/quadrotorserver.h:42: error: expected class-name before ‘{’ token
+/usr/local/mrcore/include/mrcore/hw/quadrotor/quadrotorserver.h:45: error: expected ‘)’ before ‘*’ token
+/usr/local/mrcore/include/mrcore/hw/quadrotor/quadrotorserver.h:53: error: ISO C++ forbids declaration of ‘Quadrotor’ with no type
+/usr/local/mrcore/include/mrcore/hw/quadrotor/quadrotorserver.h:53: error: expected ‘;’ before ‘*’ token
+In file included from /usr/local/mrcore/include/mrcore/hw/quadrotor/quadrotorclient.h:36,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:36,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/quadrotor/../quadrotor.h:47: error: ‘QuadrotorData’ has not been declared
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:36,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/quadrotor/quadrotorclient.h:42: error: expected class-name before ‘{’ token
+/usr/local/mrcore/include/mrcore/hw/quadrotor/quadrotorclient.h:46: error: ‘QuadrotorData’ has not been declared
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:41,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/lasersensor3d.h:44: error: ‘LaserData3D’ has not been declared
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:42,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/lasersensor/lasersensorserver.h:42: error: expected class-name before ‘{’ token
+/usr/local/mrcore/include/mrcore/hw/lasersensor/lasersensorserver.h: In constructor ‘mr::LaserSensorServer::LaserSensorServer(mr::LaserSensor*, std::string)’:
+/usr/local/mrcore/include/mrcore/hw/lasersensor/lasersensorserver.h:45: error: class ‘mr::LaserSensorServer’ does not have any field named ‘Server’
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:43,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/lasersensor/lasersensorfile.h: At global scope:
+/usr/local/mrcore/include/mrcore/hw/lasersensor/lasersensorfile.h:44: error: ‘LaserData’ has not been declared
+/usr/local/mrcore/include/mrcore/hw/lasersensor/lasersensorfile.h:46: error: ISO C++ forbids declaration of ‘LaserData’ with no type
+/usr/local/mrcore/include/mrcore/hw/lasersensor/lasersensorfile.h:46: error: expected ‘,’ or ‘...’ before ‘&’ token
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:44,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/lasersensor/lasersensorclient.h:42: error: expected class-name before ‘{’ token
+/usr/local/mrcore/include/mrcore/hw/lasersensor/lasersensorclient.h:44: error: ‘LaserData’ has not been declared
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:45,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/lasersensor3d/lasersensor3dclient.h:42: error: expected class-name before ‘{’ token
+/usr/local/mrcore/include/mrcore/hw/lasersensor3d/lasersensor3dclient.h:44: error: ‘LaserData3D’ has not been declared
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:46,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/lasersensor3d/lasersensor3dfile.h:44: error: ‘LaserData3D’ has not been declared
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:47,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/hw/lasersensor3d/lasersensor3dserver.h:42: error: expected class-name before ‘{’ token
+/usr/local/mrcore/include/mrcore/hw/lasersensor3d/lasersensor3dserver.h: In constructor ‘mr::LaserSensor3DServer::LaserSensor3DServer(mr::LaserSensor3D*, std::string)’:
+/usr/local/mrcore/include/mrcore/hw/lasersensor3d/lasersensor3dserver.h:45: error: class ‘mr::LaserSensor3DServer’ does not have any field named ‘Server’
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:56,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/base/logger.h: At global scope:
+/usr/local/mrcore/include/mrcore/base/logger.h:64: error: ISO C++ forbids declaration of ‘Mutex’ with no type
+/usr/local/mrcore/include/mrcore/base/logger.h:64: error: expected ‘;’ before ‘&’ token
+/usr/local/mrcore/include/mrcore/base/logger.h:70: error: expected ‘;’ before ‘}’ token
+/usr/local/mrcore/include/mrcore/base/logger.h: In static member function ‘static std::string mr::Logger::GetString()’:
+/usr/local/mrcore/include/mrcore/base/logger.h:40: error: ‘m’ was not declared in this scope
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:57,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/base/datalog.h: At global scope:
+/usr/local/mrcore/include/mrcore/base/datalog.h:53: error: ‘Data’ has not been declared
+/usr/local/mrcore/include/mrcore/base/datalog.h:54: error: ISO C++ forbids declaration of ‘Data’ with no type
+/usr/local/mrcore/include/mrcore/base/datalog.h:54: error: expected ‘;’ before ‘*’ token
+/usr/local/mrcore/include/mrcore/base/datalog.h: In member function ‘virtual bool mr::DataLogOut::open(std::string)’:
+/usr/local/mrcore/include/mrcore/base/datalog.h:73: error: ‘createDirectory’ was not declared in this scope
+/usr/local/mrcore/include/mrcore/base/datalog.h: In member function ‘virtual bool mr::DataLogIn::open(std::string)’:
+/usr/local/mrcore/include/mrcore/base/datalog.h:89: error: ‘existDirectory’ was not declared in this scope
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:86,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/navigation2d/gridmap.h: At global scope:
+/usr/local/mrcore/include/mrcore/navigation2d/gridmap.h:83: error: ISO C++ forbids declaration of ‘Image’ with no type
+/usr/local/mrcore/include/mrcore/navigation2d/gridmap.h:83: error: ‘Image’ declared as a ‘virtual’ field
+/usr/local/mrcore/include/mrcore/navigation2d/gridmap.h:83: error: expected ‘;’ before ‘*’ token
+In file included from /usr/local/mrcore/include/mrcore/navigation2d/gridmap.h:303,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:86,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/navigation2d/gridmap.hpp: In member function ‘void mr::GridMap<T>::drawGL()’:
+/usr/local/mrcore/include/mrcore/navigation2d/gridmap.hpp:267: error: ‘Image’ was not declared in this scope
+/usr/local/mrcore/include/mrcore/navigation2d/gridmap.hpp:267: error: ‘img’ was not declared in this scope
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:91,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/lms200sim.h: In static member function ‘static mr::Object* mr::LMS200Sim::create()’:
+/usr/local/mrcore/include/mrcore/simulation/lms200sim.h:42: error: cannot allocate an object of abstract type ‘mr::LMS200Sim’
+/usr/local/mrcore/include/mrcore/simulation/lms200sim.h:41: note:   because the following virtual functions are pure within ‘mr::LMS200Sim’:
+/usr/local/mrcore/include/mrcore/hw/lasersensor.h:44: note: 	virtual bool mr::LaserSensor::getData(int&)
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:92,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/camerasim.h: At global scope:
+/usr/local/mrcore/include/mrcore/simulation/camerasim.h:61: error: field ‘image’ has incomplete type
+/usr/local/mrcore/include/mrcore/simulation/camerasim.h: In member function ‘virtual bool mr::CameraSim::getImage(mr::Image&)’:
+/usr/local/mrcore/include/mrcore/simulation/camerasim.h:87: error: ‘image’ was not declared in this scope
+/usr/local/mrcore/include/mrcore/simulation/camerasim.h: In member function ‘virtual void mr::CameraSim::setImage(const mr::Image&)’:
+/usr/local/mrcore/include/mrcore/simulation/camerasim.h:92: error: ‘image’ was not declared in this scope
+In file included from /usr/local/mrcore/include/mrcore/simulation/patrolbotsim.h:36,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:93,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/wheeledbasesim.h: At global scope:
+/usr/local/mrcore/include/mrcore/simulation/wheeledbasesim.h:56: error: ‘Odometry’ has not been declared
+/usr/local/mrcore/include/mrcore/simulation/wheeledbasesim.h:85: error: ‘Odometry’ does not name a type
+/usr/local/mrcore/include/mrcore/simulation/wheeledbasesim.h: In member function ‘virtual void mr::WheeledBaseSim::setLocation(const mr::Transformation3D&)’:
+/usr/local/mrcore/include/mrcore/simulation/wheeledbasesim.h:66: error: ‘odometry’ was not declared in this scope
+In file included from /usr/local/mrcore/include/mrcore/simulation/nemolasersensor3dsim.h:36,
+                 from /usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:45,
+                 from /usr/local/mrcore/include/mrcore/simulation/simulator.h:65,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:94,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/lasersensor3dsim.h: In static member function ‘static mr::Object* mr::LaserSensor3DSim::create()’:
+/usr/local/mrcore/include/mrcore/simulation/lasersensor3dsim.h:58: error: cannot allocate an object of abstract type ‘mr::LaserSensor3DSim’
+/usr/local/mrcore/include/mrcore/simulation/lasersensor3dsim.h:57: note:   because the following virtual functions are pure within ‘mr::LaserSensor3DSim’:
+/usr/local/mrcore/include/mrcore/hw/lasersensor3d.h:44: note: 	virtual bool mr::LaserSensor3D::getData(int&)
+In file included from /usr/local/mrcore/include/mrcore/simulation/nemolasersensor3dsim.h:38,
+                 from /usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:45,
+                 from /usr/local/mrcore/include/mrcore/simulation/simulator.h:65,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:94,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/powercube70sim.h: In member function ‘bool mr::PowerCube70Sim::saveDataTo(mr::DataLogOut*, std::string)’:
+/usr/local/mrcore/include/mrcore/simulation/powercube70sim.h:58: error: ‘saveDataTo’ is not a member of ‘mr::PowerCube70’
+In file included from /usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:45,
+                 from /usr/local/mrcore/include/mrcore/simulation/simulator.h:65,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:94,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/nemolasersensor3dsim.h: In static member function ‘static mr::Object* mr::NemoLaserSensor3DSim::create()’:
+/usr/local/mrcore/include/mrcore/simulation/nemolasersensor3dsim.h:44: error: cannot allocate an object of abstract type ‘mr::NemoLaserSensor3DSim’
+/usr/local/mrcore/include/mrcore/simulation/nemolasersensor3dsim.h:43: note:   because the following virtual functions are pure within ‘mr::NemoLaserSensor3DSim’:
+/usr/local/mrcore/include/mrcore/hw/lasersensor3d.h:44: note: 	virtual bool mr::LaserSensor3D::getData(int&)
+In file included from /usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:50,
+                 from /usr/local/mrcore/include/mrcore/simulation/simulator.h:65,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:94,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/lms100sim.h: In static member function ‘static mr::Object* mr::LMS100Sim::create()’:
+/usr/local/mrcore/include/mrcore/simulation/lms100sim.h:42: error: cannot allocate an object of abstract type ‘mr::LMS100Sim’
+/usr/local/mrcore/include/mrcore/simulation/lms100sim.h:41: note:   because the following virtual functions are pure within ‘mr::LMS100Sim’:
+/usr/local/mrcore/include/mrcore/hw/lasersensor.h:44: note: 	virtual bool mr::LaserSensor::getData(int&)
+In file included from /usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:55,
+                 from /usr/local/mrcore/include/mrcore/simulation/simulator.h:65,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:94,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/quadrotorsim.h: At global scope:
+/usr/local/mrcore/include/mrcore/simulation/quadrotorsim.h:58: error: ‘QuadrotorData’ has not been declared
+/usr/local/mrcore/include/mrcore/simulation/quadrotorsim.h:72: error: ‘QuadrotorData’ does not name a type
+/usr/local/mrcore/include/mrcore/simulation/quadrotorsim.h: In member function ‘virtual bool mr::QuadrotorSim::getData(int&)’:
+/usr/local/mrcore/include/mrcore/simulation/quadrotorsim.h:58: error: ‘quadrotorData’ was not declared in this scope
+In file included from /usr/local/mrcore/include/mrcore/simulation/simulator.h:65,
+                 from /usr/local/mrcore/include/mrcore/mrcore.h:94,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h: At global scope:
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:83: error: ‘Odometry’ has not been declared
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:112: error: ‘Server’ was not declared in this scope
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:112: error: template argument 1 is invalid
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:112: error: template argument 2 is invalid
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h: In constructor ‘mr::QuadrotorRobot::QuadrotorRobot(std::string)’:
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:126: error: cannot allocate an object of abstract type ‘mr::CameraSim’
+/usr/local/mrcore/include/mrcore/simulation/camerasim.h:57: note:   because the following virtual functions are pure within ‘mr::CameraSim’:
+/usr/local/mrcore/include/mrcore/hw/camera.h:44: note: 	virtual bool mr::Camera::getImage(int&)
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:131: error: cannot allocate an object of abstract type ‘mr::CameraSim’
+/usr/local/mrcore/include/mrcore/simulation/camerasim.h:57: note:   since type ‘mr::CameraSim’ has pure virtual functions
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h: In destructor ‘virtual mr::QuadrotorRobot::~QuadrotorRobot()’:
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:138: error: ‘class mr::QuadrotorServer’ has no member named ‘close’
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:139: error: ‘class mr::QuadrotorClient’ has no member named ‘close’
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h: In member function ‘void mr::QuadrotorRobot::startServers(int)’:
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:173: error: no matching function for call to ‘mr::QuadrotorServer::QuadrotorServer(mr::QuadrotorSim*&, std::string&)’
+/usr/local/mrcore/include/mrcore/hw/quadrotor/quadrotorserver.h:42: note: candidates are: mr::QuadrotorServer::QuadrotorServer()
+/usr/local/mrcore/include/mrcore/hw/quadrotor/quadrotorserver.h:42: note:                 mr::QuadrotorServer::QuadrotorServer(const mr::QuadrotorServer&)
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:174: error: ‘class mr::QuadrotorServer’ has no member named ‘init’
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h: In member function ‘void mr::QuadrotorRobot::connectClients(std::string, int)’:
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:179: error: ‘class mr::QuadrotorClient’ has no member named ‘connect’
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h: In constructor ‘mr::Doris::Doris()’:
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:199: error: cannot allocate an object of abstract type ‘mr::LMS200Sim’
+/usr/local/mrcore/include/mrcore/simulation/lms200sim.h:41: note:   since type ‘mr::LMS200Sim’ has pure virtual functions
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h: In constructor ‘mr::Nemo::Nemo()’:
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:225: error: cannot allocate an object of abstract type ‘mr::NemoLaserSensor3DSim’
+/usr/local/mrcore/include/mrcore/simulation/nemolasersensor3dsim.h:43: note:   since type ‘mr::NemoLaserSensor3DSim’ has pure virtual functions
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h: In constructor ‘mr::Neo::Neo()’:
+/usr/local/mrcore/include/mrcore/simulation/mobilerobot.h:242: error: cannot allocate an object of abstract type ‘mr::LMS100Sim’
+/usr/local/mrcore/include/mrcore/simulation/lms100sim.h:41: note:   since type ‘mr::LMS100Sim’ has pure virtual functions
+In file included from /usr/local/mrcore/include/mrcore/mrcore.h:94,
+                 from /home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:1:
+/usr/local/mrcore/include/mrcore/simulation/simulator.h: At global scope:
+/usr/local/mrcore/include/mrcore/simulation/simulator.h:84: error: ‘Server’ was not declared in this scope
+/usr/local/mrcore/include/mrcore/simulation/simulator.h:84: error: template argument 1 is invalid
+/usr/local/mrcore/include/mrcore/simulation/simulator.h:84: error: template argument 2 is invalid
+/home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp: In function ‘int main(int, char**)’:
+/home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:7: error: cannot declare variable ‘robot’ to be of abstract type ‘mr::AriaBase’
+/home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariabase.h:45: note:   because the following virtual functions are pure within ‘mr::AriaBase’:
+/usr/local/mrcore/include/mrcore/hw/lasersensor.h:44: note: 	virtual bool mr::LaserSensor::getData(int&)
+/usr/local/mrcore/include/mrcore/hw/wheeledbase.h:44: note: 	virtual bool mr::WheeledBase::getOdometry(int&)
+/usr/local/mrcore/include/mrcore/hw/wheeledbase.h:47: note: 	virtual bool mr::WheeledBase::getPose3D(mr::Pose3D&)
+/home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:11: error: ‘class mr::WheeledBaseServer’ has no member named ‘init’
+/home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:12: error: ‘class mr::LaserSensorServer’ has no member named ‘init’
+/home/pioneerp3at/mrdev/src/apps/hwservers/robotbase/ariarobotserver.cpp:19: error: ‘class mr::WheeledBaseServer’ has no member named ‘close’
+make[2]: *** [CMakeFiles/ariaRobotServer.dir/ariarobotserver.o] Error 1
+make[1]: *** [CMakeFiles/ariaRobotServer.dir/all] Error 2
+make: *** [all] Error 2
