@@ -8,7 +8,7 @@
 #ifndef REACTIVECONTROL_H
 #define	REACTIVECONTROL_H
 
-//#include "mrcore/mrcore.h" //Funciona bien, pero netbeans no reconoce mrcore
+//#include "mrcore/mrcore.h" //It works, but netbeans not reconize the functions
 #include "/usr/local/mrcore/include/mrcore/mrcore.h"
 #include "CinematicMap.h"
 #include <iostream>

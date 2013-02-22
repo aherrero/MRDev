@@ -8,11 +8,10 @@
 #ifndef CINEMATICMAP_H
 #define	CINEMATICMAP_H
 
-//#include "mrcore/mrcore.h" //Funciona bien, pero netbeans no reconoce mrcore
+//#include "mrcore/mrcore.h" //It works, but netbeans not reconize the functions
 #include "/usr/local/mrcore/include/mrcore/mrcore.h"
 #include <iostream>
 
-//
 //#include <pcl-1.6/pcl/point_types.h>
 //#include <pcl/io/pcd_io.h>
 //#include <pcl-1.6/pcl/io/pcd_io.h>

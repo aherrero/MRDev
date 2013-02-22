@@ -85,7 +85,7 @@ void CinematicMap::SetLaser3D(PointCloud kinectData)
     angleCloud.resize(pointsCloud.size());
     for(int i=0;i<pointsCloud.size();i++)
     {
-        angleCloud[i]=mr::Angle();
+        angleCloud[i]=mr::Angle();      //Angle empty
     }
     
     
@@ -100,7 +100,9 @@ void CinematicMap::Obstacle()
     rangeObstacle.clear();
     angleObstacle.clear();
     
-    //if(pointsObstacle[i].z<=0 && pointsObstacle[i].z<alturarobot) //obstaculo
+    //If you want the 3D control with Kinect, it will be a obstacle if...
+    //if(pointsObstacle[i].z<=0 && pointsObstacle[i].z<alturarobot) 
+    
     for (int i = 0; i < pointsCloud.size(); i++)
     {
         if(rangeCloud[i]<distMaxObstacle)               //Menor que 10
@@ -129,7 +131,7 @@ void CinematicMap::drawGL()
 {
     if(!pointsObstacle.empty())
     {
-        //Puntos de los objetos (VERDE)
+        //Points of the obstacles (green)
         glPushMatrix();
         glColor3ub(0, 200, 0);
         glPointSize(0.5);
@@ -144,7 +146,7 @@ void CinematicMap::drawGL()
     
     if(!pointsCloud.empty())
     {
-        //Laser verde central
+        //central green laser
         glPushMatrix();
         Vector2D auxcenter(pointsCloud[pointsCloud.size()/2].x,pointsCloud[pointsCloud.size()/2].y);
         Vector2D center = gf::TransformationRT2D(auxcenter, yaw, Vector2D(pos.x, pos.y));

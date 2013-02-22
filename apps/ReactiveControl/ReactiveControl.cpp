@@ -55,7 +55,7 @@ void ReactiveControl::SetCommand(float va_, float vg_) {
     outputRotation = vg;
     Compute();
 
-    if (va < 0.01 && vg < 0.01) { //Fin de la trayectoria
+    if (va < 0.01 && vg < 0.01) { //End of path
         outputRotation = 0.0;
         outputAdvance = 0.0;
     }
@@ -83,19 +83,19 @@ void ReactiveControl::ObstacleDangerLateral() {
     rangeObstacleDangerLT.clear();
     angleObstacleDangerLT.clear();
 
-    pointSecureObstacle = 10.0; //Iniciamos valor alto para calculo minimo
+    pointSecureObstacle = 10.0; //Start a high value for calculate the minimum
 
     for (int i = 0; i < pointsObstacle.size(); i++) {
-        if (fabs(angleObstacle[i].getValue()) < openingangleLT) //Solo nos importa de -90º a 90º
+        if (fabs(angleObstacle[i].getValue()) < openingangleLT) //It matter only form -90º to 90º
         {
-            if (rangeObstacle[i] < rangeActionLateral) { //Cuando dist menor a uno dado
+            if (rangeObstacle[i] < rangeActionLateral) { //When the distance is low to a predefined value
                 pointsObstacleDangerLT.push_back(pointsObstacle[i]);
                 rangeObstacleDangerLT.push_back(rangeObstacle[i]);
                 angleObstacleDangerLT.push_back(angleObstacle[i]);
             }
         }
 
-        //Punto laser de distancia minima:
+        //Laser point for the minimum distance
         if (rangeObstacle[i] < pointSecureObstacle)
             pointSecureObstacle = rangeObstacle[i];
     }
@@ -110,16 +110,16 @@ void ReactiveControl::Compute() {
     float areaSecureObstacle = 0.40; //40cm
     cout << "pointsObstacleLateral " << pointsObstacleDangerLT.size() << " pointsObstacleFrontal " << pointsObstacleDangerFR.size() << endl;
 
-    //**************** No hay object
+    //**************** There isn't obstacle
     if (pointsObstacleDangerLT.size() <= 0 && pointsObstacleDangerFR.size() <= 0) {
         cout << "TRAJECTORY CONTROL" << endl;
-        pointSecureObstacle = 10.0; //Reiniciamos valor minimo si no hay obstaculos
+        pointSecureObstacle = 10.0;     //Restart the value minimum if there isn't obstacles
         return;
     }
 
-    //****** 1) Velocidad de avance disminuye cuando se acerca a objeto
+    //******* 1) Forward speed low when the robot is near to the obstacle
     if (pointsObstacleDangerFR.size() > 0) {
-        float auxRangeObstacle = rangeMaxActionFront; //Inicial para coger el minimo
+        float auxRangeObstacle = rangeMaxActionFront; //Start for the minimum (High value)
         float distmax = rangeMaxActionFront;
         float distmin = rangeMinActionFront;
 
@@ -154,7 +154,7 @@ void ReactiveControl::Compute() {
         }
     }
 
-    //****** 2) Velocidad de giro  
+    //****** 2) Rotation speed
     if (pointsObstacleDangerLT.size() > 0) {
         double auxangleMin;
         float auxrangeGiroMin = rangeActionLateral;
@@ -220,7 +220,7 @@ void ReactiveControl::Draw() {
 
     if (!pointsObstacleDangerLT.empty()) {
         glPushMatrix();
-        //Puntos Peligrosos (menor que rangeAction)
+        //Danger Points (It's low than rangeAction)
         glPointSize(1.5);
         glColor3ub(50, 0, 255);
         for (int i = 0; i < pointsObstacleDangerLT.size(); i++) {
@@ -232,7 +232,7 @@ void ReactiveControl::Draw() {
     }
 
     if (!pointsObstacleDangerFR.empty()) {
-        //Puntos peligtosos frontales
+        //Frontal danger points
         glPushMatrix();
         glPointSize(3.5);
         glColor3ub(255, 0, 0);
