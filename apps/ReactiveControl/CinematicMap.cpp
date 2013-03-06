@@ -160,4 +160,32 @@ void CinematicMap::drawGL()
         glEnd();
         glPopMatrix();
     }
+
+    /*
+    if (!pointsCloud.empty()) {
+        //Draw angle aperture without transformation
+        glPushMatrix();
+        glColor3ub(255, 0, 0);
+        for(int i=180;i<360;i++)
+        {
+            i++;
+            glBegin(GL_LINES);
+            glVertex3f(pos.x, pos.y, 0.4);
+            glVertex3f(pointsCloud[i].x, pointsCloud[i].y, 0.4);
+            glEnd();
+        }
+        
+        glColor3ub(0, 0, 255);
+        for(int i=135;i<405;i++)
+        {
+            i++;
+            glBegin(GL_LINES);
+            glVertex3f(pos.x, pos.y, 0.3);
+            glVertex3f(pointsCloud[i].x, pointsCloud[i].y, 0.3);
+            glEnd();
+        }
+        glPopMatrix();
+    }
+    */
+    
 }

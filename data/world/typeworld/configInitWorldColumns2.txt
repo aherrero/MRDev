@@ -1,4 +1,4 @@
 world: InitWorldColumns2.world
 robots: 1
-neo 13000 8 8 0
+neo 13000 -0.5 0 0 0
 persons: 0
